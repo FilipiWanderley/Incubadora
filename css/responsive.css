@@ -1,0 +1,165 @@
+/* ========================================
+   RESPONSIVE - Media queries
+   ======================================== */
+
+@media (max-width: 1024px) {
+	h1 {
+		font-size: 2.5rem;
+	}
+	h2 {
+		font-size: 2rem;
+	}
+
+	.products-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.products-sidebar {
+		position: static;
+	}
+}
+
+@media (max-width: 768px) {
+	.header {
+		height: 60px;
+	}
+
+	.main-content {
+		margin-top: 60px;
+	}
+
+	.header__menu-toggle {
+		display: flex;
+	}
+
+	.header__nav {
+		position: fixed;
+		top: 60px;
+		right: -100%;
+		width: 280px;
+		height: calc(100vh - 60px);
+		background: white;
+		box-shadow: var(--shadow-lg);
+		padding: 1.5rem;
+		transition: right 0.3s;
+		overflow-y: auto;
+		z-index: 101;
+	}
+
+	.header__nav.active {
+		right: 0;
+	}
+
+	.header__menu {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.5rem;
+		width: 100%;
+	}
+
+	.header__menu-item {
+		width: 100%;
+	}
+
+	.header__menu-link {
+		width: 100%;
+		padding: 0.75rem 1rem;
+		border-radius: var(--radius);
+	}
+
+	.header__menu-link::after {
+		display: none;
+	}
+
+	.header__menu-link:hover,
+	.header__menu-link.active {
+		background: var(--gray-100);
+	}
+
+	.header__actions {
+		margin-top: 1.5rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--gray-200);
+		width: 100%;
+	}
+
+	.header__overlay {
+		display: block;
+	}
+
+	.hero__container {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+
+	.hero {
+		padding: 3rem 0;
+	}
+
+	.section {
+		padding: 3rem 0;
+	}
+
+	.offers__grid,
+	.products-grid {
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.page-header {
+		padding: 3rem 0 2rem;
+	}
+
+	.page-header__title {
+		font-size: 2rem;
+	}
+
+	.footer__grid {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+
+	.footer__bottom {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.modal__footer {
+		flex-direction: column;
+	}
+
+	.modal__footer .btn {
+		width: 100%;
+	}
+}
+
+@media (max-width: 480px) {
+	h1 {
+		font-size: 2rem;
+	}
+	h2 {
+		font-size: 1.5rem;
+	}
+
+	.container {
+		padding: 0 1rem;
+	}
+
+	.hero__title {
+		font-size: 2rem;
+	}
+
+	.offers__grid,
+	.products-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.btn {
+		width: 100%;
+	}
+
+	.hero__actions {
+		flex-direction: column;
+		width: 100%;
+	}
+}

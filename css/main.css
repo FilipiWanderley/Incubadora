@@ -1,0 +1,26 @@
+/* ========================================
+   MAIN CSS - Importações modulares
+   ======================================== */
+
+/* Fundamentos (ordem importa!) */
+@import url("reset.css");
+@import url("variables.css");
+@import url("base.css");
+
+/* Componentes */
+@import url("components/buttons.css");
+@import url("components/header.css");
+@import url("components/footer.css");
+@import url("components/hero.css");
+@import url("components/product-card.css");
+@import url("components/modal.css");
+@import url("components/forms.css");
+
+/* Layout e estrutura */
+@import url("layout.css");
+
+/* Utilitários */
+@import url("utilities.css");
+
+/* Responsivo (deve vir por último) */
+@import url("responsive.css");
