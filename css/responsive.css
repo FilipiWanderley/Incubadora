@@ -163,3 +163,128 @@
 		width: 100%;
 	}
 }
+
+/* ── Issue 25 — Melhorias de responsividade mobile ───── */
+
+/* Área de toque mínima de 44x44px (WCAG 2.5.5) */
+@media (max-width: 768px) {
+	a,
+	button,
+	[role="button"],
+	input[type="checkbox"],
+	input[type="radio"],
+	select {
+		min-height: 44px;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		min-width: 20px;
+		min-height: 20px;
+	}
+
+	/* Legibilidade de fonte */
+	body {
+		font-size: 1rem;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	/* Product cards em mobile */
+	.product-card__image-wrapper {
+		height: 200px;
+	}
+
+	.product-card__name {
+		font-size: 1rem;
+	}
+
+	.product-card__price {
+		font-size: 1.25rem;
+	}
+
+	/* Back to top */
+	.back-to-top {
+		bottom: 1.25rem;
+		right: 1.25rem;
+		width: 44px;
+		height: 44px;
+	}
+
+	/* Toast container */
+	.toast-container {
+		top: 1rem;
+		right: 1rem;
+		left: 1rem;
+		width: auto;
+		max-width: 100%;
+	}
+
+	/* Checkout / cart em mobile */
+	.checkout-layout,
+	.cart-layout {
+		grid-template-columns: 1fr;
+	}
+
+	/* Profile em mobile */
+	.profile-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.profile-sidebar {
+		position: static;
+	}
+
+	/* Blog em mobile */
+	.blog-layout {
+		grid-template-columns: 1fr;
+	}
+
+	/* FAQ em mobile */
+	.faq-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.faq-sidebar {
+		position: static;
+	}
+
+	/* Modais em mobile */
+	.modal {
+		margin: 0.75rem;
+		max-height: calc(100vh - 1.5rem);
+	}
+
+	/* Inputs maiores em mobile */
+	.form__input,
+	.form__textarea,
+	.form__select {
+		font-size: 1rem;
+		padding: 0.875rem 1rem;
+	}
+}
+
+@media (max-width: 320px) {
+	.container {
+		padding: 0 0.75rem;
+	}
+
+	h1 {
+		font-size: 1.75rem;
+	}
+
+	h2 {
+		font-size: 1.375rem;
+	}
+}
+
+/* Imagens responsivas */
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Sem overflow horizontal */
+html,
+body {
+	overflow-x: hidden;
+}
