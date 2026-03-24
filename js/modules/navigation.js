@@ -15,6 +15,11 @@ class Navigation {
 	init() {
 		if (!this.menuToggle || !this.nav) return;
 
+		// Acessibilidade: identificadores e estado inicial
+		if (!this.nav.id) this.nav.id = "header-nav";
+		this.menuToggle.setAttribute("aria-expanded", "false");
+		this.menuToggle.setAttribute("aria-controls", this.nav.id);
+
 		this.menuToggle.addEventListener("click", () => this.toggle());
 		this.overlay?.addEventListener("click", () => this.close());
 
@@ -45,6 +50,7 @@ class Navigation {
 
 	open() {
 		this.isOpen = true;
+		this.menuToggle.setAttribute("aria-expanded", "true");
 		this.menuToggle.classList.add("active");
 		this.nav.classList.add("active");
 		this.overlay?.classList.add("active");
@@ -53,6 +59,7 @@ class Navigation {
 
 	close() {
 		this.isOpen = false;
+		this.menuToggle.setAttribute("aria-expanded", "false");
 		this.menuToggle.classList.remove("active");
 		this.nav.classList.remove("active");
 		this.overlay?.classList.remove("active");
