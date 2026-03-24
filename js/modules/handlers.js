@@ -68,6 +68,112 @@ function initCartHandlers() {
 	});
 }
 
+function initQuickViewHandler() {
+	document.addEventListener("click", (e) => {
+		const btn = e.target.closest("[data-quick-view]");
+		if (!btn) return;
+		e.preventDefault();
+
+		const id       = parseInt(btn.dataset.quickView);
+		const name     = btn.dataset.productName;
+		const price    = parseFloat(btn.dataset.productPrice);
+		const origPrice = parseFloat(btn.dataset.productOriginalPrice) || null;
+		const image    = btn.dataset.productImage;
+		const category = btn.dataset.productCategory;
+		const rating   = parseFloat(btn.dataset.productRating) || 0;
+		const reviews  = btn.dataset.productReviews || 0;
+		const discount = btn.dataset.productDiscount || null;
+
+		const fmt = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+		const base = window.location.pathname.includes("/pages/") ? "" : "pages/";
+
+		const titleId = `qv-title-${id}`;
+
+		const content = `
+			<div class="product-modal">
+				<div class="product-modal__gallery">
+					<img src="${image}" alt="${name}" class="product-modal__img">
+				</div>
+				<div class="product-modal__info">
+					<button class="modal__close product-modal__close" aria-label="Fechar">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+					</button>
+					<span class="product-modal__category">${category}</span>
+					<h2 class="product-modal__name" id="${titleId}">${name}</h2>
+					<div class="product-modal__rating" aria-label="Avaliação: ${rating} de 5, ${reviews} avaliações">
+						<span class="product-modal__stars">★ ${rating}</span>
+						<span class="product-modal__reviews">(${reviews} avaliações)</span>
+					</div>
+					<div class="product-modal__pricing">
+						${origPrice && origPrice > price ? `<span class="product-modal__original">${fmt(origPrice)}</span>` : ""}
+						<span class="product-modal__price">${fmt(price)}</span>
+						${discount ? `<span class="product-modal__discount">-${discount}%</span>` : ""}
+					</div>
+					<div class="product-modal__actions">
+						<div class="qty-control" role="group" aria-label="Quantidade">
+							<button class="qty-control__btn" id="qvQtyDec" aria-label="Diminuir quantidade">−</button>
+							<input class="qty-control__input" type="number" id="qvQty" value="1" min="1" max="99" aria-label="Quantidade">
+							<button class="qty-control__btn" id="qvQtyInc" aria-label="Aumentar quantidade">+</button>
+						</div>
+						<button class="btn btn--primary btn--lg product-modal__add-cart"
+							data-add-cart="${id}"
+							data-product-name="${name}"
+							data-product-price="${price}"
+							data-product-original-price="${origPrice || ""}"
+							data-product-image="${image}"
+							data-product-category="${category}">
+							Adicionar ao Carrinho
+						</button>
+					</div>
+					<a href="${base}product-detail.html?id=${id}" class="product-modal__details-link">
+						Ver página completa do produto →
+					</a>
+				</div>
+			</div>
+		`;
+
+		const modalId = window.modalSystem.create({
+			id:      `quick-view-${id}`,
+			title:   "",
+			content,
+			size:    "product",
+		});
+
+		// Override aria-labelledby depois que o modal é criado
+		setTimeout(() => {
+			const dialog = document.querySelector(`[data-modal-id="quick-view-${id}"] [role="dialog"]`);
+			if (dialog) dialog.setAttribute("aria-labelledby", titleId);
+
+			const qtyInput = document.getElementById("qvQty");
+			document.getElementById("qvQtyDec")?.addEventListener("click", () => {
+				qtyInput.value = Math.max(1, parseInt(qtyInput.value) - 1);
+			});
+			document.getElementById("qvQtyInc")?.addEventListener("click", () => {
+				qtyInput.value = Math.min(99, parseInt(qtyInput.value) + 1);
+			});
+
+			// Passa a quantidade para o botão de add-cart
+			const addCartBtn = document.querySelector(".product-modal__add-cart");
+			if (addCartBtn) {
+				addCartBtn.addEventListener("click", () => {
+					const qty = parseInt(qtyInput?.value) || 1;
+					const product = {
+						id,
+						name,
+						price,
+						originalPrice: origPrice,
+						image,
+						category,
+					};
+					for (let i = 0; i < qty; i++) window.cart?.add(product);
+					window.modalSystem.close(modalId);
+				});
+			}
+		}, 50);
+	});
+}
+
 function initLoginHandler() {
 	const loginBtn = document.querySelector("[data-login-btn]");
 	if (!loginBtn) return;

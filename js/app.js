@@ -20,8 +20,9 @@ function init() {
 	initCEPFields();        // CEP com ViaCEP (data-cep)
 	initCPFValidation();    // validação CPF (data-validate-cpf)
 
-	// ── Handlers de carrinho e login ─────────────────────
+	// ── Handlers de carrinho, quick view e login ─────────
 	initCartHandlers();
+	initQuickViewHandler();
 	initLoginHandler();
 
 	// ── Favoritos ─────────────────────────────────────────

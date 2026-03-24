@@ -44,6 +44,7 @@ function createProductCard(product) {
 		category,
 		rating,
 		reviews,
+		isNew,
 	} = product;
 	const stars = generateStars(rating);
 	const priceFormatted = formatCurrency(price);
@@ -52,10 +53,22 @@ function createProductCard(product) {
 	return `
     <div class="product-card">
       ${discount ? `<span class="product-card__badge">-${discount}%</span>` : ""}
+      ${isNew ? `<span class="product-card__badge product-card__badge--new">NOVO</span>` : ""}
       <div class="product-card__image-wrapper">
         <img src="${image}" alt="${name}" class="product-card__image" loading="lazy">
         <div class="product-card__quick-view">
-          <a href="product-detail.html?id=${id}" class="btn btn-white">Ver Detalhes</a>
+          <button class="btn btn-white"
+            data-quick-view="${id}"
+            data-product-name="${name}"
+            data-product-price="${price}"
+            data-product-original-price="${originalPrice || ""}"
+            data-product-image="${image}"
+            data-product-category="${category}"
+            data-product-rating="${rating}"
+            data-product-reviews="${reviews}"
+            data-product-discount="${discount || ""}">
+            Visualização Rápida
+          </button>
         </div>
       </div>
       <div class="product-card__content">
@@ -71,7 +84,13 @@ function createProductCard(product) {
         </div>
       </div>
       <div class="product-card__footer">
-        <button class="btn btn-primary product-card__btn" data-add-cart data-product-id="${id}" data-product-name="${name}">
+        <button class="btn btn-primary product-card__btn"
+          data-add-cart="${id}"
+          data-product-name="${name}"
+          data-product-price="${price}"
+          data-product-original-price="${originalPrice || ""}"
+          data-product-image="${image}"
+          data-product-category="${category}">
           Adicionar ao Carrinho
         </button>
         <button class="product-card__favorite" data-favorite data-product-id="${id}">

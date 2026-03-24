@@ -40,6 +40,7 @@ class Modal {
 
 		if (this.modals.has(id)) this.close(id);
 
+		const titleId = `${id}-title`;
 		const backdrop = document.createElement("div");
 		backdrop.className = "modal-backdrop";
 		backdrop.dataset.modalId = id;
@@ -50,12 +51,12 @@ class Modal {
 		}
 
 		backdrop.innerHTML = `
-      <div class="modal modal--${size}">
+      <div class="modal modal--${size}" role="dialog" aria-modal="true" ${title ? `aria-labelledby="${titleId}"` : 'aria-label="Diálogo"'}>
         ${
 					title
 						? `
           <div class="modal__header">
-            <h3 class="modal__title">${title}</h3>
+            <h3 class="modal__title" id="${titleId}">${title}</h3>
             <button class="modal__close" aria-label="Fechar">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -96,9 +97,40 @@ class Modal {
 		setTimeout(() => {
 			backdrop.classList.add("active");
 			document.body.classList.add("modal-open");
+			this._trapFocus(backdrop);
 		}, 10);
 
 		return id;
+	}
+
+	// ── Focus trap ─────────────────────────────────────────
+	_trapFocus(backdrop) {
+		const focusable = backdrop.querySelectorAll(
+			'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+		);
+		if (!focusable.length) return;
+
+		const first = focusable[0];
+		const last  = focusable[focusable.length - 1];
+
+		first.focus();
+
+		backdrop._trapHandler = (e) => {
+			if (e.key !== "Tab") return;
+			if (e.shiftKey) {
+				if (document.activeElement === first) {
+					e.preventDefault();
+					last.focus();
+				}
+			} else {
+				if (document.activeElement === last) {
+					e.preventDefault();
+					first.focus();
+				}
+			}
+		};
+
+		backdrop.addEventListener("keydown", backdrop._trapHandler);
 	}
 
 	close(id) {
