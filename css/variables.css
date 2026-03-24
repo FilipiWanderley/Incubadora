@@ -35,4 +35,122 @@
 	--shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 	--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+	/* ── Issue 29 — Escala tipográfica harmônica (ratio 1.25) ── */
+	--text-xs:   0.64rem;   /* 10.24px */
+	--text-sm:   0.8rem;    /* 12.8px  */
+	--text-base: 1rem;      /* 16px    */
+	--text-md:   1.25rem;   /* 20px    */
+	--text-lg:   1.5625rem; /* 25px    */
+	--text-xl:   1.9531rem; /* 31px    */
+	--text-2xl:  2.4414rem; /* 39px    */
+	--text-3xl:  3.0518rem; /* 49px    */
+
+	/* Tipografia responsiva com clamp() */
+	--text-hero:    clamp(2rem, 5vw, 3.5rem);
+	--text-section: clamp(1.5rem, 3vw, 2.25rem);
+	--text-card:    clamp(1rem, 2vw, 1.25rem);
+
+	/* Line-heights */
+	--leading-tight:  1.25;
+	--leading-snug:   1.375;
+	--leading-normal: 1.5;
+	--leading-relaxed: 1.625;
+	--leading-loose:  2;
+
+	/* Letter-spacing */
+	--tracking-tight:  -0.025em;
+	--tracking-normal:  0;
+	--tracking-wide:    0.025em;
+	--tracking-wider:   0.05em;
+	--tracking-widest:  0.1em;
+
+	/* ── Variáveis semânticas de UI (modo claro — default) ── */
+	--color-bg:         white;
+	--color-surface:    var(--gray-50);
+	--color-border:     var(--gray-200);
+	--color-text:       var(--gray-900);
+	--color-text-muted: var(--gray-500);
+	--color-heading:    var(--gray-900);
+}
+
+/* ── Issue 26 — Dark Mode ─────────────────────────────── */
+
+[data-theme="dark"] {
+	--gray-50:  #1a1a2e;
+	--gray-100: #16213e;
+	--gray-200: #0f3460;
+	--gray-300: #1e2a45;
+	--gray-400: #8892a4;
+	--gray-500: #a0aec0;
+	--gray-700: #cbd5e0;
+	--gray-800: #e2e8f0;
+	--gray-900: #f7fafc;
+
+	--shadow:    0 1px 3px rgba(0, 0, 0, 0.4);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+	--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+
+	--color-bg:         #0d1117;
+	--color-surface:    #161b22;
+	--color-border:     #30363d;
+	--color-text:       #e6edf3;
+	--color-text-muted: #8b949e;
+	--color-heading:    #f0f6fc;
+}
+
+/* Detecção automática do SO */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--gray-50:  #1a1a2e;
+		--gray-100: #16213e;
+		--gray-200: #0f3460;
+		--gray-300: #1e2a45;
+		--gray-400: #8892a4;
+		--gray-500: #a0aec0;
+		--gray-700: #cbd5e0;
+		--gray-800: #e2e8f0;
+		--gray-900: #f7fafc;
+
+		--shadow:    0 1px 3px rgba(0, 0, 0, 0.4);
+		--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+		--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+
+		--color-bg:         #0d1117;
+		--color-surface:    #161b22;
+		--color-border:     #30363d;
+		--color-text:       #e6edf3;
+		--color-text-muted: #8b949e;
+		--color-heading:    #f0f6fc;
+	}
+}
+
+/* ── Issue 30 — Temas / Skins ─────────────────────────── */
+
+/* Tema Oceano */
+[data-theme="ocean"] {
+	--primary:      #0ea5e9;
+	--primary-dark: #0284c7;
+	--secondary:    #0c4a6e;
+}
+
+/* Tema Floresta */
+[data-theme="forest"] {
+	--primary:      #22c55e;
+	--primary-dark: #16a34a;
+	--secondary:    #14532d;
+}
+
+/* Tema Roxo */
+[data-theme="purple"] {
+	--primary:      #a855f7;
+	--primary-dark: #9333ea;
+	--secondary:    #581c87;
+}
+
+/* Tema Rose */
+[data-theme="rose"] {
+	--primary:      #f43f5e;
+	--primary-dark: #e11d48;
+	--secondary:    #881337;
 }

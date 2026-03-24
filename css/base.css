@@ -11,6 +11,54 @@ body {
 		sans-serif;
 	color: var(--gray-900);
 	background: white;
+	transition: background 0.3s, color 0.3s;
+}
+
+/* Dark mode — aplica fundo escuro em todo o documento */
+[data-theme="dark"] body,
+[data-theme="dark"] .header,
+[data-theme="dark"] .modal,
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .form__input,
+[data-theme="dark"] .form__textarea,
+[data-theme="dark"] .form__select {
+	background: var(--color-bg);
+	color: var(--color-text);
+	border-color: var(--color-border);
+}
+
+[data-theme="dark"] .header {
+	background: var(--color-surface);
+}
+
+[data-theme="dark"] .product-card {
+	background: var(--color-surface);
+}
+
+/* Toggle de dark mode no header */
+.theme-toggle {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: none;
+	background: none;
+	cursor: pointer;
+	color: var(--gray-700);
+	transition: background 0.2s, color 0.2s;
+}
+
+.theme-toggle:hover {
+	background: var(--gray-100);
+	color: var(--primary);
+}
+
+.theme-toggle[aria-pressed="true"] .theme-toggle__icon--light,
+.theme-toggle[aria-pressed="false"] .theme-toggle__icon--dark {
+	display: none;
 }
 
 h1,
@@ -44,4 +92,120 @@ h4 {
 
 .main-content {
 	margin-top: 80px;
+}
+
+/* ── Issue 17 — Scrollbar customizada ─────────────────── */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--primary);
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--primary-dark);
+}
+
+/* Firefox */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--primary) var(--gray-100);
+}
+
+/* ── Issue 19 — Botão Voltar ao Topo ─────────────────── */
+.back-to-top {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	width: 48px;
+	height: 48px;
+	background: var(--primary);
+	color: white;
+	border: none;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(12px);
+	transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s;
+	box-shadow: 0 4px 16px rgba(255, 107, 53, 0.4);
+	z-index: 500;
+}
+
+.back-to-top.visible {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.back-to-top:hover {
+	background: var(--primary-dark);
+	box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+	transform: translateY(-2px);
+}
+
+.back-to-top:focus-visible {
+	outline: 3px solid var(--primary);
+	outline-offset: 3px;
+}
+
+/* ── Issue 20 — Spinner CSS puro ─────────────────────── */
+@keyframes spin {
+	to { transform: rotate(360deg); }
+}
+
+.spinner {
+	display: inline-block;
+	border-radius: 50%;
+	border: 3px solid var(--gray-200);
+	border-top-color: var(--primary);
+	animation: spin 0.7s linear infinite;
+}
+
+.spinner--sm {
+	width: 20px;
+	height: 20px;
+	border-width: 2px;
+}
+
+.spinner--md {
+	width: 36px;
+	height: 36px;
+	border-width: 3px;
+}
+
+.spinner--lg {
+	width: 56px;
+	height: 56px;
+	border-width: 4px;
+}
+
+/* Compatibilidade com .loading-spinner já usado no HTML */
+.loading-spinner {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 3px solid var(--gray-200);
+	border-top-color: var(--primary);
+	animation: spin 0.7s linear infinite;
+	margin: 0 auto 1rem;
+}
+
+.loading-state {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 4rem 2rem;
+	color: var(--gray-400);
 }
