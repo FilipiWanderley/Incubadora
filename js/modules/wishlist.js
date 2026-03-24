@@ -21,7 +21,11 @@ class Wishlist {
 	}
 
 	_save() {
-		localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.items));
+		try {
+			localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.items));
+		} catch {
+			// QuotaExceededError — continua em memória
+		}
 		this._syncBadge();
 		document.dispatchEvent(new CustomEvent("wishlist:updated", { detail: this.items }));
 	}
@@ -89,8 +93,6 @@ class Wishlist {
 			const id   = parseInt(btn.dataset.favoriteBtn);
 			const name = btn.dataset.productName || "Produto";
 
-			// Monta objeto de produto mínimo
-			const card = btn.closest(".product-card");
 			const product = {
 				id,
 				name,
@@ -148,19 +150,17 @@ class Wishlist {
 
 		if (emptyState) emptyState.style.display = "none";
 
-		const base = window.location.pathname.includes("/pages/") ? "" : "pages/";
-
 		grid.innerHTML = this.items.map((item) => `
 			<div class="wishlist-card" data-wishlist-card="${item.id}">
 				<div class="wishlist-card__img-wrap">
-					<img src="${item.image}" alt="${item.name}" class="wishlist-card__img" loading="lazy">
+					<img src="${sanitizeHTML(item.image)}" alt="${sanitizeHTML(item.name)}" class="wishlist-card__img" loading="lazy">
 				</div>
 				<div class="wishlist-card__body">
-					<span class="wishlist-card__category">${item.category}</span>
-					<h3 class="wishlist-card__name">${item.name}</h3>
+					<span class="wishlist-card__category">${sanitizeHTML(item.category)}</span>
+					<h3 class="wishlist-card__name">${sanitizeHTML(item.name)}</h3>
 					<div class="wishlist-card__prices">
-						<span class="wishlist-card__price">${this._fmt(item.price)}</span>
-						${item.originalPrice ? `<span class="wishlist-card__original">${this._fmt(item.originalPrice)}</span>` : ""}
+						<span class="wishlist-card__price">${formatCurrency(item.price)}</span>
+						${item.originalPrice ? `<span class="wishlist-card__original">${formatCurrency(item.originalPrice)}</span>` : ""}
 					</div>
 					<div class="wishlist-card__actions">
 						<button class="btn btn--primary btn--sm" data-wishlist-add-cart="${item.id}">Adicionar ao Carrinho</button>
@@ -170,10 +170,10 @@ class Wishlist {
 			</div>
 		`).join("");
 
-		this._bindPageEvents(base);
+		this._bindPageEvents();
 	}
 
-	_bindPageEvents(base) {
+	_bindPageEvents() {
 		const grid = document.getElementById("wishlistGrid");
 		if (!grid) return;
 
@@ -225,7 +225,4 @@ class Wishlist {
 		});
 	}
 
-	_fmt(value) {
-		return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-	}
 }

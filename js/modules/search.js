@@ -35,7 +35,11 @@ class Search {
 	_saveHistory(term) {
 		if (!term.trim()) return;
 		this._history = [term, ...this._history.filter((h) => h !== term)].slice(0, this.MAX_HISTORY);
-		localStorage.setItem(this.HISTORY_KEY, JSON.stringify(this._history));
+		try {
+			localStorage.setItem(this.HISTORY_KEY, JSON.stringify(this._history));
+		} catch {
+			// QuotaExceededError — histórico mantido em memória
+		}
 	}
 
 	clearHistory() {
@@ -110,7 +114,7 @@ class Search {
 						<span class="search-dropdown__name">${this._highlight(p.name, term)}</span>
 						<span class="search-dropdown__category">${p.category}</span>
 					</div>
-					<span class="search-dropdown__price">${this._fmt(p.price)}</span>
+					<span class="search-dropdown__price">${formatCurrency(p.price)}</span>
 				</a>
 			`).join("")}
 		`;
@@ -206,15 +210,13 @@ class Search {
 	// ── Helpers ───────────────────────────────────────────
 
 	_highlight(text, term) {
-		const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
-		return text.replace(regex, "<mark>$1</mark>");
+		// Escapa o texto antes de inserir via innerHTML, depois envolve matches em <mark>
+		const escaped = sanitizeHTML(text);
+		const escapedTerm = sanitizeHTML(term).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+		return escaped.replace(new RegExp(`(${escapedTerm})`, "gi"), "<mark>$1</mark>");
 	}
 
 	_escape(str) {
-		return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-	}
-
-	_fmt(value) {
-		return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+		return sanitizeHTML(str);
 	}
 }

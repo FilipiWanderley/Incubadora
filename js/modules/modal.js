@@ -137,6 +137,11 @@ class Modal {
 		const modal = this.modals.get(id);
 		if (!modal) return;
 
+		// Remove o focus trap antes de destruir o elemento
+		if (modal.element._trapHandler) {
+			modal.element.removeEventListener("keydown", modal.element._trapHandler);
+		}
+
 		modal.element.classList.remove("active");
 		setTimeout(() => {
 			modal.element.remove();

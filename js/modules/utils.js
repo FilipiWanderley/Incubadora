@@ -9,6 +9,20 @@ function formatCurrency(value) {
 	}).format(value);
 }
 
+/**
+ * Escapa caracteres HTML para prevenir XSS ao inserir strings
+ * dinâmicas via innerHTML. Use sempre que exibir dados de
+ * localStorage, URL params ou input do usuário.
+ */
+function sanitizeHTML(str) {
+	return String(str)
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#39;");
+}
+
 function generateStars(rating) {
 	const full = Math.floor(rating);
 	const half = rating % 1 >= 0.5 ? 1 : 0;

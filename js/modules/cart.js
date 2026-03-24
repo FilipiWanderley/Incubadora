@@ -33,7 +33,11 @@ class Cart {
 	}
 
 	_save() {
-		localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.items));
+		try {
+			localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.items));
+		} catch {
+			// QuotaExceededError — storage cheio, continua em memória
+		}
 		this._syncBadge();
 		this._dispatch();
 	}
@@ -47,10 +51,14 @@ class Cart {
 	}
 
 	_saveCoupon() {
-		if (this.coupon) {
-			localStorage.setItem(this.COUPON_KEY, JSON.stringify(this.coupon));
-		} else {
-			localStorage.removeItem(this.COUPON_KEY);
+		try {
+			if (this.coupon) {
+				localStorage.setItem(this.COUPON_KEY, JSON.stringify(this.coupon));
+			} else {
+				localStorage.removeItem(this.COUPON_KEY);
+			}
+		} catch {
+			// QuotaExceededError — descarta silenciosamente
 		}
 	}
 
@@ -194,12 +202,6 @@ class Cart {
 		if (document.querySelector(".cart-layout")) this.renderSummary();
 	}
 
-	// ── Formatação ────────────────────────────────────────
-
-	_fmt(value) {
-		return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-	}
-
 	// ── Renderização da página cart.html ──────────────────
 
 	renderPage() {
@@ -221,20 +223,20 @@ class Cart {
 
 		itemsContainer.innerHTML = this.items.map((item) => `
 			<div class="cart-item" data-cart-item="${item.id}">
-				<img src="${item.image}" alt="${item.name}" class="cart-item__img">
+				<img src="${sanitizeHTML(item.image)}" alt="${sanitizeHTML(item.name)}" class="cart-item__img">
 				<div class="cart-item__info">
-					<span class="cart-item__category">${item.category}</span>
-					<h3 class="cart-item__name">${item.name}</h3>
-					<p class="cart-item__price">${this._fmt(item.price)}</p>
-					${item.originalPrice ? `<p class="cart-item__original">${this._fmt(item.originalPrice)}</p>` : ""}
+					<span class="cart-item__category">${sanitizeHTML(item.category)}</span>
+					<h3 class="cart-item__name">${sanitizeHTML(item.name)}</h3>
+					<p class="cart-item__price">${formatCurrency(item.price)}</p>
+					${item.originalPrice ? `<p class="cart-item__original">${formatCurrency(item.originalPrice)}</p>` : ""}
 				</div>
 				<div class="qty-control">
-					<button class="qty-control__btn" data-qty-dec="${item.id}" aria-label="Diminuir" ${item.qty <= 1 ? "disabled" : ""}>−</button>
-					<input class="qty-control__input" type="number" value="${item.qty}" min="1" max="99" data-qty-input="${item.id}" aria-label="Quantidade">
-					<button class="qty-control__btn" data-qty-inc="${item.id}" aria-label="Aumentar" ${item.qty >= 99 ? "disabled" : ""}>+</button>
+					<button class="qty-control__btn" data-qty-dec="${item.id}" aria-label="Diminuir quantidade de ${sanitizeHTML(item.name)}" ${item.qty <= 1 ? "disabled" : ""}>−</button>
+					<input class="qty-control__input" type="number" value="${item.qty}" min="1" max="99" data-qty-input="${item.id}" aria-label="Quantidade de ${sanitizeHTML(item.name)}">
+					<button class="qty-control__btn" data-qty-inc="${item.id}" aria-label="Aumentar quantidade de ${sanitizeHTML(item.name)}" ${item.qty >= 99 ? "disabled" : ""}>+</button>
 				</div>
-				<p class="cart-item__subtotal">${this._fmt(item.price * item.qty)}</p>
-				<button class="cart-item__remove" data-cart-remove="${item.id}" aria-label="Remover ${item.name}">
+				<p class="cart-item__subtotal">${formatCurrency(item.price * item.qty)}</p>
+				<button class="cart-item__remove" data-cart-remove="${item.id}" aria-label="Remover ${sanitizeHTML(item.name)} do carrinho">
 					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
 				</button>
 			</div>
@@ -254,14 +256,14 @@ class Cart {
 
 		const s = this.getSummary();
 
-		if (subtotalEl)  subtotalEl.textContent  = this._fmt(s.subtotal);
-		if (shippingEl)  shippingEl.textContent  = s.shipping === 0 ? "Grátis" : this._fmt(s.shipping);
-		if (totalEl)     totalEl.textContent     = this._fmt(s.total);
+		if (subtotalEl)  subtotalEl.textContent  = formatCurrency(s.subtotal);
+		if (shippingEl)  shippingEl.textContent  = s.shipping === 0 ? "Grátis" : formatCurrency(s.shipping);
+		if (totalEl)     totalEl.textContent     = formatCurrency(s.total);
 
 		if (discountRow && discountEl) {
 			if (s.discount > 0) {
 				discountRow.style.display = "";
-				discountEl.textContent = "− " + this._fmt(s.discount);
+				discountEl.textContent = "− " + formatCurrency(s.discount);
 			} else {
 				discountRow.style.display = "none";
 			}
@@ -270,7 +272,9 @@ class Cart {
 		if (couponTag) {
 			couponTag.textContent = s.coupon ? `${s.coupon.code} ✕` : "";
 			couponTag.style.display = s.coupon ? "" : "none";
-			couponTag.onclick = () => this.removeCoupon();
+			couponTag.replaceWith(couponTag.cloneNode(true)); // remove listeners antigos
+			const freshTag = document.getElementById("cartCouponTag");
+			freshTag?.addEventListener("click", () => this.removeCoupon());
 		}
 	}
 
@@ -284,8 +288,8 @@ class Cart {
 			const inc    = e.target.closest("[data-qty-inc]");
 			const remove = e.target.closest("[data-cart-remove]");
 
-			if (dec)    { const id = parseInt(dec.dataset.qtyDec);    const item = this.items.find(i => i.id === id); if (item) this.updateQty(id, item.qty - 1); this.renderPage(); }
-			if (inc)    { const id = parseInt(inc.dataset.qtyInc);    const item = this.items.find(i => i.id === id); if (item) this.updateQty(id, item.qty + 1); this.renderPage(); }
+			if (dec) { const id = parseInt(dec.dataset.qtyDec); const item = this.items.find(i => i.id === id); if (item) this.updateQty(id, item.qty - 1); }
+			if (inc) { const id = parseInt(inc.dataset.qtyInc); const item = this.items.find(i => i.id === id); if (item) this.updateQty(id, item.qty + 1); }
 			if (remove) {
 				const id = parseInt(remove.dataset.cartRemove);
 				const row = remove.closest("[data-cart-item]");

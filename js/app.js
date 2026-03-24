@@ -80,42 +80,42 @@ function initProductDetailPage() {
 
 			container.innerHTML = `
 				<div class="product-detail__gallery">
-					<img src="${product.image}" alt="${product.name}" class="product-detail__main-img">
+					<img src="${sanitizeHTML(product.image)}" alt="${sanitizeHTML(product.name)}" class="product-detail__main-img">
 				</div>
 				<div class="product-detail__info">
-					<span class="product-detail__category">${product.category}</span>
-					<h1 class="product-detail__name">${product.name}</h1>
+					<span class="product-detail__category">${sanitizeHTML(product.category)}</span>
+					<h1 class="product-detail__name">${sanitizeHTML(product.name)}</h1>
 					<div class="product-detail__rating">
 						<span class="stars">★ ${product.rating}</span>
 						<span>(${product.reviews} avaliações)</span>
 					</div>
 					<div class="product-detail__pricing">
-						${product.originalPrice ? `<span class="product-detail__original">${_fmt(product.originalPrice)}</span>` : ""}
-						<span class="product-detail__price">${_fmt(product.price)}</span>
+						${product.originalPrice ? `<span class="product-detail__original">${formatCurrency(product.originalPrice)}</span>` : ""}
+						<span class="product-detail__price">${formatCurrency(product.price)}</span>
 						${product.discount ? `<span class="product-detail__discount">-${product.discount}%</span>` : ""}
 					</div>
-					<p class="product-detail__description">${product.description || ""}</p>
+					<p class="product-detail__description">${sanitizeHTML(product.description || "")}</p>
 					<div class="product-detail__actions">
-						<div class="qty-control">
-							<button class="qty-control__btn" id="pdQtyDec" aria-label="Diminuir">−</button>
+						<div class="qty-control" role="group" aria-label="Quantidade">
+							<button class="qty-control__btn" id="pdQtyDec" aria-label="Diminuir quantidade">−</button>
 							<input class="qty-control__input" type="number" id="pdQty" value="1" min="1" max="99" aria-label="Quantidade">
-							<button class="qty-control__btn" id="pdQtyInc" aria-label="Aumentar">+</button>
+							<button class="qty-control__btn" id="pdQtyInc" aria-label="Aumentar quantidade">+</button>
 						</div>
 						<button class="btn btn--primary btn--lg" id="pdAddCart"
 							data-add-cart="${product.id}"
-							data-product-name="${product.name}"
+							data-product-name="${sanitizeHTML(product.name)}"
 							data-product-price="${product.price}"
-							data-product-image="${product.image}"
-							data-product-category="${product.category}">
+							data-product-image="${sanitizeHTML(product.image)}"
+							data-product-category="${sanitizeHTML(product.category)}">
 							Adicionar ao Carrinho
 						</button>
 						<button class="btn btn--outline product-card__favorite"
 							data-favorite-btn="${product.id}"
-							data-product-name="${product.name}"
+							data-product-name="${sanitizeHTML(product.name)}"
 							data-product-price="${product.price}"
-							data-product-image="${product.image}"
-							data-product-category="${product.category}"
-							aria-label="Adicionar aos favoritos">
+							data-product-image="${sanitizeHTML(product.image)}"
+							data-product-category="${sanitizeHTML(product.category)}"
+							aria-label="Adicionar aos favoritos" aria-pressed="false">
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 						</button>
 					</div>
@@ -165,9 +165,6 @@ function loadRelatedProducts(current) {
 	window.wishlist.initButtons();
 }
 
-function _fmt(value) {
-	return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-}
 
 // ── Inicia quando DOM está pronto ─────────────────────────
 

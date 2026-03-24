@@ -291,6 +291,7 @@ function showToast(message, type = "info", duration = 4000) {
 	toast.className = `alert alert--${type} toast`;
 	toast.setAttribute("role", "alert");
 	toast.setAttribute("aria-live", "polite");
+	toast.setAttribute("aria-atomic", "true");
 	toast.innerHTML = `
 		<span class="alert__icon">${icons[type] || icons.info}</span>
 		<span class="alert__body">${message}</span>

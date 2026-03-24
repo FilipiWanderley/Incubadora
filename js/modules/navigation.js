@@ -29,8 +29,12 @@ class Navigation {
 			});
 		});
 
+		let _resizeTimer;
 		window.addEventListener("resize", () => {
-			if (window.innerWidth > 768 && this.isOpen) this.close();
+			clearTimeout(_resizeTimer);
+			_resizeTimer = setTimeout(() => {
+				if (window.innerWidth > 768 && this.isOpen) this.close();
+			}, 150);
 		});
 
 		window.addEventListener("scroll", () => {
