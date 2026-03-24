@@ -40,6 +40,11 @@ class FormValidator {
 			value.length < parseInt(field.getAttribute("minlength"))
 		) {
 			error = `Mínimo de ${field.getAttribute("minlength")} caracteres`;
+		} else if (field.dataset.match) {
+			const target = this.form.querySelector(`[name="${field.dataset.match}"]`);
+			if (target && value && value !== target.value) {
+				error = "As senhas não coincidem";
+			}
 		}
 
 		if (error) {
