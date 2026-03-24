@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Dicas de tecnologia, reviews de produtos, tutoriais e novidades do mundo tech no Blog TechShop." />
+		<title>Blog — TechShop | Dicas e Novidades de Tecnologia</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+
+		<!-- SEO -->
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href="blog.html" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="TechShop" />
+		<meta property="og:title" content="Blog — TechShop | Dicas e Novidades de Tecnologia" />
+		<meta property="og:description" content="Dicas de tecnologia, reviews de produtos, tutoriais e novidades do mundo tech no Blog TechShop." />
+		<meta property="og:image" content="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1200&q=80" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Blog — TechShop | Dicas e Novidades de Tecnologia" />
+		<meta name="twitter:description" content="Dicas de tecnologia, reviews de produtos, tutoriais e novidades do mundo tech no Blog TechShop." />
+		<meta name="twitter:image" content="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1200&q=80" />
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<a href="index.html" class="header__logo">
+					<svg class="header__logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="40" height="40" rx="8" fill="currentColor" />
+						<path d="M12 20L18 26L28 14" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+					<span>TechShop</span>
+				</a>
+
+				<button class="header__menu-toggle" aria-label="Menu">
+					<span class="header__menu-toggle-bar"></span>
+					<span class="header__menu-toggle-bar"></span>
+					<span class="header__menu-toggle-bar"></span>
+				</button>
+
+				<nav class="header__nav">
+					<ul class="header__menu">
+						<li class="header__menu-item"><a href="index.html" class="header__menu-link">Home</a></li>
+						<li class="header__menu-item"><a href="products.html" class="header__menu-link">Produtos</a></li>
+						<li class="header__menu-item"><a href="index.html#ofertas" class="header__menu-link">Ofertas</a></li>
+						<li class="header__menu-item"><a href="about.html" class="header__menu-link">Sobre Nós</a></li>
+						<li class="header__menu-item"><a href="contact.html" class="header__menu-link">Contato</a></li>
+					</ul>
+					<div class="header__actions">
+											<button
+						class="header__icon-btn theme-toggle"
+						data-theme-toggle
+						aria-label="Alternar tema"
+						aria-pressed="false">
+						<svg class="theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+					</button>
+					<button class="header__icon-btn" data-login-btn aria-label="Login">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+								<circle cx="12" cy="7" r="4"></circle>
+							</svg>
+						</button>
+						<button class="header__icon-btn" data-cart-btn aria-label="Carrinho">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="9" cy="21" r="1"></circle>
+								<circle cx="20" cy="21" r="1"></circle>
+								<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+							</svg>
+							<span class="header__cart-badge">0</span>
+						</button>
+					</div>
+				</nav>
+
+				<div class="header__overlay"></div>
+			</div>
+		</header>
+
+		<main class="main-content">
+			<div class="breadcrumb">
+				<div class="container">
+					<nav class="breadcrumb__nav" aria-label="Navegação estrutural">
+						<a href="index.html" class="breadcrumb__link">Home</a>
+						<span class="breadcrumb__separator" aria-hidden="true">/</span>
+						<span class="breadcrumb__current" aria-current="page">Blog</span>
+					</nav>
+				</div>
+			</div>
+
+			<div class="page-header">
+				<div class="container">
+					<h1 class="page-header__title">Blog TechShop</h1>
+					<p class="page-header__description">Reviews, tutoriais e as últimas novidades do universo tech.</p>
+				</div>
+			</div>
+
+			<section class="py-12">
+				<div class="container">
+					<!-- Destaque -->
+					<article class="blog-featured" aria-label="Post em destaque">
+						<img
+							src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80"
+							alt="Notebook moderno sobre mesa"
+							class="blog-featured__img"
+							loading="eager"
+						/>
+						<div class="blog-featured__body">
+							<p class="blog-featured__label">Em destaque</p>
+							<h2 class="blog-featured__title">Os 5 melhores notebooks de 2025 para trabalho e estudo</h2>
+							<p class="blog-featured__excerpt">Analisamos desempenho, bateria, tela e custo-benefício dos modelos mais populares do ano para ajudar você a tomar a melhor decisão.</p>
+							<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;font-size:0.875rem;color:var(--gray-400)">
+								<span>15 mar. 2025</span>
+								<span>·</span>
+								<span>8 min de leitura</span>
+							</div>
+							<a href="#" class="btn btn-primary">Ler artigo completo</a>
+						</div>
+					</article>
+
+					<!-- Layout blog + sidebar -->
+					<div class="blog-layout">
+						<div>
+							<div class="blog-grid">
+								<!-- Card 1 -->
+								<article class="blog-card">
+									<img
+										src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&q=80"
+										alt="Mouse gamer em mesa"
+										class="blog-card__img"
+										loading="lazy"
+									/>
+									<div class="blog-card__body">
+										<div class="blog-card__tags">
+											<span class="blog-tag">Review</span>
+											<span class="blog-tag">Periféricos</span>
+										</div>
+										<h3 class="blog-card__title">
+											<a href="#">Review: Mouse Gamer RGB Pro vale a pena em 2025?</a>
+										</h3>
+										<p class="blog-card__excerpt">Testamos o mouse durante 30 dias em jogos competitivos e trabalho diário. Confira nossa análise completa com prós e contras.</p>
+										<div class="blog-card__meta">
+											<div class="blog-card__author">
+												<img src="https://i.pravatar.cc/48?img=3" alt="Ana Lima" class="blog-card__author-img" />
+												<span>Ana Lima</span>
+											</div>
+											<time datetime="2025-03-10">10 mar. 2025</time>
+											<span>5 min</span>
+										</div>
+									</div>
+								</article>
+
+								<!-- Card 2 -->
+								<article class="blog-card">
+									<img
+										src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80"
+										alt="Fone de ouvido"
+										class="blog-card__img"
+										loading="lazy"
+									/>
+									<div class="blog-card__body">
+										<div class="blog-card__tags">
+											<span class="blog-tag">Guia</span>
+											<span class="blog-tag">Áudio</span>
+										</div>
+										<h3 class="blog-card__title">
+											<a href="#">Cancelamento de ruído ativo: como funciona e qual escolher</a>
+										</h3>
+										<p class="blog-card__excerpt">Entenda a tecnologia ANC, as diferenças entre os modelos disponíveis e quais situações justificam o investimento.</p>
+										<div class="blog-card__meta">
+											<div class="blog-card__author">
+												<img src="https://i.pravatar.cc/48?img=7" alt="Carlos Mendes" class="blog-card__author-img" />
+												<span>Carlos Mendes</span>
+											</div>
+											<time datetime="2025-03-05">05 mar. 2025</time>
+											<span>7 min</span>
+										</div>
+									</div>
+								</article>
+
+								<!-- Card 3 -->
+								<article class="blog-card">
+									<img
+										src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80"
+										alt="Placa-mãe eletrônica"
+										class="blog-card__img"
+										loading="lazy"
+									/>
+									<div class="blog-card__body">
+										<div class="blog-card__tags">
+											<span class="blog-tag">Tutorial</span>
+											<span class="blog-tag">Hardware</span>
+										</div>
+										<h3 class="blog-card__title">
+											<a href="#">Como montar seu próprio PC: guia passo a passo para iniciantes</a>
+										</h3>
+										<p class="blog-card__excerpt">Da escolha dos componentes à instalação do sistema operacional — tudo que você precisa saber para montar seu primeiro PC.</p>
+										<div class="blog-card__meta">
+											<div class="blog-card__author">
+												<img src="https://i.pravatar.cc/48?img=12" alt="Rafael Costa" class="blog-card__author-img" />
+												<span>Rafael Costa</span>
+											</div>
+											<time datetime="2025-02-28">28 fev. 2025</time>
+											<span>12 min</span>
+										</div>
+									</div>
+								</article>
+
+								<!-- Card 4 -->
+								<article class="blog-card">
+									<img
+										src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=600&q=80"
+										alt="Pessoa digitando em notebook"
+										class="blog-card__img"
+										loading="lazy"
+									/>
+									<div class="blog-card__body">
+										<div class="blog-card__tags">
+											<span class="blog-tag">Dicas</span>
+											<span class="blog-tag">Produtividade</span>
+										</div>
+										<h3 class="blog-card__title">
+											<a href="#">10 extensões essenciais para deixar seu navegador mais produtivo</a>
+										</h3>
+										<p class="blog-card__excerpt">Selecionamos as melhores ferramentas para organizar abas, bloquear distrações e turbinar seu fluxo de trabalho no dia a dia.</p>
+										<div class="blog-card__meta">
+											<div class="blog-card__author">
+												<img src="https://i.pravatar.cc/48?img=20" alt="Juliana Rocha" class="blog-card__author-img" />
+												<span>Juliana Rocha</span>
+											</div>
+											<time datetime="2025-02-20">20 fev. 2025</time>
+											<span>6 min</span>
+										</div>
+									</div>
+								</article>
+
+								<!-- Card 5 -->
+								<article class="blog-card">
+									<img
+										src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80"
+										alt="Smartphone moderno"
+										class="blog-card__img"
+										loading="lazy"
+									/>
+									<div class="blog-card__body">
+										<div class="blog-card__tags">
+											<span class="blog-tag">Review</span>
+											<span class="blog-tag">Smartphone</span>
+										</div>
+										<h3 class="blog-card__title">
+											<a href="#">Os smartphones com melhor câmera para comprar em 2025</a>
+										</h3>
+										<p class="blog-card__excerpt">Comparamos os principais celulares com câmeras de destaque, focando em qualidade de imagem, vídeo e performance no escuro.</p>
+										<div class="blog-card__meta">
+											<div class="blog-card__author">
+												<img src="https://i.pravatar.cc/48?img=5" alt="Mariana Silva" class="blog-card__author-img" />
+												<span>Mariana Silva</span>
+											</div>
+											<time datetime="2025-02-12">12 fev. 2025</time>
+											<span>9 min</span>
+										</div>
+									</div>
+								</article>
+
+								<!-- Card 6 -->
+								<article class="blog-card">
+									<img
+										src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+										alt="Setup gamer"
+										class="blog-card__img"
+										loading="lazy"
+									/>
+									<div class="blog-card__body">
+										<div class="blog-card__tags">
+											<span class="blog-tag">Guia</span>
+											<span class="blog-tag">Setup</span>
+										</div>
+										<h3 class="blog-card__title">
+											<a href="#">Como montar o setup gamer ideal sem estourar o orçamento</a>
+										</h3>
+										<p class="blog-card__excerpt">Mostramos como priorizar os componentes certos para ter a melhor experiência gamer respeitando diferentes faixas de preço.</p>
+										<div class="blog-card__meta">
+											<div class="blog-card__author">
+												<img src="https://i.pravatar.cc/48?img=15" alt="Lucas Ferreira" class="blog-card__author-img" />
+												<span>Lucas Ferreira</span>
+											</div>
+											<time datetime="2025-02-05">05 fev. 2025</time>
+											<span>8 min</span>
+										</div>
+									</div>
+								</article>
+							</div>
+
+							<!-- Paginação -->
+							<nav class="blog-pagination" aria-label="Paginação do blog">
+								<button class="blog-pagination__btn" aria-label="Página anterior" disabled>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+								</button>
+								<button class="blog-pagination__btn is-active" aria-current="page" aria-label="Página 1">1</button>
+								<button class="blog-pagination__btn" aria-label="Página 2">2</button>
+								<button class="blog-pagination__btn" aria-label="Página 3">3</button>
+								<span class="blog-pagination__btn" style="border:none;background:none;cursor:default">…</span>
+								<button class="blog-pagination__btn" aria-label="Página 8">8</button>
+								<button class="blog-pagination__btn" aria-label="Próxima página">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+								</button>
+							</nav>
+						</div>
+
+						<!-- Sidebar -->
+						<aside aria-label="Sidebar do blog">
+							<!-- Busca -->
+							<div class="blog-sidebar__widget" role="search">
+								<h2 class="blog-sidebar__widget-title">Buscar</h2>
+								<form>
+									<div style="display:flex;gap:0.5rem">
+										<input type="search" class="form__input" placeholder="Buscar artigos..." aria-label="Buscar artigos no blog" style="flex:1" />
+										<button type="submit" class="btn btn-primary btn-sm" aria-label="Buscar">
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+										</button>
+									</div>
+								</form>
+							</div>
+
+							<!-- Categorias -->
+							<div class="blog-sidebar__widget">
+								<h2 class="blog-sidebar__widget-title">Categorias</h2>
+								<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem">
+									<li style="display:flex;justify-content:space-between;font-size:0.875rem">
+										<a href="#" style="color:var(--gray-700);transition:color 0.15s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--gray-700)'">Reviews</a>
+										<span style="color:var(--gray-400)">12</span>
+									</li>
+									<li style="display:flex;justify-content:space-between;font-size:0.875rem">
+										<a href="#" style="color:var(--gray-700);transition:color 0.15s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--gray-700)'">Guias e Tutoriais</a>
+										<span style="color:var(--gray-400)">8</span>
+									</li>
+									<li style="display:flex;justify-content:space-between;font-size:0.875rem">
+										<a href="#" style="color:var(--gray-700);transition:color 0.15s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--gray-700)'">Dicas de Produtividade</a>
+										<span style="color:var(--gray-400)">6</span>
+									</li>
+									<li style="display:flex;justify-content:space-between;font-size:0.875rem">
+										<a href="#" style="color:var(--gray-700);transition:color 0.15s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--gray-700)'">Novidades Tech</a>
+										<span style="color:var(--gray-400)">15</span>
+									</li>
+									<li style="display:flex;justify-content:space-between;font-size:0.875rem">
+										<a href="#" style="color:var(--gray-700);transition:color 0.15s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--gray-700)'">Setup e Hardware</a>
+										<span style="color:var(--gray-400)">9</span>
+									</li>
+								</ul>
+							</div>
+
+							<!-- Posts recentes -->
+							<div class="blog-sidebar__widget">
+								<h2 class="blog-sidebar__widget-title">Posts Recentes</h2>
+								<a href="#" class="blog-sidebar__post">
+									<img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=112&q=80" alt="Notebook" class="blog-sidebar__post-img" loading="lazy" />
+									<div>
+										<p class="blog-sidebar__post-title">Os 5 melhores notebooks de 2025</p>
+										<p class="blog-sidebar__post-date">15 mar. 2025</p>
+									</div>
+								</a>
+								<a href="#" class="blog-sidebar__post">
+									<img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=112&q=80" alt="Mouse gamer" class="blog-sidebar__post-img" loading="lazy" />
+									<div>
+										<p class="blog-sidebar__post-title">Review: Mouse Gamer RGB Pro</p>
+										<p class="blog-sidebar__post-date">10 mar. 2025</p>
+									</div>
+								</a>
+								<a href="#" class="blog-sidebar__post">
+									<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=112&q=80" alt="Fone" class="blog-sidebar__post-img" loading="lazy" />
+									<div>
+										<p class="blog-sidebar__post-title">Cancelamento de ruído ativo</p>
+										<p class="blog-sidebar__post-date">05 mar. 2025</p>
+									</div>
+								</a>
+							</div>
+
+							<!-- Tags -->
+							<div class="blog-sidebar__widget">
+								<h2 class="blog-sidebar__widget-title">Tags Populares</h2>
+								<div class="blog-sidebar__tags">
+									<a href="#" class="blog-sidebar__tag">Notebook</a>
+									<a href="#" class="blog-sidebar__tag">Gamer</a>
+									<a href="#" class="blog-sidebar__tag">Áudio</a>
+									<a href="#" class="blog-sidebar__tag">Setup</a>
+									<a href="#" class="blog-sidebar__tag">Mouse</a>
+									<a href="#" class="blog-sidebar__tag">Teclado</a>
+									<a href="#" class="blog-sidebar__tag">Smartphone</a>
+									<a href="#" class="blog-sidebar__tag">Hardware</a>
+									<a href="#" class="blog-sidebar__tag">Produtividade</a>
+									<a href="#" class="blog-sidebar__tag">Review</a>
+								</div>
+							</div>
+						</aside>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__grid">
+					<div class="footer__column">
+						<div class="footer__logo">TechShop</div>
+						<p class="footer__about">Sua loja online de tecnologia com os melhores produtos e as melhores ofertas.</p>
+						<div class="footer__social">
+							<a href="#" class="footer__social-link" aria-label="Facebook">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+							</a>
+							<a href="#" class="footer__social-link" aria-label="Instagram">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+							</a>
+						</div>
+					</div>
+					<div class="footer__column">
+						<h4 class="footer__column-title">Links Rápidos</h4>
+						<ul class="footer__links">
+							<li><a href="index.html" class="footer__link">Home</a></li>
+							<li><a href="products.html" class="footer__link">Produtos</a></li>
+							<li><a href="about.html" class="footer__link">Sobre Nós</a></li>
+							<li><a href="contact.html" class="footer__link">Contato</a></li>
+						</ul>
+					</div>
+					<div class="footer__column">
+						<h4 class="footer__column-title">Blog</h4>
+						<ul class="footer__links">
+							<li><a href="blog.html" class="footer__link">Todos os Posts</a></li>
+							<li><a href="#" class="footer__link">Reviews</a></li>
+							<li><a href="#" class="footer__link">Tutoriais</a></li>
+							<li><a href="#" class="footer__link">Novidades</a></li>
+						</ul>
+					</div>
+					<div class="footer__column">
+						<h4 class="footer__column-title">Newsletter</h4>
+						<p class="footer__about">Receba novos artigos toda semana</p>
+						<form class="footer__newsletter-form" data-validate id="newsletterForm">
+							<input type="email" name="email" class="footer__newsletter-input" placeholder="Seu e-mail" required />
+							<button type="submit" class="footer__newsletter-btn">Inscrever</button>
+						</form>
+					</div>
+				</div>
+				<div class="footer__bottom">
+					<p class="footer__copyright">&copy; 2026 TechShop. Todos os direitos reservados.</p>
+				</div>
+			</div>
+		</footer>
+
+		<script src="../js/modules/modal.js"></script>
+		<script src="../js/modules/form-validator.js"></script>
+		<script src="../js/modules/navigation.js"></script>
+		<script src="../js/modules/utils.js"></script>
+		<script src="../js/modules/products-gallery.js"></script>
+		<script src="../js/modules/handlers.js"></script>
+				<script src="../js/modules/cart.js"></script>
+		<script src="../js/modules/ui.js"></script>
+		<script src="../js/modules/wishlist.js"></script>
+		<script src="../js/modules/search.js"></script>
+		<script src="../js/modules/filters.js"></script>
+		<script src="../js/modules/validation-advanced.js"></script>
+		<script src="../js/modules/api.js"></script>
+		<script src="../js/products.js"></script>
+		<script src="../js/app.js"></script>
+			<!-- Botão Voltar ao Topo -->
+		<button class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+		</button>
+	</body>
+</html>

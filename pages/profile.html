@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Gerencie seus dados pessoais, pedidos, endereços e preferências na TechShop." />
+		<title>Minha Conta — TechShop</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+
+		<!-- SEO -->
+		<meta name="robots" content="noindex, nofollow" />
+		<link rel="canonical" href="profile.html" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="TechShop" />
+		<meta property="og:title" content="Minha Conta — TechShop" />
+		<meta property="og:description" content="Gerencie seus dados pessoais, pedidos, endereços e preferências na TechShop." />
+		<meta property="og:image" content="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1200&q=80" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Minha Conta — TechShop" />
+		<meta name="twitter:description" content="Gerencie seus dados pessoais, pedidos, endereços e preferências na TechShop." />
+		<meta name="twitter:image" content="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1200&q=80" />
+	</head>
+	<body>
+		<header class="header">
+			<div class="header__container">
+				<a href="index.html" class="header__logo">
+					<svg class="header__logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="40" height="40" rx="8" fill="currentColor" />
+						<path d="M12 20L18 26L28 14" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+					<span>TechShop</span>
+				</a>
+
+				<button class="header__menu-toggle" aria-label="Menu">
+					<span class="header__menu-toggle-bar"></span>
+					<span class="header__menu-toggle-bar"></span>
+					<span class="header__menu-toggle-bar"></span>
+				</button>
+
+				<nav class="header__nav">
+					<ul class="header__menu">
+						<li class="header__menu-item"><a href="index.html" class="header__menu-link">Home</a></li>
+						<li class="header__menu-item"><a href="products.html" class="header__menu-link">Produtos</a></li>
+						<li class="header__menu-item"><a href="index.html#ofertas" class="header__menu-link">Ofertas</a></li>
+						<li class="header__menu-item"><a href="about.html" class="header__menu-link">Sobre Nós</a></li>
+						<li class="header__menu-item"><a href="contact.html" class="header__menu-link">Contato</a></li>
+					</ul>
+					<div class="header__actions">
+											<button
+						class="header__icon-btn theme-toggle"
+						data-theme-toggle
+						aria-label="Alternar tema"
+						aria-pressed="false">
+						<svg class="theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+					</button>
+					<button class="header__icon-btn" data-login-btn aria-label="Login">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+								<circle cx="12" cy="7" r="4"></circle>
+							</svg>
+						</button>
+						<button class="header__icon-btn" data-cart-btn aria-label="Carrinho">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="9" cy="21" r="1"></circle>
+								<circle cx="20" cy="21" r="1"></circle>
+								<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+							</svg>
+							<span class="header__cart-badge">0</span>
+						</button>
+					</div>
+				</nav>
+
+				<div class="header__overlay"></div>
+			</div>
+		</header>
+
+		<main class="main-content">
+			<div class="breadcrumb">
+				<div class="container">
+					<nav class="breadcrumb__nav" aria-label="Navegação estrutural">
+						<a href="index.html" class="breadcrumb__link">Home</a>
+						<span class="breadcrumb__separator" aria-hidden="true">/</span>
+						<span class="breadcrumb__current" aria-current="page">Minha Conta</span>
+					</nav>
+				</div>
+			</div>
+
+			<section class="py-12">
+				<div class="container">
+					<div class="profile-layout">
+						<!-- Sidebar -->
+						<aside aria-label="Menu da conta">
+							<div class="profile-sidebar">
+								<div class="profile-sidebar__user">
+									<div class="profile-sidebar__avatar" aria-hidden="true">JS</div>
+									<p class="profile-sidebar__name">João Silva</p>
+									<p class="profile-sidebar__email">joao@email.com</p>
+								</div>
+								<nav class="profile-nav" aria-label="Seções da conta">
+									<button class="profile-nav__item is-active" data-tab="personal" aria-current="true">
+										<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+										Dados Pessoais
+									</button>
+									<button class="profile-nav__item" data-tab="orders">
+										<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+										Meus Pedidos
+									</button>
+									<button class="profile-nav__item" data-tab="addresses">
+										<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+										Endereços
+									</button>
+									<button class="profile-nav__item" data-tab="wishlist">
+										<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+										Lista de Desejos
+									</button>
+									<button class="profile-nav__item" data-tab="notifications">
+										<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+										Notificações
+									</button>
+									<button class="profile-nav__item profile-nav__item--danger" data-tab="logout">
+										<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+										Sair da Conta
+									</button>
+								</nav>
+							</div>
+						</aside>
+
+						<!-- Conteúdo -->
+						<div class="profile-content">
+							<!-- Dados Pessoais -->
+							<div id="tabPersonal">
+								<div class="profile-section">
+									<div class="profile-section__header">
+										<h2 class="profile-section__title">Dados Pessoais</h2>
+										<button class="btn btn-outline btn-sm" id="editPersonalBtn">Editar</button>
+									</div>
+									<form data-validate id="personalForm">
+										<div class="form__row">
+											<div class="form__group">
+												<label class="form__label form__label--required" for="fullName">Nome completo</label>
+												<input type="text" id="fullName" name="fullName" class="form__input" value="João Silva" required minlength="3" autocomplete="name" />
+											</div>
+											<div class="form__group">
+												<label class="form__label form__label--required" for="email">E-mail</label>
+												<input type="email" id="email" name="email" class="form__input" value="joao@email.com" required autocomplete="email" />
+											</div>
+										</div>
+										<div class="form__row">
+											<div class="form__group">
+												<label class="form__label" for="phone">Telefone</label>
+												<input type="tel" id="phone" name="phone" class="form__input" value="(11) 99999-0000" autocomplete="tel" />
+											</div>
+											<div class="form__group">
+												<label class="form__label" for="birthdate">Data de Nascimento</label>
+												<input type="date" id="birthdate" name="birthdate" class="form__input" value="1990-05-15" autocomplete="bday" />
+											</div>
+										</div>
+										<div style="display:flex;justify-content:flex-end">
+											<button type="submit" class="btn btn-primary">Salvar Alterações</button>
+										</div>
+									</form>
+								</div>
+
+								<div class="profile-section">
+									<div class="profile-section__header">
+										<h2 class="profile-section__title">Alterar Senha</h2>
+									</div>
+									<form data-validate id="passwordForm">
+										<div class="form__group">
+											<label class="form__label form__label--required" for="currentPassword">Senha atual</label>
+											<input type="password" id="currentPassword" name="currentPassword" class="form__input" placeholder="Sua senha atual" required autocomplete="current-password" />
+										</div>
+										<div class="form__row">
+											<div class="form__group">
+												<label class="form__label form__label--required" for="newPassword">Nova senha</label>
+												<input type="password" id="newPassword" name="newPassword" class="form__input" placeholder="Mínimo 6 caracteres" required minlength="6" autocomplete="new-password" />
+											</div>
+											<div class="form__group">
+												<label class="form__label form__label--required" for="confirmNewPassword">Confirmar nova senha</label>
+												<input type="password" id="confirmNewPassword" name="confirmNewPassword" class="form__input" placeholder="Repita a nova senha" required minlength="6" autocomplete="new-password" data-match="newPassword" />
+											</div>
+										</div>
+										<div style="display:flex;justify-content:flex-end">
+											<button type="submit" class="btn btn-primary">Alterar Senha</button>
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<!-- Meus Pedidos -->
+							<div id="tabOrders" style="display:none">
+								<div class="profile-section">
+									<div class="profile-section__header">
+										<h2 class="profile-section__title">Meus Pedidos</h2>
+										<span style="font-size:0.875rem;color:var(--gray-500)">3 pedidos</span>
+									</div>
+									<div class="orders-list">
+										<article class="order-card">
+											<div class="order-card__header">
+												<div>
+													<span class="order-card__id">#TS-2024-0341</span>
+													<span class="order-card__date" style="margin-left:0.75rem">15 jan. 2025</span>
+												</div>
+												<span class="badge badge--success">Entregue</span>
+											</div>
+											<div class="order-card__body">
+												<p class="order-card__products">Notebook UltraBook Pro 15, Mouse Gamer RGB Pro</p>
+												<div style="display:flex;align-items:center;gap:1rem">
+													<span class="order-card__total">R$ 4.488,90</span>
+													<a href="product-detail.html" class="btn btn-outline btn-sm">Ver detalhes</a>
+												</div>
+											</div>
+										</article>
+
+										<article class="order-card">
+											<div class="order-card__header">
+												<div>
+													<span class="order-card__id">#TS-2024-0287</span>
+													<span class="order-card__date" style="margin-left:0.75rem">28 dez. 2024</span>
+												</div>
+												<span class="badge badge--info">Em trânsito</span>
+											</div>
+											<div class="order-card__body">
+												<p class="order-card__products">Fone Bluetooth ANC Premium (×2)</p>
+												<div style="display:flex;align-items:center;gap:1rem">
+													<span class="order-card__total">R$ 1.198,00</span>
+													<a href="product-detail.html" class="btn btn-outline btn-sm">Rastrear</a>
+												</div>
+											</div>
+										</article>
+
+										<article class="order-card">
+											<div class="order-card__header">
+												<div>
+													<span class="order-card__id">#TS-2024-0198</span>
+													<span class="order-card__date" style="margin-left:0.75rem">03 nov. 2024</span>
+												</div>
+												<span class="badge badge--warning">Aguardando pagamento</span>
+											</div>
+											<div class="order-card__body">
+												<p class="order-card__products">Teclado Mecânico RGB</p>
+												<div style="display:flex;align-items:center;gap:1rem">
+													<span class="order-card__total">R$ 349,90</span>
+													<a href="#" class="btn btn-primary btn-sm">Pagar agora</a>
+												</div>
+											</div>
+										</article>
+									</div>
+								</div>
+							</div>
+
+							<!-- Endereços -->
+							<div id="tabAddresses" style="display:none">
+								<div class="profile-section">
+									<div class="profile-section__header">
+										<h2 class="profile-section__title">Endereços Salvos</h2>
+									</div>
+									<div class="addresses-grid">
+										<div class="address-card address-card--default">
+											<p class="address-card__badge">Padrão</p>
+											<p class="address-card__name">Casa</p>
+											<p class="address-card__text">Rua das Flores, 123, Apto 42<br>Jardim Paulista — São Paulo / SP<br>CEP: 01310-100</p>
+											<div class="address-card__actions">
+												<button class="btn btn-outline btn-sm">Editar</button>
+											</div>
+										</div>
+
+										<div class="address-card">
+											<p class="address-card__name">Trabalho</p>
+											<p class="address-card__text">Av. Paulista, 1578, 10º andar<br>Bela Vista — São Paulo / SP<br>CEP: 01310-200</p>
+											<div class="address-card__actions">
+												<button class="btn btn-outline btn-sm">Editar</button>
+												<button class="btn btn-sm" style="color:var(--gray-500)">Excluir</button>
+											</div>
+										</div>
+
+										<button class="address-card address-card--add" aria-label="Adicionar novo endereço">
+											<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+											Adicionar Endereço
+										</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- Lista de Desejos -->
+							<div id="tabWishlist" style="display:none">
+								<div class="profile-section">
+									<div class="profile-section__header">
+										<h2 class="profile-section__title">Lista de Desejos</h2>
+									</div>
+									<p style="color:var(--gray-500);text-align:center;padding:2rem 0">
+										Sua lista de desejos está aqui. <a href="wishlist.html" style="color:var(--primary)">Ver lista completa</a>
+									</p>
+								</div>
+							</div>
+
+							<!-- Notificações -->
+							<div id="tabNotifications" style="display:none">
+								<div class="profile-section">
+									<div class="profile-section__header">
+										<h2 class="profile-section__title">Preferências de Notificação</h2>
+									</div>
+									<div style="display:flex;flex-direction:column;gap:1rem">
+										<label style="display:flex;align-items:center;justify-content:space-between;padding:1rem;border:1px solid var(--gray-200);border-radius:var(--radius);cursor:pointer">
+											<div>
+												<p style="font-weight:500;margin-bottom:0.25rem">Atualizações de pedidos</p>
+												<p style="font-size:0.875rem;color:var(--gray-500)">Status e rastreamento dos seus pedidos</p>
+											</div>
+											<input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px" />
+										</label>
+										<label style="display:flex;align-items:center;justify-content:space-between;padding:1rem;border:1px solid var(--gray-200);border-radius:var(--radius);cursor:pointer">
+											<div>
+												<p style="font-weight:500;margin-bottom:0.25rem">Promoções e ofertas</p>
+												<p style="font-size:0.875rem;color:var(--gray-500)">Descontos exclusivos e novidades</p>
+											</div>
+											<input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px" />
+										</label>
+										<label style="display:flex;align-items:center;justify-content:space-between;padding:1rem;border:1px solid var(--gray-200);border-radius:var(--radius);cursor:pointer">
+											<div>
+												<p style="font-weight:500;margin-bottom:0.25rem">Newsletter semanal</p>
+												<p style="font-size:0.875rem;color:var(--gray-500)">Tendências e artigos do blog</p>
+											</div>
+											<input type="checkbox" style="accent-color:var(--primary);width:18px;height:18px" />
+										</label>
+										<label style="display:flex;align-items:center;justify-content:space-between;padding:1rem;border:1px solid var(--gray-200);border-radius:var(--radius);cursor:pointer">
+											<div>
+												<p style="font-weight:500;margin-bottom:0.25rem">Produtos em alerta de preço</p>
+												<p style="font-size:0.875rem;color:var(--gray-500)">Aviso quando itens da wishlist baixarem de preço</p>
+											</div>
+											<input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px" />
+										</label>
+									</div>
+									<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+										<button class="btn btn-primary">Salvar Preferências</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__bottom">
+					<p class="footer__copyright">&copy; 2026 TechShop. Todos os direitos reservados.</p>
+				</div>
+			</div>
+		</footer>
+
+		<script src="../js/modules/modal.js"></script>
+		<script src="../js/modules/form-validator.js"></script>
+		<script src="../js/modules/navigation.js"></script>
+		<script src="../js/modules/utils.js"></script>
+		<script src="../js/modules/products-gallery.js"></script>
+		<script src="../js/modules/handlers.js"></script>
+				<script src="../js/modules/cart.js"></script>
+		<script src="../js/modules/ui.js"></script>
+		<script src="../js/modules/wishlist.js"></script>
+		<script src="../js/modules/search.js"></script>
+		<script src="../js/modules/filters.js"></script>
+		<script src="../js/modules/validation-advanced.js"></script>
+		<script src="../js/modules/api.js"></script>
+		<script src="../js/products.js"></script>
+		<script src="../js/app.js"></script>
+		<script>
+			const tabMap = {
+				personal: 'tabPersonal',
+				orders: 'tabOrders',
+				addresses: 'tabAddresses',
+				wishlist: 'tabWishlist',
+				notifications: 'tabNotifications',
+			};
+
+			document.querySelectorAll('[data-tab]').forEach(btn => {
+				btn.addEventListener('click', () => {
+					const tab = btn.dataset.tab;
+					if (tab === 'logout') {
+						if (confirm('Tem certeza que deseja sair da sua conta?')) {
+							window.location.href = 'login.html';
+						}
+						return;
+					}
+					Object.values(tabMap).forEach(id => {
+						const el = document.getElementById(id);
+						if (el) el.style.display = 'none';
+					});
+					const target = document.getElementById(tabMap[tab]);
+					if (target) target.style.display = '';
+
+					document.querySelectorAll('[data-tab]').forEach(b => {
+						b.classList.remove('is-active');
+						b.removeAttribute('aria-current');
+					});
+					btn.classList.add('is-active');
+					btn.setAttribute('aria-current', 'true');
+				});
+			});
+		</script>
+			<!-- Botão Voltar ao Topo -->
+		<button class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+		</button>
+	</body>
+</html>

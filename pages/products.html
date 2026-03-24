@@ -5,11 +5,9 @@
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="description"
-			content="Navegue por nossa ampla seleção de produtos de tecnologia com os melhores preços" />
+		<meta name="description" content="Explore mais de 500 produtos de tecnologia com os melhores preços. Filtre por categoria, preço e avaliação. Entrega rápida para todo o Brasil." />
 
-		<title>Produtos - TechShop | Todos os Produtos em Tecnologia</title>
+		<title>Produtos — TechShop | Eletrônicos e Periféricos</title>
 
 		<!-- Fonts -->
 		<link
@@ -27,6 +25,25 @@
 		<link
 			rel="stylesheet"
 			href="../css/main.css" />
+	
+		<!-- SEO -->
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href="products.html" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="TechShop" />
+		<meta property="og:title" content="Produtos — TechShop | Eletrônicos e Periféricos" />
+		<meta property="og:description" content="Explore mais de 500 produtos de tecnologia com os melhores preços. Filtre por categoria, preço e avaliação. Entrega rápida para todo o Brasil." />
+		<meta property="og:image" content="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1200&q=80" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Produtos — TechShop | Eletrônicos e Periféricos" />
+		<meta name="twitter:description" content="Explore mais de 500 produtos de tecnologia com os melhores preços. Filtre por categoria, preço e avaliação. Entrega rápida para todo o Brasil." />
+		<meta name="twitter:image" content="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1200&q=80" />
 	</head>
 	<body>
 		<!-- Header / Navigation -->
@@ -88,7 +105,14 @@
 						</li>
 						<li class="header__menu-item">
 							<a
-								href="#contato"
+								href="about.html"
+								class="header__menu-link"
+								>Sobre Nós</a
+							>
+						</li>
+						<li class="header__menu-item">
+							<a
+								href="contact.html"
 								class="header__menu-link"
 								>Contato</a
 							>
@@ -96,7 +120,15 @@
 					</ul>
 
 					<div class="header__actions">
-						<button
+												<button
+							class="header__icon-btn theme-toggle"
+							data-theme-toggle
+							aria-label="Alternar tema"
+							aria-pressed="false">
+							<svg class="theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+							<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+						</button>
+<button
 							class="header__icon-btn"
 							data-login-btn
 							aria-label="Login">
@@ -153,6 +185,37 @@
 
 		<!-- Main Content -->
 		<main class="main-content">
+			<div class="breadcrumb">
+				<div class="container">
+					<nav class="breadcrumb__nav" aria-label="Navegação estrutural">
+						<a href="index.html" class="breadcrumb__link">Home</a>
+						<span class="breadcrumb__separator" aria-hidden="true">/</span>
+						<span class="breadcrumb__current" aria-current="page">Produtos</span>
+					</nav>
+				</div>
+			</div>
+
+			<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "BreadcrumbList",
+				"itemListElement": [
+					{
+						"@type": "ListItem",
+						"position": 1,
+						"name": "Home",
+						"item": "index.html"
+					},
+					{
+						"@type": "ListItem",
+						"position": 2,
+						"name": "Produtos",
+						"item": "products.html"
+					}
+				]
+			}
+			</script>
+
 			<!-- Page Header -->
 			<section class="page-header">
 				<div class="container">
@@ -436,9 +499,16 @@
 							</li>
 							<li>
 								<a
-									href="#"
+									href="about.html"
 									class="footer__link"
 									>Sobre Nós</a
+								>
+							</li>
+							<li>
+								<a
+									href="blog.html"
+									class="footer__link"
+									>Blog</a
 								>
 							</li>
 						</ul>
@@ -449,30 +519,30 @@
 						<ul class="footer__links">
 							<li>
 								<a
-									href="#"
+									href="faq.html"
 									class="footer__link"
 									>FAQ</a
 								>
 							</li>
 							<li>
 								<a
-									href="#"
+									href="cart.html"
 									class="footer__link"
-									>Envio e Entrega</a
+									>Meu Carrinho</a
 								>
 							</li>
 							<li>
 								<a
-									href="#"
+									href="wishlist.html"
 									class="footer__link"
-									>Política de Devolução</a
+									>Lista de Desejos</a
 								>
 							</li>
 							<li>
 								<a
-									href="#"
+									href="profile.html"
 									class="footer__link"
-									>Rastreamento</a
+									>Minha Conta</a
 								>
 							</li>
 						</ul>
@@ -519,14 +589,25 @@
 
 		<!-- Scripts -->
 		<!-- Modules -->
-		<script src="js/modules/modal.js"></script>
-		<script src="js/modules/form-validator.js"></script>
-		<script src="js/modules/navigation.js"></script>
-		<script src="js/modules/utils.js"></script>
-		<script src="js/modules/products-gallery.js"></script>
-		<script src="js/modules/handlers.js"></script>
+		<script src="../js/modules/modal.js"></script>
+		<script src="../js/modules/form-validator.js"></script>
+		<script src="../js/modules/navigation.js"></script>
+		<script src="../js/modules/utils.js"></script>
+		<script src="../js/modules/products-gallery.js"></script>
+		<script src="../js/modules/handlers.js"></script>
 		<!-- Data & App -->
-		<script src="js/products.js"></script>
-		<script src="js/app.js"></script>
+				<script src="../js/modules/cart.js"></script>
+		<script src="../js/modules/ui.js"></script>
+		<script src="../js/modules/wishlist.js"></script>
+		<script src="../js/modules/search.js"></script>
+		<script src="../js/modules/filters.js"></script>
+		<script src="../js/modules/validation-advanced.js"></script>
+		<script src="../js/modules/api.js"></script>
+		<script src="../js/products.js"></script>
+		<script src="../js/app.js"></script>
+			<!-- Botão Voltar ao Topo -->
+		<button class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+		</button>
 	</body>
 </html>
