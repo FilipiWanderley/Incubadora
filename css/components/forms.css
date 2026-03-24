@@ -75,3 +75,52 @@
 	color: var(--gray-700);
 	cursor: pointer;
 }
+
+/* ── Issue 21 — Label flutuante ──────────────────────── */
+.form__group--float {
+	position: relative;
+	margin-bottom: 1.25rem;
+}
+
+.form__group--float .form__label {
+	position: absolute;
+	left: 1rem;
+	top: 0.8125rem;
+	font-size: 1rem;
+	font-weight: 400;
+	color: var(--gray-400);
+	pointer-events: none;
+	transition: top 0.18s ease, font-size 0.18s ease, color 0.18s ease, font-weight 0.18s ease;
+	background: transparent;
+	padding: 0 0.25rem;
+	margin: 0;
+}
+
+.form__group--float .form__input:focus ~ .form__label,
+.form__group--float .form__input:not(:placeholder-shown) ~ .form__label {
+	top: -0.5625rem;
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: var(--primary);
+	background: white;
+}
+
+.form__group--float .form__input:not(:focus):not(:placeholder-shown) ~ .form__label {
+	color: var(--gray-500);
+}
+
+/* Classe de erro para inputs */
+.form__input.input-error,
+.form__textarea.input-error,
+.form__select.input-error {
+	border-color: var(--error);
+}
+
+.form__input.input-error:focus,
+.form__textarea.input-error:focus {
+	box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.form__group--float .form__input.input-error ~ .form__label {
+	color: var(--error);
+}
