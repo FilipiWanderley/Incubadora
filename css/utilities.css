@@ -38,6 +38,15 @@
 	margin-top: 0.5rem;
 }
 
+.py-12 {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+.bg-gray {
+	background: var(--gray-50);
+}
+
 /* ── Issue 22 — Sistema de Grid Utilitário ───────────── */
 
 /* Container de grid */

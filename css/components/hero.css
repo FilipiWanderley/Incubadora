@@ -245,6 +245,21 @@
 	color: var(--primary);
 }
 
+:root:not([data-theme="light"]) .hero,
+[data-theme="dark"] .hero {
+	background: linear-gradient(135deg, #0b1220 0%, #101a2d 50%, #0f182a 100%);
+}
+
+:root:not([data-theme="light"]) .hero__title,
+[data-theme="dark"] .hero__title {
+	color: var(--color-heading);
+}
+
+:root:not([data-theme="light"]) .hero__description,
+[data-theme="dark"] .hero__description {
+	color: var(--white);
+}
+
 [data-theme="dark"] .hero-stat-card,
 [data-theme="dark"] .hero-discount-card,
 [data-theme="dark"] .benefit-card {

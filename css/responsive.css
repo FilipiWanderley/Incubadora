@@ -106,6 +106,22 @@
 		gap: 1.5rem;
 	}
 
+	.testimonials__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.testimonial-card {
+		padding: 1.25rem;
+	}
+
+	.offers .section__header {
+		padding-top: 1.5rem;
+	}
+
+	.offers .section__footer {
+		margin-bottom: 2rem;
+	}
+
 	.page-header {
 		padding: 3rem 0 2rem;
 	}
@@ -152,6 +168,22 @@
 	.offers__grid,
 	.products-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.testimonial-card {
+		padding: 1.25rem;
+	}
+
+	.testimonials__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.offers .section__header {
+		padding-top: 1.5rem;
+	}
+
+	.offers .section__footer {
+		margin-bottom: 2rem;
 	}
 
 	.btn {

@@ -268,8 +268,8 @@ class Carousel {
 		});
 
 		// Atualiza botões
-		if (this.btnPrev) this.btnPrev.disabled = this.current === 0;
-		if (this.btnNext) this.btnNext.disabled = this.current === this.total - 1;
+		if (this.btnPrev) this.btnPrev.disabled = false;
+		if (this.btnNext) this.btnNext.disabled = false;
 	}
 
 	goTo(index) {
