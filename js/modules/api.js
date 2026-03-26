@@ -6,11 +6,11 @@
 
 class API {
 	constructor(options = {}) {
-		this.baseURL     = options.baseURL     || "";
-		this.cacheTTL    = options.cacheTTL    || 5 * 60 * 1000; // 5 minutos
-		this.maxRetries  = options.maxRetries  || 3;
-		this._cache      = new Map();
-		this._loading    = new Set();
+		this.baseURL = options.baseURL || "";
+		this.cacheTTL = options.cacheTTL || 5 * 60 * 1000;
+		this.maxRetries = options.maxRetries || 3;
+		this._cache = new Map();
+		this._disabledBeforeLoading = new WeakMap();
 	}
 
 	// ── Cache ─────────────────────────────────────────────
@@ -48,11 +48,18 @@ class API {
 			if (state) {
 				el.dataset.loadingActive = "true";
 				el.setAttribute("aria-busy", "true");
-				if (el.tagName === "BUTTON" || el.tagName === "INPUT") el.disabled = true;
+				if (el.tagName === "BUTTON" || el.tagName === "INPUT") {
+					this._disabledBeforeLoading.set(el, el.disabled);
+					el.disabled = true;
+				}
 			} else {
 				delete el.dataset.loadingActive;
 				el.removeAttribute("aria-busy");
-				if (el.tagName === "BUTTON" || el.tagName === "INPUT") el.disabled = false;
+				if (el.tagName === "BUTTON" || el.tagName === "INPUT") {
+					const wasDisabled = this._disabledBeforeLoading.get(el);
+					el.disabled = Boolean(wasDisabled);
+					this._disabledBeforeLoading.delete(el);
+				}
 			}
 		});
 	}
@@ -78,7 +85,11 @@ class API {
 					throw new Error(`HTTP ${res.status}: ${res.statusText}`);
 				}
 
-				return await res.json();
+				const contentType = res.headers.get("content-type") || "";
+				if (contentType.includes("application/json")) {
+					return await res.json();
+				}
+				return await res.text();
 			} catch (err) {
 				if (attempt === retries) throw err;
 				await this._delay(Math.pow(2, attempt) * 1000); // 1s, 2s, 4s
@@ -93,7 +104,14 @@ class API {
 	// ── GET com cache ─────────────────────────────────────
 
 	async get(url, options = {}) {
-		const cacheKey = url + JSON.stringify(options.params || {});
+		const params = options.params || {};
+		const sortedParams = Object.keys(params)
+			.sort()
+			.reduce((acc, key) => {
+				acc[key] = params[key];
+				return acc;
+			}, {});
+		const cacheKey = `${url}::${JSON.stringify(sortedParams)}`;
 		const cached   = options.cache !== false ? this._cacheGet(cacheKey) : null;
 		if (cached) return cached;
 
@@ -150,8 +168,8 @@ class API {
 		if (sort === "rating")     data.sort((a, b) => b.rating - a.rating);
 		if (sort === "name-asc")   data.sort((a, b) => a.name.localeCompare(b.name));
 
-		const page  = filters.page  || 1;
-		const limit = filters.limit || data.length;
+		const page = Number(filters.page) > 0 ? Number(filters.page) : 1;
+		const limit = Number(filters.limit) > 0 ? Number(filters.limit) : data.length;
 		const total = data.length;
 		const items = data.slice((page - 1) * limit, page * limit);
 
@@ -160,7 +178,8 @@ class API {
 
 	async getProduct(id) {
 		await this._delay(30 + Math.random() * 80);
-		const product = (window.products || []).find((p) => p.id === parseInt(id));
+		const numericId = Number.parseInt(id, 10);
+		const product = (window.products || []).find((p) => p.id === numericId);
 		if (!product) throw new Error("Produto não encontrado");
 		return product;
 	}
@@ -180,7 +199,8 @@ class API {
 			FRETE:    { valid: true,  discount: 0,   type: "shipping", message: "Frete grátis aplicado!" },
 			TECHSHOP: { valid: true,  discount: 50,  type: "fixed",   message: "R$ 50 de desconto aplicado!" },
 		};
-		return coupons[code.toUpperCase()] || { valid: false, message: "Cupom inválido ou expirado." };
+		const normalizedCode = String(code || "").trim().toUpperCase();
+		return coupons[normalizedCode] || { valid: false, message: "Cupom inválido ou expirado." };
 	}
 
 	// Mock: simula envio de formulário
