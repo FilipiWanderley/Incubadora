@@ -6,8 +6,10 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Explore mais de 500 produtos de tecnologia com os melhores preços. Filtre por categoria, preço e avaliação. Entrega rápida para todo o Brasil." />
+		<meta name="keywords" content="produtos tecnologia, eletrônicos, periféricos, ofertas, filtros" />
 
 		<title>Produtos — TechShop | Eletrônicos e Periféricos</title>
+		<script>try{const k="techshop_theme";const s=localStorage.getItem(k);const d=document.documentElement;if(s==="dark"||s==="light"){d.setAttribute("data-theme",s);}else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){d.setAttribute("data-theme","dark");}else{d.setAttribute("data-theme","light");}}catch(e){}</script>
 
 		<!-- Fonts -->
 		<link
@@ -25,6 +27,7 @@
 		<link
 			rel="stylesheet"
 			href="../css/main.css" />
+		<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 	
 		<!-- SEO -->
 		<meta name="robots" content="index, follow" />
@@ -126,7 +129,7 @@
 							aria-label="Alternar tema"
 							aria-pressed="false">
 							<svg class="theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-							<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+							<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 						</button>
 <button
 							class="header__icon-btn"
@@ -187,7 +190,7 @@
 		<main class="main-content">
 			<div class="breadcrumb">
 				<div class="container">
-					<nav class="breadcrumb__nav" aria-label="Navegação estrutural">
+					<nav class="breadcrumb__nav" aria-label="breadcrumb">
 						<a href="index.html" class="breadcrumb__link">Home</a>
 						<span class="breadcrumb__separator" aria-hidden="true">/</span>
 						<span class="breadcrumb__current" aria-current="page">Produtos</span>
@@ -204,13 +207,13 @@
 						"@type": "ListItem",
 						"position": 1,
 						"name": "Home",
-						"item": "index.html"
+						"item": "https://filipiwanderley.github.io/Incubadora/pages/index.html"
 					},
 					{
 						"@type": "ListItem",
 						"position": 2,
 						"name": "Produtos",
-						"item": "products.html"
+						"item": "https://filipiwanderley.github.io/Incubadora/pages/products.html"
 					}
 				]
 			}
@@ -391,8 +394,41 @@
 							<!-- Loading State -->
 							<div
 								class="loading-state hidden"
-								id="loadingState">
-								<div class="loading-spinner"></div>
+								id="loadingState"
+								role="status"
+								aria-label="Carregando produtos">
+								<div class="loading-state__skeleton-grid" aria-hidden="true">
+									<div class="skeleton-card">
+										<div class="skeleton skeleton-card__image"></div>
+										<div class="skeleton-card__body">
+											<div class="skeleton skeleton-card__line skeleton-card__line--short"></div>
+											<div class="skeleton skeleton-card__line skeleton-card__line--long"></div>
+											<div class="skeleton skeleton-card__line skeleton-card__line--medium"></div>
+											<div class="skeleton skeleton-card__price"></div>
+											<div class="skeleton skeleton-card__btn"></div>
+										</div>
+									</div>
+									<div class="skeleton-card">
+										<div class="skeleton skeleton-card__image"></div>
+										<div class="skeleton-card__body">
+											<div class="skeleton skeleton-card__line skeleton-card__line--short"></div>
+											<div class="skeleton skeleton-card__line skeleton-card__line--long"></div>
+											<div class="skeleton skeleton-card__line skeleton-card__line--medium"></div>
+											<div class="skeleton skeleton-card__price"></div>
+											<div class="skeleton skeleton-card__btn"></div>
+										</div>
+									</div>
+									<div class="skeleton-card">
+										<div class="skeleton skeleton-card__image"></div>
+										<div class="skeleton-card__body">
+											<div class="skeleton skeleton-card__line skeleton-card__line--short"></div>
+											<div class="skeleton skeleton-card__line skeleton-card__line--long"></div>
+											<div class="skeleton skeleton-card__line skeleton-card__line--medium"></div>
+											<div class="skeleton skeleton-card__price"></div>
+											<div class="skeleton skeleton-card__btn"></div>
+										</div>
+									</div>
+								</div>
 								<p>Carregando produtos...</p>
 							</div>
 						</div>
@@ -575,13 +611,16 @@
 						&copy; 2026 TechShop. Todos os direitos reservados.
 					</p>
 					<div class="footer__payment-methods">
-						<span
-							style="color: var(--color-gray-400); font-size: var(--text-sm)"
-							>Aceitamos:</span
-						>
-						<div class="footer__payment-icon">💳</div>
-						<div class="footer__payment-icon">🏦</div>
-						<div class="footer__payment-icon">📱</div>
+						<span class="footer__payment-label">Aceitamos:</span>
+						<div class="footer__payment-icon" aria-label="Cartão de crédito">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2"></rect><line x1="2.5" y1="10" x2="21.5" y2="10"></line></svg>
+						</div>
+						<div class="footer__payment-icon" aria-label="Transferência bancária">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 3 2 8 22 8 12 3"></polygon><line x1="5" y1="10" x2="5" y2="18"></line><line x1="12" y1="10" x2="12" y2="18"></line><line x1="19" y1="10" x2="19" y2="18"></line><line x1="2" y1="20" x2="22" y2="20"></line></svg>
+						</div>
+						<div class="footer__payment-icon" aria-label="Pagamento por carteira digital">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><line x1="7" y1="9" x2="17" y2="9"></line><line x1="7" y1="13" x2="14" y2="13"></line></svg>
+						</div>
 					</div>
 				</div>
 			</div>

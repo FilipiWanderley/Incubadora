@@ -13,17 +13,8 @@
 			name="author"
 			content="E-commerce" />
 
-		<meta
-			property="og:type"
-			content="website" />
-		<meta
-			property="og:title"
-			content="E-commerce - As Melhores Ofertas em Tecnologia" />
-		<meta
-			property="og:description"
-			content="Encontre as melhores ofertas em eletrônicos, periféricos e muito mais" />
-
 		<title>TechShop — As Melhores Ofertas em Tecnologia</title>
+		<script>try{const k="techshop_theme";const s=localStorage.getItem(k);const d=document.documentElement;if(s==="dark"||s==="light"){d.setAttribute("data-theme",s);}else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){d.setAttribute("data-theme","dark");}else{d.setAttribute("data-theme","light");}}catch(e){}</script>
 
 		<!-- Fonts -->
 		<link
@@ -41,6 +32,7 @@
 		<link
 			rel="stylesheet"
 			href="../css/main.css" />
+		<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 	
 		<!-- SEO -->
 		<meta name="robots" content="index, follow" />
@@ -146,7 +138,7 @@
 							aria-label="Alternar tema"
 							aria-pressed="false">
 							<svg class="theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-							<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+							<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 						</button>
 <button
 							class="header__icon-btn"
@@ -247,20 +239,40 @@
 								class="btn btn-outline btn-lg">
 								Ver Ofertas
 							</a>
+							<a
+								href="blog.html"
+								class="btn btn-outline btn-lg">
+								Ir para o Blog
+							</a>
 						</div>
-						<div class="hero__stats">
-							<div class="hero__stat">
-								<span class="hero__stat-value">500+</span>
-								<span class="hero__stat-label">Produtos</span>
-							</div>
-							<div class="hero__stat">
-								<span class="hero__stat-value">10k+</span>
-								<span class="hero__stat-label">Clientes</span>
-							</div>
-							<div class="hero__stat">
-								<span class="hero__stat-value">98%</span>
-								<span class="hero__stat-label">Satisfação</span>
-							</div>
+						<div class="hero__stats" aria-label="Principais números da TechShop">
+							<article class="hero-stat-card fade-in" aria-label="Mais de 500 produtos">
+								<div class="hero-stat-card__icon" aria-hidden="true">
+									<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M8 21h8"></path><path d="M12 18v3"></path></svg>
+								</div>
+								<div class="hero-stat-card__content">
+									<span class="hero-stat-card__value" data-counter-value="500" data-counter-suffix="+">500+</span>
+									<span class="hero-stat-card__label">Produtos</span>
+								</div>
+							</article>
+							<article class="hero-stat-card fade-in" aria-label="Mais de 10 mil clientes">
+								<div class="hero-stat-card__icon" aria-hidden="true">
+									<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M20 8v6"></path><path d="M23 11h-6"></path></svg>
+								</div>
+								<div class="hero-stat-card__content">
+									<span class="hero-stat-card__value" data-counter-value="10" data-counter-suffix="k+">10k+</span>
+									<span class="hero-stat-card__label">Clientes</span>
+								</div>
+							</article>
+							<article class="hero-stat-card fade-in" aria-label="98 por cento de satisfação">
+								<div class="hero-stat-card__icon" aria-hidden="true">
+									<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+								</div>
+								<div class="hero-stat-card__content">
+									<span class="hero-stat-card__value" data-counter-value="98" data-counter-suffix="%">98%</span>
+									<span class="hero-stat-card__label">Satisfação</span>
+								</div>
+							</article>
 						</div>
 					</div>
 					<div class="hero__image">
@@ -268,9 +280,11 @@
 							src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800&q=80"
 							alt="Setup de tecnologia"
 							class="hero__img" />
-						<div class="hero__badge-float">
-							<span class="hero__badge-float-text">Até 40% OFF</span>
-						</div>
+						<aside class="hero-discount-card fade-in--scale" aria-label="Oferta de até quarenta por cento de desconto">
+							<span class="hero-discount-card__eyebrow">Oferta Limitada</span>
+							<strong class="hero-discount-card__value">Até 40% OFF</strong>
+							<p class="hero-discount-card__text">Descontos especiais em notebooks, periféricos e acessórios premium.</p>
+						</aside>
 					</div>
 				</div>
 			</section>
@@ -321,11 +335,15 @@
 			</section>
 
 			<!-- Benefits Section -->
-			<section class="benefits py-20 bg-gray">
+			<section class="benefits py-20 bg-gray" aria-labelledby="benefitsTitle">
 				<div class="container">
+					<div class="section__header">
+						<h2 class="section__title" id="benefitsTitle">Vantagens TechShop</h2>
+						<p class="section__description">Benefícios pensados para sua experiência de compra ser rápida, segura e sem complicações.</p>
+					</div>
 					<div class="benefits__grid">
-						<div class="benefit">
-							<div class="benefit__icon">
+						<article class="benefit-card fade-in" aria-label="Benefício de frete grátis">
+							<div class="benefit-card__icon" aria-hidden="true">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="32"
@@ -348,11 +366,11 @@
 										r="3"></circle>
 								</svg>
 							</div>
-							<h3 class="benefit__title">Frete Grátis</h3>
-							<p class="benefit__text">Em compras acima de R$ 299</p>
-						</div>
-						<div class="benefit">
-							<div class="benefit__icon">
+							<h3 class="benefit-card__title">Frete Grátis</h3>
+							<p class="benefit-card__text">Entrega sem custo em compras acima de R$ 299 para todo o Brasil.</p>
+						</article>
+						<article class="benefit-card fade-in" aria-label="Benefício de pagamento seguro">
+							<div class="benefit-card__icon" aria-hidden="true">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="32"
@@ -377,11 +395,11 @@
 										y2="10"></line>
 								</svg>
 							</div>
-							<h3 class="benefit__title">Pagamento Seguro</h3>
-							<p class="benefit__text">Até 12x sem juros no cartão</p>
-						</div>
-						<div class="benefit">
-							<div class="benefit__icon">
+							<h3 class="benefit-card__title">Pagamento Seguro</h3>
+							<p class="benefit-card__text">Ambiente protegido e parcelamento em até 12x sem juros.</p>
+						</article>
+						<article class="benefit-card fade-in" aria-label="Benefício de troca fácil">
+							<div class="benefit-card__icon" aria-hidden="true">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="32"
@@ -397,11 +415,11 @@
 									<polyline points="9 22 9 12 15 12 15 22"></polyline>
 								</svg>
 							</div>
-							<h3 class="benefit__title">Troca Fácil</h3>
-							<p class="benefit__text">30 dias para trocas e devoluções</p>
-						</div>
-						<div class="benefit">
-							<div class="benefit__icon">
+							<h3 class="benefit-card__title">Troca Fácil</h3>
+							<p class="benefit-card__text">Você tem até 30 dias para troca ou devolução sem burocracia.</p>
+						</article>
+						<article class="benefit-card fade-in" aria-label="Benefício de suporte vinte e quatro por sete">
+							<div class="benefit-card__icon" aria-hidden="true">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="32"
@@ -416,9 +434,9 @@
 										d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
 								</svg>
 							</div>
-							<h3 class="benefit__title">Suporte 24/7</h3>
-							<p class="benefit__text">Atendimento sempre disponível</p>
-						</div>
+							<h3 class="benefit-card__title">Suporte 24/7</h3>
+							<p class="benefit-card__text">Equipe especializada disponível para ajudar você todos os dias.</p>
+						</article>
 					</div>
 				</div>
 			</section>
@@ -684,10 +702,10 @@
 								class="footer__newsletter-btn">
 								Inscrever
 							</button>
-							<div class="form__checkbox" style="margin-top:0.75rem">
+							<div class="form__checkbox newsletter-privacy">
 								<input type="checkbox" id="newsletterPrivacy" name="privacy" required />
-								<label class="form__checkbox-label" for="newsletterPrivacy" style="color:var(--gray-300);font-size:0.8125rem">
-									Concordo com a <a href="#" style="color:var(--primary)">Política de Privacidade</a>
+								<label class="form__checkbox-label newsletter-privacy__label" for="newsletterPrivacy">
+									Concordo com a <a href="#" class="newsletter-privacy__link">Política de Privacidade</a>
 								</label>
 							</div>
 						</form>
@@ -700,13 +718,16 @@
 						&copy; 2026 TechShop. Todos os direitos reservados.
 					</p>
 					<div class="footer__payment-methods">
-						<span
-							style="color: var(--color-gray-400); font-size: var(--text-sm)"
-							>Aceitamos:</span
-						>
-						<div class="footer__payment-icon">💳</div>
-						<div class="footer__payment-icon">🏦</div>
-						<div class="footer__payment-icon">📱</div>
+						<span class="footer__payment-label">Aceitamos:</span>
+						<div class="footer__payment-icon" aria-label="Cartão de crédito">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2"></rect><line x1="2.5" y1="10" x2="21.5" y2="10"></line></svg>
+						</div>
+						<div class="footer__payment-icon" aria-label="Transferência bancária">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 3 2 8 22 8 12 3"></polygon><line x1="5" y1="10" x2="5" y2="18"></line><line x1="12" y1="10" x2="12" y2="18"></line><line x1="19" y1="10" x2="19" y2="18"></line><line x1="2" y1="20" x2="22" y2="20"></line></svg>
+						</div>
+						<div class="footer__payment-icon" aria-label="Pagamento por carteira digital">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><line x1="7" y1="9" x2="17" y2="9"></line><line x1="7" y1="13" x2="14" y2="13"></line></svg>
+						</div>
 					</div>
 				</div>
 			</div>

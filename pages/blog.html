@@ -3,12 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Dicas de tecnologia, reviews de produtos, tutoriais e novidades do mundo tech no Blog TechShop." />
+		<meta name="description" content="Acompanhe no Blog TechShop reviews completos, comparativos, tutoriais e tendências de tecnologia para escolher os melhores produtos com confiança." />
+		<meta name="keywords" content="blog tecnologia, reviews, tutoriais, novidades techshop" />
 		<title>Blog — TechShop | Dicas e Novidades de Tecnologia</title>
+		<script>try{const k="techshop_theme";const s=localStorage.getItem(k);const d=document.documentElement;if(s==="dark"||s==="light"){d.setAttribute("data-theme",s);}else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){d.setAttribute("data-theme","dark");}else{d.setAttribute("data-theme","light");}}catch(e){}</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 
 		<!-- SEO -->
 		<meta name="robots" content="index, follow" />
@@ -61,7 +64,7 @@
 						aria-label="Alternar tema"
 						aria-pressed="false">
 						<svg class="theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 					</button>
 					<button class="header__icon-btn" data-login-btn aria-label="Login">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -116,7 +119,7 @@
 							<p class="blog-featured__label">Em destaque</p>
 							<h2 class="blog-featured__title">Os 5 melhores notebooks de 2025 para trabalho e estudo</h2>
 							<p class="blog-featured__excerpt">Analisamos desempenho, bateria, tela e custo-benefício dos modelos mais populares do ano para ajudar você a tomar a melhor decisão.</p>
-							<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;font-size:0.875rem;color:var(--gray-400)">
+							<div class="blog-featured__meta">
 								<span>15 mar. 2025</span>
 								<span>·</span>
 								<span>8 min de leitura</span>
@@ -306,7 +309,7 @@
 								<button class="blog-pagination__btn is-active" aria-current="page" aria-label="Página 1">1</button>
 								<button class="blog-pagination__btn" aria-label="Página 2">2</button>
 								<button class="blog-pagination__btn" aria-label="Página 3">3</button>
-								<span class="blog-pagination__btn" style="border:none;background:none;cursor:default">…</span>
+								<span class="blog-pagination__btn blog-pagination__btn--ellipsis">…</span>
 								<button class="blog-pagination__btn" aria-label="Página 8">8</button>
 								<button class="blog-pagination__btn" aria-label="Próxima página">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
@@ -320,8 +323,8 @@
 							<div class="blog-sidebar__widget" role="search">
 								<h2 class="blog-sidebar__widget-title">Buscar</h2>
 								<form>
-									<div style="display:flex;gap:0.5rem">
-										<input type="search" class="form__input" placeholder="Buscar artigos..." aria-label="Buscar artigos no blog" style="flex:1" />
+									<div class="blog-search__row">
+										<input type="search" class="form__input blog-search__input" placeholder="Buscar artigos..." aria-label="Buscar artigos no blog" />
 										<button type="submit" class="btn btn-primary btn-sm" aria-label="Buscar">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
 										</button>
@@ -332,26 +335,26 @@
 							<!-- Categorias -->
 							<div class="blog-sidebar__widget">
 								<h2 class="blog-sidebar__widget-title">Categorias</h2>
-								<ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem">
-									<li style="display:flex;justify-content:space-between;font-size:0.875rem">
-										<a href="#" style="color:var(--gray-700);transition:color 0.15s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--gray-700)'">Reviews</a>
-										<span style="color:var(--gray-400)">12</span>
+								<ul class="blog-categories">
+									<li class="blog-categories__item">
+										<a href="#" class="blog-categories__link">Reviews</a>
+										<span class="blog-categories__count">12</span>
 									</li>
-									<li style="display:flex;justify-content:space-between;font-size:0.875rem">
-										<a href="#" style="color:var(--gray-700);transition:color 0.15s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--gray-700)'">Guias e Tutoriais</a>
-										<span style="color:var(--gray-400)">8</span>
+									<li class="blog-categories__item">
+										<a href="#" class="blog-categories__link">Guias e Tutoriais</a>
+										<span class="blog-categories__count">8</span>
 									</li>
-									<li style="display:flex;justify-content:space-between;font-size:0.875rem">
-										<a href="#" style="color:var(--gray-700);transition:color 0.15s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--gray-700)'">Dicas de Produtividade</a>
-										<span style="color:var(--gray-400)">6</span>
+									<li class="blog-categories__item">
+										<a href="#" class="blog-categories__link">Dicas de Produtividade</a>
+										<span class="blog-categories__count">6</span>
 									</li>
-									<li style="display:flex;justify-content:space-between;font-size:0.875rem">
-										<a href="#" style="color:var(--gray-700);transition:color 0.15s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--gray-700)'">Novidades Tech</a>
-										<span style="color:var(--gray-400)">15</span>
+									<li class="blog-categories__item">
+										<a href="#" class="blog-categories__link">Novidades Tech</a>
+										<span class="blog-categories__count">15</span>
 									</li>
-									<li style="display:flex;justify-content:space-between;font-size:0.875rem">
-										<a href="#" style="color:var(--gray-700);transition:color 0.15s" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--gray-700)'">Setup e Hardware</a>
-										<span style="color:var(--gray-400)">9</span>
+									<li class="blog-categories__item">
+										<a href="#" class="blog-categories__link">Setup e Hardware</a>
+										<span class="blog-categories__count">9</span>
 									</li>
 								</ul>
 							</div>

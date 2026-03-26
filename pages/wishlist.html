@@ -3,12 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Veja os produtos que você salvou na sua lista de desejos e adicione ao carrinho quando quiser." />
+		<meta name="description" content="Gerencie sua lista de desejos na TechShop, compartilhe produtos por link e adicione itens ao carrinho quando encontrar a melhor oferta." />
+		<meta name="keywords" content="wishlist, lista de desejos, favoritos, produtos salvos" />
 		<title>Lista de Desejos — TechShop</title>
+		<script>try{const k="techshop_theme";const s=localStorage.getItem(k);const d=document.documentElement;if(s==="dark"||s==="light"){d.setAttribute("data-theme",s);}else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){d.setAttribute("data-theme","dark");}else{d.setAttribute("data-theme","light");}}catch(e){}</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 
 		<!-- SEO -->
 		<meta name="robots" content="noindex, nofollow" />
@@ -61,7 +64,7 @@
 						aria-label="Alternar tema"
 						aria-pressed="false">
 						<svg class="theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 					</button>
 					<button class="header__icon-btn" data-login-btn aria-label="Login">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -106,8 +109,8 @@
 							<span class="wishlist-header__count" id="wishlistCount">(4 produtos)</span>
 						</h1>
 						<div class="wishlist-actions">
-							<button class="btn btn-outline btn-sm" id="shareWishlistBtn">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:0.375rem">
+							<button class="btn btn-outline btn-sm" id="shareWishlistBtn" data-wishlist-share>
+								<svg class="wishlist-icon-start" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 									<circle cx="18" cy="5" r="3"></circle>
 									<circle cx="6" cy="12" r="3"></circle>
 									<circle cx="18" cy="19" r="3"></circle>
@@ -116,8 +119,8 @@
 								</svg>
 								Compartilhar lista
 							</button>
-							<button class="btn btn-outline btn-sm" id="addAllToCartBtn">
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:0.375rem">
+							<button class="btn btn-outline btn-sm" id="addAllToCartBtn" data-wishlist-add-all>
+								<svg class="wishlist-icon-start" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 									<circle cx="9" cy="21" r="1"></circle>
 									<circle cx="20" cy="21" r="1"></circle>
 									<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -148,12 +151,12 @@
 								<p class="wishlist-card__price">R$ 4.299,00</p>
 								<p class="wishlist-card__old-price">R$ 5.199,00</p>
 								<p class="wishlist-card__availability wishlist-card__availability--in-stock">
-									<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:0.25rem"><polyline points="20 6 9 17 4 12"></polyline></svg>
+									<svg class="wishlist-availability-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
 									Em estoque
 								</p>
 								<div class="wishlist-card__actions">
-									<a href="cart.html" class="btn btn-primary" style="flex:1;text-align:center;font-size:0.875rem">Adicionar ao carrinho</a>
-									<a href="product-detail.html" class="btn btn-outline" style="font-size:0.875rem" aria-label="Ver detalhes do Notebook UltraBook Pro 15">Ver</a>
+									<a href="cart.html" class="btn btn-primary wishlist-action-primary">Adicionar ao carrinho</a>
+									<a href="product-detail.html" class="btn btn-outline wishlist-action-secondary" aria-label="Ver detalhes do Notebook UltraBook Pro 15">Ver</a>
 								</div>
 							</div>
 						</article>
@@ -176,12 +179,12 @@
 								<h3 class="wishlist-card__name">Mouse Gamer RGB Pro</h3>
 								<p class="wishlist-card__price">R$ 189,90</p>
 								<p class="wishlist-card__availability wishlist-card__availability--in-stock">
-									<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:0.25rem"><polyline points="20 6 9 17 4 12"></polyline></svg>
+									<svg class="wishlist-availability-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
 									Em estoque
 								</p>
 								<div class="wishlist-card__actions">
-									<a href="cart.html" class="btn btn-primary" style="flex:1;text-align:center;font-size:0.875rem">Adicionar ao carrinho</a>
-									<a href="product-detail.html" class="btn btn-outline" style="font-size:0.875rem" aria-label="Ver detalhes do Mouse Gamer RGB Pro">Ver</a>
+									<a href="cart.html" class="btn btn-primary wishlist-action-primary">Adicionar ao carrinho</a>
+									<a href="product-detail.html" class="btn btn-outline wishlist-action-secondary" aria-label="Ver detalhes do Mouse Gamer RGB Pro">Ver</a>
 								</div>
 							</div>
 						</article>
@@ -205,12 +208,12 @@
 								<p class="wishlist-card__price">R$ 599,00</p>
 								<p class="wishlist-card__old-price">R$ 749,00</p>
 								<p class="wishlist-card__availability wishlist-card__availability--in-stock">
-									<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:0.25rem"><polyline points="20 6 9 17 4 12"></polyline></svg>
+									<svg class="wishlist-availability-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
 									Em estoque
 								</p>
 								<div class="wishlist-card__actions">
-									<a href="cart.html" class="btn btn-primary" style="flex:1;text-align:center;font-size:0.875rem">Adicionar ao carrinho</a>
-									<a href="product-detail.html" class="btn btn-outline" style="font-size:0.875rem" aria-label="Ver detalhes do Fone Bluetooth ANC Premium">Ver</a>
+									<a href="cart.html" class="btn btn-primary wishlist-action-primary">Adicionar ao carrinho</a>
+									<a href="product-detail.html" class="btn btn-outline wishlist-action-secondary" aria-label="Ver detalhes do Fone Bluetooth ANC Premium">Ver</a>
 								</div>
 							</div>
 						</article>
@@ -220,9 +223,8 @@
 							<img
 								src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
 								alt="Cadeira Gamer ErgoMax"
-								class="wishlist-card__img"
+								class="wishlist-card__img wishlist-card__img--muted"
 								loading="lazy"
-								style="filter:grayscale(0.3)"
 							/>
 							<button class="wishlist-card__remove" aria-label="Remover Cadeira Gamer ErgoMax da lista de desejos" data-remove-wish>
 								<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -234,19 +236,19 @@
 								<h3 class="wishlist-card__name">Cadeira Gamer ErgoMax</h3>
 								<p class="wishlist-card__price">R$ 1.299,00</p>
 								<p class="wishlist-card__availability wishlist-card__availability--out-of-stock">
-									<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:0.25rem"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+									<svg class="wishlist-availability-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
 									Fora de estoque
 								</p>
 								<div class="wishlist-card__actions">
-									<button class="btn btn-outline" style="flex:1;font-size:0.875rem" disabled>Indisponível</button>
-									<a href="product-detail.html" class="btn btn-outline" style="font-size:0.875rem" aria-label="Ver detalhes da Cadeira Gamer ErgoMax">Ver</a>
+									<button class="btn btn-outline wishlist-action-primary" disabled>Indisponível</button>
+									<a href="product-detail.html" class="btn btn-outline wishlist-action-secondary" aria-label="Ver detalhes da Cadeira Gamer ErgoMax">Ver</a>
 								</div>
 							</div>
 						</article>
 					</div>
 
 					<!-- Estado vazio (oculto por padrão) -->
-					<div class="wishlist-empty" id="wishlistEmpty" style="display:none">
+					<div class="wishlist-empty hidden" id="wishlistEmpty">
 						<div class="wishlist-empty__icon" aria-hidden="true">
 							<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 								<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -323,45 +325,6 @@
 		<script src="../js/modules/api.js"></script>
 		<script src="../js/products.js"></script>
 		<script src="../js/app.js"></script>
-		<script>
-			function updateCount() {
-				const items = document.querySelectorAll('.wishlist-card');
-				const count = items.length;
-				document.getElementById('wishlistCount').textContent = `(${count} produto${count !== 1 ? 's' : ''})`;
-				if (count === 0) {
-					document.getElementById('wishlistGrid').style.display = 'none';
-					document.getElementById('wishlistHeader').style.display = 'none';
-					document.getElementById('wishlistEmpty').style.display = '';
-				}
-			}
-
-			document.querySelectorAll('[data-remove-wish]').forEach(btn => {
-				btn.addEventListener('click', () => {
-					const card = btn.closest('.wishlist-card');
-					card.style.transition = 'opacity 0.2s, transform 0.2s';
-					card.style.opacity = '0';
-					card.style.transform = 'scale(0.95)';
-					setTimeout(() => {
-						card.remove();
-						updateCount();
-					}, 200);
-				});
-			});
-
-			document.getElementById('shareWishlistBtn').addEventListener('click', () => {
-				if (navigator.share) {
-					navigator.share({ title: 'Minha Lista de Desejos — TechShop', url: window.location.href });
-				} else {
-					navigator.clipboard.writeText(window.location.href).then(() => {
-						alert('Link copiado para a área de transferência!');
-					});
-				}
-			});
-
-			document.getElementById('addAllToCartBtn').addEventListener('click', () => {
-				window.location.href = 'cart.html';
-			});
-		</script>
 			<!-- Botão Voltar ao Topo -->
 		<button class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
 			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>

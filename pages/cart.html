@@ -3,12 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Revise os itens no seu carrinho, aplique cupons e calcule o frete antes de finalizar a compra." />
+		<meta name="description" content="Revise produtos no carrinho TechShop, ajuste quantidades, aplique cupons e estime o frete antes de concluir a compra com total transparência." />
+		<meta name="keywords" content="carrinho, checkout, cupom, frete, compras online" />
 		<title>Carrinho de Compras — TechShop</title>
+		<script>try{const k="techshop_theme";const s=localStorage.getItem(k);const d=document.documentElement;if(s==="dark"||s==="light"){d.setAttribute("data-theme",s);}else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){d.setAttribute("data-theme","dark");}else{d.setAttribute("data-theme","light");}}catch(e){}</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 
 		<!-- SEO -->
 		<meta name="robots" content="noindex, nofollow" />
@@ -61,7 +64,7 @@
 						aria-label="Alternar tema"
 						aria-pressed="false">
 						<svg class="theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 					</button>
 					<button class="header__icon-btn" data-login-btn aria-label="Login">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -97,17 +100,17 @@
 
 			<section class="py-12" id="cart-page">
 				<div class="container">
-					<h1 style="font-size:1.75rem;font-weight:700;margin-bottom:2rem">
+					<h1 class="cart-page__title">
 						Carrinho de Compras
-						<span style="font-size:1rem;font-weight:400;color:var(--gray-500);margin-left:0.5rem" id="cartCount">(3 itens)</span>
+						<span class="cart-page__count" id="cartCount">(3 itens)</span>
 					</h1>
 
 					<!-- Estado com itens -->
 					<div class="cart-layout" id="cartWithItems">
 						<div>
-							<div class="cart-items" id="cartItemsList">
+							<ul class="cart-items" id="cartItems">
 								<!-- Item 1 -->
-								<article class="cart-item" data-product-id="1">
+								<li class="cart-item" data-product-id="1">
 									<img
 										src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=200&q=80"
 										alt="Notebook UltraBook Pro 15"
@@ -117,7 +120,7 @@
 									<div>
 										<h3 class="cart-item__name">Notebook UltraBook Pro 15</h3>
 										<p class="cart-item__meta">Intel Core i7 · 16GB RAM · 512GB SSD</p>
-										<div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap">
+										<div class="cart-item__controls">
 											<div class="qty-control" role="group" aria-label="Quantidade">
 												<button class="qty-control__btn" aria-label="Diminuir quantidade" data-qty-dec>−</button>
 												<input class="qty-control__input" type="number" value="1" min="1" max="99" aria-label="Quantidade" data-qty-input />
@@ -127,19 +130,19 @@
 											<span class="cart-item__old-price">R$ 5.199,00</span>
 										</div>
 									</div>
-									<div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem">
+									<div class="cart-item__actions">
 										<button class="cart-item__remove" aria-label="Remover Notebook UltraBook Pro 15 do carrinho" data-remove-item>
 											<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 												<polyline points="3 6 5 6 21 6"></polyline>
 												<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path>
 											</svg>
 										</button>
-										<a href="wishlist.html" style="font-size:0.8125rem;color:var(--primary)">Salvar para depois</a>
+										<a href="wishlist.html" class="cart-item__save-link">Salvar para depois</a>
 									</div>
-								</article>
+								</li>
 
 								<!-- Item 2 -->
-								<article class="cart-item" data-product-id="2">
+								<li class="cart-item" data-product-id="2">
 									<img
 										src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=200&q=80"
 										alt="Mouse Gamer RGB Pro"
@@ -149,7 +152,7 @@
 									<div>
 										<h3 class="cart-item__name">Mouse Gamer RGB Pro</h3>
 										<p class="cart-item__meta">16.000 DPI · 7 botões programáveis</p>
-										<div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap">
+										<div class="cart-item__controls">
 											<div class="qty-control" role="group" aria-label="Quantidade">
 												<button class="qty-control__btn" aria-label="Diminuir quantidade" data-qty-dec>−</button>
 												<input class="qty-control__input" type="number" value="1" min="1" max="99" aria-label="Quantidade" data-qty-input />
@@ -158,19 +161,19 @@
 											<span class="cart-item__price" data-item-price>R$ 189,90</span>
 										</div>
 									</div>
-									<div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem">
+									<div class="cart-item__actions">
 										<button class="cart-item__remove" aria-label="Remover Mouse Gamer RGB Pro do carrinho" data-remove-item>
 											<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 												<polyline points="3 6 5 6 21 6"></polyline>
 												<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path>
 											</svg>
 										</button>
-										<a href="wishlist.html" style="font-size:0.8125rem;color:var(--primary)">Salvar para depois</a>
+										<a href="wishlist.html" class="cart-item__save-link">Salvar para depois</a>
 									</div>
-								</article>
+								</li>
 
 								<!-- Item 3 -->
-								<article class="cart-item" data-product-id="3">
+								<li class="cart-item" data-product-id="3">
 									<img
 										src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&q=80"
 										alt="Fone Bluetooth ANC Premium"
@@ -180,7 +183,7 @@
 									<div>
 										<h3 class="cart-item__name">Fone Bluetooth ANC Premium</h3>
 										<p class="cart-item__meta">Cancelamento ativo de ruído · 30h bateria</p>
-										<div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap">
+										<div class="cart-item__controls">
 											<div class="qty-control" role="group" aria-label="Quantidade">
 												<button class="qty-control__btn" aria-label="Diminuir quantidade" data-qty-dec>−</button>
 												<input class="qty-control__input" type="number" value="2" min="1" max="99" aria-label="Quantidade" data-qty-input />
@@ -190,30 +193,30 @@
 											<span class="cart-item__old-price">R$ 749,00</span>
 										</div>
 									</div>
-									<div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem">
+									<div class="cart-item__actions">
 										<button class="cart-item__remove" aria-label="Remover Fone Bluetooth ANC Premium do carrinho" data-remove-item>
 											<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 												<polyline points="3 6 5 6 21 6"></polyline>
 												<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path>
 											</svg>
 										</button>
-										<a href="wishlist.html" style="font-size:0.8125rem;color:var(--primary)">Salvar para depois</a>
+										<a href="wishlist.html" class="cart-item__save-link">Salvar para depois</a>
 									</div>
-								</article>
-							</div>
+								</li>
+							</ul>
 
-							<div style="margin-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+							<div class="cart-footer-actions">
 								<a href="products.html" class="btn btn-outline">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:0.375rem">
+									<svg class="cart-icon-start" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 										<path d="M19 12H5M12 5l-7 7 7 7"/>
 									</svg>
 									Continuar Comprando
 								</a>
-								<button class="btn btn-outline btn-sm" id="clearCartBtn" style="color:var(--gray-500)">Limpar carrinho</button>
+								<button class="btn btn-outline btn-sm cart-clear-btn" id="clearCartBtn">Limpar carrinho</button>
 							</div>
 						</div>
 
-						<aside aria-label="Resumo do pedido">
+						<aside aria-label="Resumo do pedido" id="cartSummaryContainer">
 							<div class="cart-summary">
 								<h2 class="cart-summary__title">Resumo do Pedido</h2>
 
@@ -237,16 +240,16 @@
 									<span class="cart-summary__label">Subtotal (4 itens)</span>
 									<span class="cart-summary__value" id="cartSubtotal">R$ 5.287,80</span>
 								</div>
-								<div class="cart-summary__row">
+								<div class="cart-summary__row" id="cartDiscountRow">
 									<span class="cart-summary__label">Desconto</span>
 									<span class="cart-summary__value cart-summary__value--discount" id="cartDiscount">− R$ 1.049,10</span>
 								</div>
 								<div class="cart-summary__row">
 									<span class="cart-summary__label">Frete</span>
-									<span class="cart-summary__value" id="cartShipping" style="color:#38a169">Grátis</span>
+									<span class="cart-summary__value cart-summary__value--free" id="cartShipping">Grátis</span>
 								</div>
 
-								<div class="cart-coupon">
+								<form class="cart-coupon" id="couponForm">
 									<input
 										type="text"
 										class="form__input cart-coupon__input"
@@ -254,26 +257,28 @@
 										aria-label="Código do cupom de desconto"
 										id="couponInput"
 									/>
-									<button class="btn btn-outline btn-sm" id="applyCouponBtn">Aplicar</button>
-								</div>
+									<button class="btn btn-outline btn-sm" id="applyCouponBtn" type="submit">Aplicar</button>
+								</form>
+								<p id="couponMessage" class="text-note text-muted-2"></p>
+								<button class="btn btn-outline btn-sm hidden" id="cartCouponTag" type="button" aria-label="Remover cupom aplicado"></button>
 
 								<div class="cart-summary__row cart-summary__row--total">
 									<span class="cart-summary__label">Total</span>
 									<span class="cart-summary__value" id="cartTotal">R$ 4.238,70</span>
 								</div>
 
-								<p style="font-size:0.8125rem;color:var(--gray-500);text-align:center;margin:0.75rem 0 1.25rem">
+								<p class="cart-summary__installments">
 									Em até <strong>12x</strong> de <strong>R$ 353,22</strong> sem juros
 								</p>
 
-								<a href="checkout.html" class="btn btn-primary" style="width:100%;text-align:center">
+								<a href="checkout.html" class="btn btn-primary btn-block text-center">
 									Finalizar Compra
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-left:0.375rem">
+									<svg class="cart-icon-end" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 										<path d="M5 12h14M12 5l7 7-7 7"/>
 									</svg>
 								</a>
 
-								<div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:1rem;font-size:0.8125rem;color:var(--gray-400)">
+								<div class="cart-summary__secure">
 									<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 										<rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
 										<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
@@ -285,7 +290,7 @@
 					</div>
 
 					<!-- Estado vazio (oculto por padrão) -->
-					<div class="cart-empty" id="cartEmpty" style="display:none">
+					<div class="cart-empty hidden" id="cartEmpty">
 						<div class="cart-empty__icon" aria-hidden="true">
 							<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 								<circle cx="9" cy="21" r="1"></circle>
@@ -324,34 +329,6 @@
 		<script src="../js/modules/api.js"></script>
 		<script src="../js/products.js"></script>
 		<script src="../js/app.js"></script>
-		<script>
-			document.querySelectorAll('.qty-control').forEach(ctrl => {
-				const input = ctrl.querySelector('[data-qty-input]');
-				ctrl.querySelector('[data-qty-dec]').addEventListener('click', () => {
-					if (input.value > 1) input.value = Number(input.value) - 1;
-				});
-				ctrl.querySelector('[data-qty-inc]').addEventListener('click', () => {
-					if (input.value < 99) input.value = Number(input.value) + 1;
-				});
-			});
-
-			document.querySelectorAll('[data-remove-item]').forEach(btn => {
-				btn.addEventListener('click', () => {
-					const item = btn.closest('.cart-item');
-					item.style.transition = 'opacity 0.2s';
-					item.style.opacity = '0';
-					setTimeout(() => item.remove(), 200);
-				});
-			});
-
-			document.getElementById('clearCartBtn').addEventListener('click', () => {
-				if (confirm('Tem certeza que deseja limpar o carrinho?')) {
-					document.getElementById('cartWithItems').style.display = 'none';
-					document.getElementById('cartEmpty').style.display = '';
-					document.getElementById('cartCount').textContent = '(0 itens)';
-				}
-			});
-		</script>
 			<!-- Botão Voltar ao Topo -->
 		<button class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
 			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>

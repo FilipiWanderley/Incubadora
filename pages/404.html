@@ -3,11 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Página não encontrada na TechShop. Use a busca, volte para a home ou acesse categorias populares para continuar sua compra com segurança." />
+		<meta name="keywords" content="erro 404, página não encontrada, techshop" />
 		<title>Página não encontrada — TechShop</title>
+		<script>try{const k="techshop_theme";const s=localStorage.getItem(k);const d=document.documentElement;if(s==="dark"||s==="light"){d.setAttribute("data-theme",s);}else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){d.setAttribute("data-theme","dark");}else{d.setAttribute("data-theme","light");}}catch(e){}</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 	
 		<!-- SEO -->
 		<meta name="robots" content="noindex, nofollow" />
@@ -98,15 +102,14 @@
 					<form
 						action="products.html"
 						method="get"
-						style="display:flex;gap:0.5rem;max-width:400px;margin:0 auto 2rem"
+						class="error-page__search"
 					>
 						<input
 							type="text"
 							name="q"
-							class="form__input"
 							placeholder="Buscar produtos..."
 							aria-label="Buscar produtos"
-							style="flex:1"
+							class="form__input error-page__search-input"
 						/>
 						<button type="submit" class="btn btn-primary">Buscar</button>
 					</form>

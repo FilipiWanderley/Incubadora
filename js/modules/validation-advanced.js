@@ -42,11 +42,11 @@ function validateCNPJ(cnpj) {
 
 // ── Consulta ViaCEP ───────────────────────────────────────
 
-async function lookupCEP(cep) {
+async function lookupCEP(cep, options = {}) {
 	const clean = cep.replace(/\D/g, "");
 	if (clean.length !== 8) throw new Error("CEP inválido");
 
-	const data = await window.api?.get(`https://viacep.com.br/ws/${clean}/json/`)
+	const data = await window.api?.get(`https://viacep.com.br/ws/${clean}/json/`, { loadingId: options.loadingId || "cep-lookup" })
 		?? await fetch(`https://viacep.com.br/ws/${clean}/json/`).then((r) => r.json());
 
 	if (data.erro) throw new Error("CEP não encontrado");
@@ -54,7 +54,7 @@ async function lookupCEP(cep) {
 }
 
 // Preenche campos de endereço ao digitar CEP
-function initCEPAutofill(cepInput, fieldMap = {}) {
+function initCEPAutofill(cepInput, fieldMap = {}, loadingId = "cep-lookup", lookupBtn = null) {
 	if (!cepInput) return;
 
 	const defaults = {
@@ -66,13 +66,13 @@ function initCEPAutofill(cepInput, fieldMap = {}) {
 
 	const fields = Object.assign({}, defaults, fieldMap);
 
-	cepInput.addEventListener("blur", async () => {
+	const doLookup = async () => {
 		const val = cepInput.value.replace(/\D/g, "");
 		if (val.length !== 8) return;
 
 		try {
 			cepInput.classList.add("loading");
-			const data = await lookupCEP(val);
+			const data = await lookupCEP(val, { loadingId });
 			Object.entries(fields).forEach(([key, id]) => {
 				const el = document.getElementById(id) || document.querySelector(`[name="${id}"]`);
 				if (el && data[key]) el.value = data[key];
@@ -82,7 +82,10 @@ function initCEPAutofill(cepInput, fieldMap = {}) {
 		} finally {
 			cepInput.classList.remove("loading");
 		}
-	});
+	};
+
+	cepInput.addEventListener("blur", doLookup);
+	lookupBtn?.addEventListener("click", doLookup);
 }
 
 // ── Medidor de força de senha ─────────────────────────────
@@ -216,7 +219,15 @@ function initMasks() {
 function initCEPFields() {
 	document.querySelectorAll("[data-cep]").forEach((input) => {
 		applyMask(input, "cep");
-		initCEPAutofill(input);
+		const fieldMap = {
+			logradouro: input.dataset.cepStreet || "street",
+			bairro: input.dataset.cepNeighborhood || "neighborhood",
+			localidade: input.dataset.cepCity || "city",
+			uf: input.dataset.cepState || "state",
+		};
+		const loadingId = input.dataset.loadingId || "cep-lookup";
+		const lookupBtn = input.dataset.cepLookupBtn ? document.getElementById(input.dataset.cepLookupBtn) : null;
+		initCEPAutofill(input, fieldMap, loadingId, lookupBtn);
 	});
 }
 
@@ -242,5 +253,12 @@ function initCPFValidation() {
 				if (err?.classList.contains("form__error")) err.textContent = "";
 			}
 		});
+	});
+}
+
+function initPasswordStrengthMeters() {
+	document.querySelectorAll("[data-password-strength]").forEach((input) => {
+		const meterId = input.dataset.passwordStrength || "";
+		initPasswordStrengthMeter(input, meterId);
 	});
 }

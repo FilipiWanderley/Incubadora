@@ -10,17 +10,24 @@
 	padding: 0.75rem 1.5rem;
 	font-weight: 500;
 	border-radius: var(--radius);
-	transition: all 0.2s;
+	transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 	border: 2px solid transparent;
+	will-change: transform;
+}
+
+.btn-sm {
+	padding: 0.625rem 0.875rem;
+	font-size: var(--font-sm);
+	min-height: 40px;
 }
 
 .btn-primary {
-	background: var(--primary);
+	background: var(--primary-dark);
 	color: white;
 }
 
 .btn-primary:hover {
-	background: var(--primary-dark);
+	background: var(--primary-dark-2);
 	transform: translateY(-2px);
 	box-shadow: var(--shadow-lg);
 }
@@ -31,7 +38,7 @@
 }
 
 .btn-secondary:hover {
-	background: #003a66;
+	background: var(--secondary-dark);
 	transform: translateY(-2px);
 }
 
@@ -42,7 +49,7 @@
 }
 
 .btn-outline:hover {
-	background: var(--primary);
+	background: var(--primary-dark);
 	color: white;
 }
 
@@ -64,4 +71,31 @@
 
 .btn-ghost:hover {
 	background: var(--gray-100);
+}
+
+.btn-block {
+	width: 100%;
+}
+
+[data-theme="dark"] .btn-outline:hover {
+	background: var(--primary);
+	color: var(--white);
+}
+
+[data-theme="dark"] .btn-white {
+	background: var(--color-surface);
+	color: var(--color-heading);
+	border-color: var(--color-border);
+}
+
+[data-theme="dark"] .btn-white:hover {
+	background: var(--gray-100);
+}
+
+[data-theme="dark"] .btn-ghost {
+	color: var(--color-text);
+}
+
+[data-theme="dark"] .btn-ghost:hover {
+	background: var(--surface-white-08);
 }

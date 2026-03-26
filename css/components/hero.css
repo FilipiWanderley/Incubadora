@@ -29,31 +29,28 @@
 	display: inline-flex;
 	align-items: center;
 	padding: 0.5rem 1rem;
-	background: rgba(255, 107, 53, 0.1);
+	background: var(--primary-10);
 	color: var(--primary);
-	font-size: 0.875rem;
+	font-size: var(--font-md);
 	font-weight: 600;
 	border-radius: 999px;
 	width: fit-content;
-	border: 1px solid rgba(255, 107, 53, 0.2);
+	border: 1px solid var(--primary-30);
 }
 
 .hero__title {
-	font-size: clamp(2.5rem, 5vw, 4rem);
+	font-size: var(--font-hero-lg);
 	font-weight: 800;
 	line-height: 1.1;
 	margin: 0;
 }
 
 .hero__title-highlight {
-	background: linear-gradient(135deg, var(--primary), var(--secondary));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
+	color: var(--primary);
 }
 
 .hero__description {
-	font-size: 1.125rem;
+	font-size: var(--font-lg);
 	color: var(--gray-500);
 	line-height: 1.75;
 	max-width: 500px;
@@ -77,4 +74,277 @@
 	width: 100%;
 	border-radius: 1.5rem;
 	box-shadow: var(--shadow-xl);
+}
+
+.hero-discount-card {
+	position: absolute;
+	right: -1.25rem;
+	bottom: 1.25rem;
+	max-width: 240px;
+	background: var(--white);
+	border-radius: 1rem;
+	padding: 1rem 1rem 1.125rem;
+	box-shadow: var(--shadow-xl);
+	border: 1px solid var(--gray-200);
+	display: flex;
+	flex-direction: column;
+	gap: 0.375rem;
+	transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.hero-discount-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 14px 30px -14px var(--overlay-strong), var(--shadow-xl);
+}
+
+.hero-discount-card__eyebrow {
+	font-size: var(--font-xs);
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: var(--tracking-wide);
+	color: var(--primary);
+}
+
+.hero-discount-card__value {
+	font-family: "Poppins", sans-serif;
+	font-size: var(--font-3xl);
+	line-height: var(--leading-tight);
+	color: var(--gray-900);
+}
+
+.hero-discount-card__text {
+	font-size: var(--font-sm);
+	line-height: var(--leading-relaxed);
+	color: var(--gray-500);
+	margin: 0;
+}
+
+.hero__stats {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.875rem;
+	margin-top: 0.25rem;
+}
+
+.hero-stat-card {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	gap: 0.625rem;
+	background: var(--white);
+	border: 1px solid var(--gray-200);
+	border-radius: 0.875rem;
+	padding: 0.75rem 0.875rem;
+	box-shadow: var(--shadow);
+	transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.hero-stat-card:hover {
+	transform: translateY(-2px);
+	border-color: var(--primary-30);
+	box-shadow: var(--shadow-lg);
+}
+
+.hero-stat-card__icon {
+	width: 34px;
+	height: 34px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 999px;
+	background: var(--primary-10);
+	color: var(--primary);
+}
+
+.hero-stat-card__content {
+	display: flex;
+	flex-direction: column;
+}
+
+.hero-stat-card__value {
+	font-family: "Poppins", sans-serif;
+	font-size: var(--font-lg);
+	font-weight: 700;
+	line-height: 1.1;
+	color: var(--gray-900);
+}
+
+.hero-stat-card__label {
+	font-size: var(--font-sm);
+	color: var(--gray-500);
+}
+
+.section__footer {
+	margin-top: 2rem;
+	display: flex;
+	justify-content: center;
+}
+
+.btn-lg {
+	padding: 0.875rem 1.25rem;
+	min-height: 46px;
+}
+
+.benefits {
+	padding: 5rem 0;
+	background: var(--gray-50);
+}
+
+.benefits__grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.benefit-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	background: var(--white);
+	border: 1px solid var(--gray-200);
+	border-radius: 1rem;
+	padding: 1.25rem;
+	box-shadow: var(--shadow);
+	transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.benefit-card:hover {
+	transform: translateY(-3px);
+	border-color: var(--primary-30);
+	box-shadow: var(--shadow-lg);
+}
+
+.benefit-card__icon {
+	width: 48px;
+	height: 48px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.875rem;
+	background: var(--primary-10);
+	color: var(--primary);
+}
+
+.benefit-card__title {
+	font-family: "Poppins", sans-serif;
+	font-size: var(--font-lg);
+	line-height: var(--leading-tight);
+	margin: 0;
+}
+
+.benefit-card__text {
+	margin: 0;
+	font-size: var(--font-md);
+	line-height: var(--leading-relaxed);
+	color: var(--gray-500);
+}
+
+[data-theme="dark"] .hero__badge {
+	background: var(--primary-10);
+	border-color: var(--primary-30);
+	color: var(--primary);
+}
+
+[data-theme="dark"] .hero-stat-card,
+[data-theme="dark"] .hero-discount-card,
+[data-theme="dark"] .benefit-card {
+	background: var(--color-surface);
+	border-color: var(--color-border);
+}
+
+[data-theme="dark"] .hero-stat-card__value,
+[data-theme="dark"] .hero-discount-card__value,
+[data-theme="dark"] .benefit-card__title {
+	color: var(--color-heading);
+}
+
+[data-theme="dark"] .hero-stat-card__label,
+[data-theme="dark"] .hero-discount-card__text,
+[data-theme="dark"] .benefit-card__text {
+	color: var(--color-text-muted);
+}
+
+[data-theme="dark"] .hero-discount-card__eyebrow {
+	color: #ff9b74;
+}
+
+[data-theme="dark"] .hero-stat-card__icon,
+[data-theme="dark"] .benefit-card__icon {
+	background: var(--primary-10);
+	border: 1px solid var(--primary-30);
+}
+
+@media (max-width: 1440px) {
+	.hero__container {
+		gap: 3rem;
+	}
+}
+
+@media (max-width: 1024px) {
+	.hero__container {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+
+	.hero__image {
+		order: -1;
+	}
+
+	.hero-discount-card {
+		right: 1rem;
+	}
+
+	.benefits__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 768px) {
+	.hero {
+		padding: 3.5rem 0;
+	}
+
+	.hero__actions {
+		width: 100%;
+	}
+
+	.hero__actions .btn-lg {
+		flex: 1;
+	}
+
+	.hero__stats {
+		grid-template-columns: 1fr;
+	}
+
+	.hero-discount-card {
+		position: static;
+		max-width: 100%;
+		margin-top: 0.875rem;
+	}
+
+	.benefits {
+		padding: 3.5rem 0;
+	}
+
+	.benefits__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 320px) {
+	.hero__title {
+		font-size: var(--font-4xl);
+	}
+
+	.hero__description {
+		font-size: var(--font-md);
+	}
+
+	.hero__actions .btn-lg {
+		width: 100%;
+	}
+
+	.benefits__grid {
+		grid-template-columns: 1fr;
+	}
 }

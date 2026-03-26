@@ -4,10 +4,10 @@
 
 @media (max-width: 1024px) {
 	h1 {
-		font-size: 2.5rem;
+		font-size: var(--font-6xl);
 	}
 	h2 {
-		font-size: 2rem;
+		font-size: var(--font-4xl);
 	}
 
 	.products-layout {
@@ -111,7 +111,7 @@
 	}
 
 	.page-header__title {
-		font-size: 2rem;
+		font-size: var(--font-4xl);
 	}
 
 	.footer__grid {
@@ -135,10 +135,10 @@
 
 @media (max-width: 480px) {
 	h1 {
-		font-size: 2rem;
+		font-size: var(--font-4xl);
 	}
 	h2 {
-		font-size: 1.5rem;
+		font-size: var(--font-2xl);
 	}
 
 	.container {
@@ -146,7 +146,7 @@
 	}
 
 	.hero__title {
-		font-size: 2rem;
+		font-size: var(--font-4xl);
 	}
 
 	.offers__grid,
@@ -185,7 +185,7 @@
 
 	/* Legibilidade de fonte */
 	body {
-		font-size: 1rem;
+		font-size: var(--text-base);
 		-webkit-text-size-adjust: 100%;
 	}
 
@@ -195,11 +195,11 @@
 	}
 
 	.product-card__name {
-		font-size: 1rem;
+		font-size: var(--text-base);
 	}
 
 	.product-card__price {
-		font-size: 1.25rem;
+		font-size: var(--font-xl);
 	}
 
 	/* Back to top */
@@ -258,7 +258,7 @@
 	.form__input,
 	.form__textarea,
 	.form__select {
-		font-size: 1rem;
+		font-size: var(--text-base);
 		padding: 0.875rem 1rem;
 	}
 }
@@ -269,11 +269,23 @@
 	}
 
 	h1 {
-		font-size: 1.75rem;
+		font-size: var(--font-3xl);
 	}
 
 	h2 {
-		font-size: 1.375rem;
+		font-size: var(--font-xl);
+	}
+}
+
+@media (max-width: 414px) {
+	.container {
+		padding: 0 0.875rem;
+	}
+}
+
+@media (max-width: 375px) {
+	.container {
+		padding: 0 0.75rem;
 	}
 }
 

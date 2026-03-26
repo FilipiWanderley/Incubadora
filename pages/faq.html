@@ -3,12 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Encontre respostas para as dúvidas mais comuns sobre pedidos, pagamentos, entregas e devoluções na TechShop." />
+		<meta name="description" content="Consulte perguntas frequentes da TechShop sobre pedidos, pagamentos, entregas, trocas e devoluções, com respostas claras para resolver dúvidas rapidamente." />
+		<meta name="keywords" content="faq, dúvidas frequentes, entregas, pagamentos, devoluções" />
 		<title>Perguntas Frequentes — TechShop | FAQ</title>
+		<script>try{const k="techshop_theme";const s=localStorage.getItem(k);const d=document.documentElement;if(s==="dark"||s==="light"){d.setAttribute("data-theme",s);}else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){d.setAttribute("data-theme","dark");}else{d.setAttribute("data-theme","light");}}catch(e){}</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 
 		<!-- SEO -->
 		<meta name="robots" content="index, follow" />
@@ -71,7 +74,7 @@
 						aria-label="Alternar tema"
 						aria-pressed="false">
 						<svg class="theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 					</button>
 					<button class="header__icon-btn" data-login-btn aria-label="Login">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -108,7 +111,7 @@
 			<div class="page-header">
 				<div class="container">
 					<h1 class="page-header__title">Perguntas Frequentes</h1>
-					<p class="page-header__description">Encontre respostas rápidas para as dúvidas mais comuns. Não achou o que procura? <a href="contact.html" style="color:var(--primary)">Entre em contato</a>.</p>
+					<p class="page-header__description">Encontre respostas rápidas para as dúvidas mais comuns. Não achou o que procura? <a href="contact.html" class="link-primary">Entre em contato</a>.</p>
 				</div>
 			</div>
 
@@ -222,7 +225,7 @@
 									<summary class="faq-item__question">Qual é o prazo de entrega?</summary>
 									<div class="faq-item__answer">
 										<p>Os prazos variam conforme a região e a modalidade escolhida:</p>
-										<ul style="margin-top:0.5rem;padding-left:1.5rem;color:var(--gray-600)">
+										<ul class="faq-delivery-list">
 											<li><strong>Expresso:</strong> 1–2 dias úteis (capitais)</li>
 											<li><strong>PAC:</strong> 4–8 dias úteis</li>
 											<li><strong>Sedex:</strong> 2–5 dias úteis</li>
@@ -327,10 +330,10 @@
 			</section>
 
 			<section class="py-12 bg-gray">
-				<div class="container" style="text-align:center">
-					<h2 style="font-size:1.5rem;margin-bottom:0.75rem">Não encontrou sua resposta?</h2>
-					<p style="color:var(--gray-500);margin-bottom:1.75rem">Nossa equipe de suporte está disponível de segunda a sexta, das 9h às 18h.</p>
-					<div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+				<div class="container faq-cta">
+					<h2 class="faq-cta__title">Não encontrou sua resposta?</h2>
+					<p class="faq-cta__text">Nossa equipe de suporte está disponível de segunda a sexta, das 9h às 18h.</p>
+					<div class="faq-cta__actions">
 						<a href="contact.html" class="btn btn-primary btn-lg">Falar com o Suporte</a>
 						<a href="contact.html" class="btn btn-outline btn-lg">Enviar E-mail</a>
 					</div>

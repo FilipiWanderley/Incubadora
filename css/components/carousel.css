@@ -47,7 +47,7 @@
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.9);
+	background: var(--surface-white-90);
 	border: none;
 	cursor: pointer;
 	display: flex;
@@ -106,7 +106,7 @@
 	height: 8px;
 	border-radius: 50%;
 	border: none;
-	background: rgba(255, 255, 255, 0.5);
+	background: var(--surface-white-50);
 	cursor: pointer;
 	padding: 0;
 	transition: background 0.2s, transform 0.2s, width 0.25s;
@@ -120,7 +120,7 @@
 }
 
 .carousel__dot:hover:not(.carousel__dot--active) {
-	background: rgba(255, 255, 255, 0.8);
+	background: var(--surface-white-80);
 	transform: scale(1.2);
 }
 
@@ -137,18 +137,18 @@
 	left: 0;
 	right: 0;
 	padding: 2rem 1.5rem 3.5rem;
-	background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+	background: linear-gradient(transparent, var(--overlay-strong));
 	color: white;
 }
 
 .carousel__caption-title {
-	font-size: 1.25rem;
+	font-size: var(--font-xl);
 	font-weight: 700;
 	margin-bottom: 0.25rem;
 }
 
 .carousel__caption-text {
-	font-size: 0.875rem;
+	font-size: var(--font-md);
 	opacity: 0.85;
 }
 
@@ -189,6 +189,28 @@
 /* Padding nos slides múltiplos */
 .carousel--gap .carousel__slide {
 	padding: 0 0.5rem;
+}
+
+[data-theme="dark"] .carousel__btn {
+	background: var(--color-surface);
+	color: var(--color-text);
+	border: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .carousel__btn:hover {
+	background: var(--gray-100);
+}
+
+[data-theme="dark"] .carousel__dot {
+	background: var(--surface-white-25);
+}
+
+[data-theme="dark"] .carousel__dot--active {
+	background: var(--white);
+}
+
+[data-theme="dark"] .carousel__dot:focus-visible {
+	outline-color: var(--color-heading);
 }
 
 /* ── Loading state do carousel ─────────────────────────── */

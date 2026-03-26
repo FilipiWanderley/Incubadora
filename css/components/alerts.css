@@ -30,7 +30,7 @@
 	padding: 1rem 1.25rem;
 	border-radius: var(--radius);
 	border: 1px solid transparent;
-	font-size: 0.9375rem;
+	font-size: var(--font-md-plus);
 	line-height: 1.5;
 	animation: alertSlideIn 0.25s ease;
 	position: relative;
@@ -90,27 +90,27 @@
 /* ── Variações ────────────────────────────────────────── */
 
 .alert--success {
-	background: rgba(16, 185, 129, 0.08);
-	border-color: rgba(16, 185, 129, 0.3);
-	color: #065f46;
+	background: var(--success-08);
+	border-color: var(--success-30);
+	color: var(--success-strong);
 }
 
 .alert--error {
-	background: rgba(239, 68, 68, 0.08);
-	border-color: rgba(239, 68, 68, 0.3);
-	color: #7f1d1d;
+	background: var(--error-08);
+	border-color: var(--error-30);
+	color: var(--error-strong);
 }
 
 .alert--warning {
-	background: rgba(245, 158, 11, 0.08);
-	border-color: rgba(245, 158, 11, 0.3);
-	color: #78350f;
+	background: var(--warning-08);
+	border-color: var(--warning-30);
+	color: var(--warning-strong);
 }
 
 .alert--info {
-	background: rgba(59, 130, 246, 0.08);
-	border-color: rgba(59, 130, 246, 0.3);
-	color: #1e3a5f;
+	background: var(--info-08);
+	border-color: var(--info-30);
+	color: var(--info-strong);
 }
 
 /* ── Posicionamento toast (notificação flutuante) ───── */

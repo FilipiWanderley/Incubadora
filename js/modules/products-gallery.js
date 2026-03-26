@@ -6,6 +6,7 @@ class ProductsGallery {
 	constructor() {
 		this.allProducts = products || [];
 		this.filteredProducts = [...this.allProducts];
+		this.SORT_STORAGE_KEY = "techshop_products_sort";
 		this.filters = {
 			categories: [],
 			minPrice: null,
@@ -17,7 +18,9 @@ class ProductsGallery {
 	}
 
 	init() {
+		this.restoreState();
 		this.renderCategories();
+		this.syncControls();
 		this.renderProducts();
 		this.initFilters();
 	}
@@ -58,6 +61,15 @@ class ProductsGallery {
 		container.innerHTML = this.filteredProducts
 			.map((p) => createProductCard(p))
 			.join("");
+		container.querySelectorAll(".product-card").forEach((card, index) => {
+			const product = this.filteredProducts[index];
+			if (!product) return;
+			card.dataset.productId = String(product.id);
+			card.dataset.category = String(product.category || "").toLowerCase();
+			card.dataset.price = String(product.price || 0);
+			card.dataset.rating = String(product.rating || 0);
+			card.dataset.name = String(product.name || "");
+		});
 		initFavoriteButtons();
 		this.updateCount();
 	}
@@ -118,6 +130,7 @@ class ProductsGallery {
 				timeout = setTimeout(() => {
 					this.filters.search = e.target.value;
 					this.renderProducts();
+					this.syncURL();
 				}, 300);
 			});
 		}
@@ -132,6 +145,7 @@ class ProductsGallery {
 					);
 				}
 				this.renderProducts();
+				this.syncURL();
 			});
 		});
 
@@ -143,14 +157,20 @@ class ProductsGallery {
 				this.filters.minPrice = minPrice ? parseFloat(minPrice) : null;
 				this.filters.maxPrice = maxPrice ? parseFloat(maxPrice) : null;
 				this.renderProducts();
+				this.syncURL();
 			});
 		}
 
 		const sortSelect = document.getElementById("sortSelect");
 		if (sortSelect) {
+			sortSelect.value = this.sortBy;
+			this.updateSortAria();
 			sortSelect.addEventListener("change", (e) => {
 				this.sortBy = e.target.value;
+				localStorage.setItem(this.SORT_STORAGE_KEY, this.sortBy);
+				this.updateSortAria();
 				this.renderProducts();
+				this.syncURL();
 			});
 		}
 
@@ -169,13 +189,95 @@ class ProductsGallery {
 					.forEach((cb) => (cb.checked = false));
 				if (searchInput) searchInput.value = "";
 				if (sortSelect) sortSelect.value = "default";
+				localStorage.removeItem(this.SORT_STORAGE_KEY);
+				this.updateSortAria();
 				const minPrice = document.getElementById("minPrice");
 				const maxPrice = document.getElementById("maxPrice");
 				if (minPrice) minPrice.value = "";
 				if (maxPrice) maxPrice.value = "";
 				this.renderProducts();
+				this.syncURL();
 			});
 		}
+
+		window.addEventListener("popstate", () => {
+			this.filters = {
+				categories: [],
+				minPrice: null,
+				maxPrice: null,
+				search: "",
+			};
+			this.sortBy = "default";
+			this.restoreState();
+			this.syncControls();
+			this.renderProducts();
+		});
+	}
+
+	restoreState() {
+		const params = new URLSearchParams(window.location.search);
+		const categoriesParam = params.get("categories");
+		if (categoriesParam) {
+			this.filters.categories = categoriesParam
+				.split(",")
+				.map((v) => decodeURIComponent(v).trim())
+				.filter(Boolean);
+		}
+
+		const minPrice = params.get("minPrice");
+		const maxPrice = params.get("maxPrice");
+		const search = params.get("search");
+		const sort = params.get("sort");
+		const storedSort = localStorage.getItem(this.SORT_STORAGE_KEY);
+
+		this.filters.minPrice = minPrice ? parseFloat(minPrice) : null;
+		this.filters.maxPrice = maxPrice ? parseFloat(maxPrice) : null;
+		this.filters.search = search || "";
+		this.sortBy = sort || storedSort || "default";
+	}
+
+	syncControls() {
+		const searchInput = document.getElementById("searchInput");
+		const minPrice = document.getElementById("minPrice");
+		const maxPrice = document.getElementById("maxPrice");
+		const sortSelect = document.getElementById("sortSelect");
+
+		if (searchInput) searchInput.value = this.filters.search || "";
+		if (minPrice) minPrice.value = this.filters.minPrice ?? "";
+		if (maxPrice) maxPrice.value = this.filters.maxPrice ?? "";
+		if (sortSelect) {
+			sortSelect.value = this.sortBy;
+			this.updateSortAria();
+		}
+
+		document.querySelectorAll("[data-category-filter]").forEach((cb) => {
+			cb.checked = this.filters.categories.includes(cb.value);
+		});
+	}
+
+	syncURL() {
+		const params = new URLSearchParams();
+		if (this.filters.categories.length) params.set("categories", this.filters.categories.join(","));
+		if (this.filters.minPrice !== null) params.set("minPrice", this.filters.minPrice);
+		if (this.filters.maxPrice !== null) params.set("maxPrice", this.filters.maxPrice);
+		if (this.filters.search) params.set("search", this.filters.search);
+		if (this.sortBy !== "default") params.set("sort", this.sortBy);
+		const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ""}`;
+		history.pushState({}, "", next);
+	}
+
+	updateSortAria() {
+		const sortSelect = document.getElementById("sortSelect");
+		if (!sortSelect) return;
+		const map = {
+			"default": "none",
+			"price-asc": "ascending",
+			"price-desc": "descending",
+			"name-asc": "ascending",
+			"name-desc": "descending",
+			"rating": "other",
+		};
+		sortSelect.setAttribute("aria-sort", map[this.sortBy] || "none");
 	}
 
 	updateCount() {

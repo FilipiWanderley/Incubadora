@@ -4,11 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Conheça a TechShop. Desde 2018 democratizando o acesso à tecnologia com mais de 10.000 clientes satisfeitos em todo o Brasil." />
+		<meta name="keywords" content="techshop, tecnologia, sobre nós, e-commerce, equipe" />
 		<title>Sobre Nós — TechShop | Nossa História e Equipe</title>
+		<script>try{const k="techshop_theme";const s=localStorage.getItem(k);const d=document.documentElement;if(s==="dark"||s==="light"){d.setAttribute("data-theme",s);}else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){d.setAttribute("data-theme","dark");}else{d.setAttribute("data-theme","light");}}catch(e){}</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 	
 		<!-- SEO -->
 		<meta name="robots" content="index, follow" />
@@ -71,7 +74,7 @@
 						aria-label="Alternar tema"
 						aria-pressed="false">
 						<svg class="theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 					</button>
 					<button class="header__icon-btn" data-login-btn aria-label="Login">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -107,27 +110,27 @@
 			<!-- Apresentação -->
 			<section class="section">
 				<div class="container">
-					<div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
+					<div class="about-intro">
 						<div>
-							<h2 style="font-size:2rem;margin-bottom:1rem">Tecnologia acessível para todos</h2>
-							<p style="color:var(--gray-500);line-height:1.8;margin-bottom:1rem">
+							<h2 class="about-intro__title">Tecnologia acessível para todos</h2>
+							<p class="about-intro__text">
 								A TechShop nasceu da frustração de encontrar produtos de qualidade a preços justos. Começamos com uma ideia simples: eliminar intermediários e conectar diretamente fabricantes e consumidores apaixonados por tecnologia.
 							</p>
-							<p style="color:var(--gray-500);line-height:1.8;margin-bottom:2rem">
+							<p class="about-intro__text">
 								Hoje somos mais de 10.000 clientes satisfeitos com um catálogo de 500+ produtos cuidadosamente selecionados por especialistas.
 							</p>
-							<div style="display:flex;gap:2rem">
+							<div class="about-intro__stats">
 								<div>
-									<div style="font-size:2rem;font-weight:800;color:var(--primary);font-family:'Poppins',sans-serif">500+</div>
-									<div style="font-size:0.875rem;color:var(--gray-500)">Produtos</div>
+									<div class="about-intro__value">500+</div>
+									<div class="about-intro__label">Produtos</div>
 								</div>
 								<div>
-									<div style="font-size:2rem;font-weight:800;color:var(--primary);font-family:'Poppins',sans-serif">10k+</div>
-									<div style="font-size:0.875rem;color:var(--gray-500)">Clientes</div>
+									<div class="about-intro__value">10k+</div>
+									<div class="about-intro__label">Clientes</div>
 								</div>
 								<div>
-									<div style="font-size:2rem;font-weight:800;color:var(--primary);font-family:'Poppins',sans-serif">98%</div>
-									<div style="font-size:0.875rem;color:var(--gray-500)">Satisfação</div>
+									<div class="about-intro__value">98%</div>
+									<div class="about-intro__label">Satisfação</div>
 								</div>
 							</div>
 						</div>
@@ -135,7 +138,7 @@
 							<img
 								src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80"
 								alt="Equipe TechShop"
-								style="width:100%;border-radius:1rem;box-shadow:var(--shadow-xl)"
+								class="about-intro__image"
 							/>
 						</div>
 					</div>
@@ -143,7 +146,7 @@
 			</section>
 
 			<!-- Missão, Visão e Valores -->
-			<section class="section" style="background:var(--gray-50)">
+			<section class="section section--muted">
 				<div class="container">
 					<div class="section__header">
 						<h2 class="section__title">Missão, Visão e Valores</h2>
@@ -265,15 +268,15 @@
 			</section>
 
 			<!-- Timeline -->
-			<section class="section" style="background:var(--gray-50)">
+			<section class="section section--muted">
 				<div class="container">
 					<div class="section__header">
 						<h2 class="section__title">Nossa História</h2>
 						<p class="section__description">Uma jornada de crescimento construída junto com nossos clientes</p>
 					</div>
 
-					<div class="timeline">
-						<div class="timeline__item">
+					<div class="timeline" role="list" aria-label="Linha do tempo da empresa">
+						<div class="timeline__item" role="listitem">
 							<div class="timeline__left">
 								<div class="timeline__dot">18</div>
 								<div class="timeline__line"></div>
@@ -285,7 +288,7 @@
 							</div>
 						</div>
 
-						<div class="timeline__item">
+						<div class="timeline__item" role="listitem">
 							<div class="timeline__left">
 								<div class="timeline__dot">19</div>
 								<div class="timeline__line"></div>
@@ -297,7 +300,7 @@
 							</div>
 						</div>
 
-						<div class="timeline__item">
+						<div class="timeline__item" role="listitem">
 							<div class="timeline__left">
 								<div class="timeline__dot">21</div>
 								<div class="timeline__line"></div>
@@ -309,7 +312,7 @@
 							</div>
 						</div>
 
-						<div class="timeline__item">
+						<div class="timeline__item" role="listitem">
 							<div class="timeline__left">
 								<div class="timeline__dot">23</div>
 								<div class="timeline__line"></div>
@@ -321,7 +324,7 @@
 							</div>
 						</div>
 
-						<div class="timeline__item">
+						<div class="timeline__item" role="listitem">
 							<div class="timeline__left">
 								<div class="timeline__dot">26</div>
 								<div class="timeline__line"></div>
@@ -344,12 +347,12 @@
 						<div class="footer__logo">TechShop</div>
 						<p class="footer__about">Sua loja online de tecnologia com os melhores produtos e as melhores ofertas.</p>
 						<div class="footer__social">
-							<a href="#" class="footer__social-link" aria-label="Facebook">
+							<a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Facebook">
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
 									<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
 								</svg>
 							</a>
-							<a href="#" class="footer__social-link" aria-label="Instagram">
+							<a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram">
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 									<rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
 									<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>

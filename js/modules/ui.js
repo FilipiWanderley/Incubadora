@@ -32,17 +32,28 @@ function initBackToTop() {
 
 function initThemeToggle() {
 	const STORAGE_KEY = "techshop_theme";
+	const ALLOWED_THEMES = new Set(["light", "dark"]);
 
-	// Aplica o tema salvo ANTES do primeiro render (sem flash)
 	const saved = localStorage.getItem(STORAGE_KEY);
-	if (saved) {
+	if (saved && ALLOWED_THEMES.has(saved)) {
 		document.documentElement.setAttribute("data-theme", saved);
 	} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
 		document.documentElement.setAttribute("data-theme", "dark");
+	} else {
+		document.documentElement.setAttribute("data-theme", "light");
+	}
+	if (saved && !ALLOWED_THEMES.has(saved)) {
+		localStorage.removeItem(STORAGE_KEY);
 	}
 
 	const buttons = document.querySelectorAll("[data-theme-toggle]");
 	if (!buttons.length) return;
+
+	const applyTheme = (next, persist = true) => {
+		document.documentElement.setAttribute("data-theme", next);
+		if (persist) localStorage.setItem(STORAGE_KEY, next);
+		document.dispatchEvent(new CustomEvent("theme:changed", { detail: { theme: next } }));
+	};
 
 	const syncButtons = () => {
 		const isDark = document.documentElement.getAttribute("data-theme") === "dark";
@@ -61,19 +72,60 @@ function initThemeToggle() {
 		btn.addEventListener("click", () => {
 			const current = document.documentElement.getAttribute("data-theme");
 			const next    = current === "dark" ? "light" : "dark";
-			document.documentElement.setAttribute("data-theme", next);
-			localStorage.setItem(STORAGE_KEY, next);
+			applyTheme(next, true);
 			syncButtons();
 		});
 	});
 
-	// Escutar mudança de preferência do SO
 	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
 		if (!localStorage.getItem(STORAGE_KEY)) {
-			document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light");
+			applyTheme(e.matches ? "dark" : "light", false);
 			syncButtons();
 		}
 	});
+}
+
+function initThemeSelector() {
+	const STORAGE_KEY = "techshop_theme";
+	const themes = [
+		{ value: "light", label: "Claro" },
+		{ value: "dark", label: "Escuro" },
+	];
+
+	document.querySelectorAll(".header__actions").forEach((actions) => {
+		if (actions.querySelector("[data-theme-selector]")) return;
+		const select = document.createElement("select");
+		select.className = "theme-selector";
+		select.setAttribute("data-theme-selector", "");
+		select.setAttribute("aria-label", "Selecionar tema");
+		select.innerHTML = themes
+			.map((theme) => `<option value="${theme.value}">${theme.label}</option>`)
+			.join("");
+		actions.insertBefore(select, actions.firstChild);
+	});
+
+	const selectors = document.querySelectorAll("[data-theme-selector]");
+	if (!selectors.length) return;
+
+	const sync = () => {
+		const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+		selectors.forEach((select) => {
+			select.value = current;
+		});
+	};
+
+	sync();
+
+	selectors.forEach((select) => {
+		select.addEventListener("change", () => {
+			const next = select.value;
+			document.documentElement.setAttribute("data-theme", next);
+			localStorage.setItem(STORAGE_KEY, next);
+			document.dispatchEvent(new CustomEvent("theme:changed", { detail: { theme: next } }));
+		});
+	});
+
+	document.addEventListener("theme:changed", sync);
 }
 
 // ── Issue 27 — Fade-in ao entrar na viewport ─────────────
@@ -110,16 +162,29 @@ function initParallax() {
 
 	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+	parallaxEls.forEach((el) => {
+		el.style.willChange = "transform";
+	});
+
+	let ticking = false;
+
 	const update = () => {
 		const scrollY = window.scrollY;
 		parallaxEls.forEach((el) => {
 			const speed  = parseFloat(el.dataset.parallax) || 0.3;
 			const offset = scrollY * speed;
-			el.style.transform = `translateY(${offset}px)`;
+			el.style.transform = `translate3d(0, ${offset}px, 0)`;
 		});
+		ticking = false;
 	};
 
-	window.addEventListener("scroll", update, { passive: true });
+	const onScroll = () => {
+		if (ticking) return;
+		ticking = true;
+		window.requestAnimationFrame(update);
+	};
+
+	window.addEventListener("scroll", onScroll, { passive: true });
 	update();
 }
 
@@ -140,6 +205,12 @@ class Carousel {
 		this.isDragging       = false;
 		this.startX           = 0;
 		this.currentX         = 0;
+
+		if (!this.el.getAttribute("role")) this.el.setAttribute("role", "region");
+		if (!this.el.getAttribute("aria-label")) this.el.setAttribute("aria-label", "Carrossel de conteúdo");
+		this.el.setAttribute("tabindex", "0");
+		this.btnPrev?.setAttribute("aria-label", "Slide anterior");
+		this.btnNext?.setAttribute("aria-label", "Próximo slide");
 
 		if (this.total < 2) return;
 		this._buildDots();
@@ -268,6 +339,17 @@ function initPasswordToggles() {
 			btn.setAttribute("aria-label", show ? "Ocultar senha" : "Mostrar senha");
 		});
 	});
+}
+
+function initFavicon() {
+	const existing = document.querySelector("link[rel='icon']");
+	if (existing) return;
+	const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%23FF6B35"/><path d="M18 34l10 10 18-22" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+	const link = document.createElement("link");
+	link.rel = "icon";
+	link.type = "image/svg+xml";
+	link.href = `data:image/svg+xml,${svg}`;
+	document.head.appendChild(link);
 }
 
 // ── Alert / Toast system ─────────────────────────────────

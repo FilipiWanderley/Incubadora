@@ -3,12 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Gerencie seus dados pessoais, pedidos, endereços e preferências na TechShop." />
+		<meta name="description" content="Acesse seu perfil TechShop para gerenciar dados pessoais, endereços, pedidos, notificações e preferências de conta em um painel completo." />
+		<meta name="keywords" content="perfil, conta do usuário, pedidos, endereços, preferências" />
 		<title>Minha Conta — TechShop</title>
+		<script>try{const k="techshop_theme";const s=localStorage.getItem(k);const d=document.documentElement;if(s==="dark"||s==="light"){d.setAttribute("data-theme",s);}else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){d.setAttribute("data-theme","dark");}else{d.setAttribute("data-theme","light");}}catch(e){}</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 
 		<!-- SEO -->
 		<meta name="robots" content="noindex, nofollow" />
@@ -61,7 +64,7 @@
 						aria-label="Alternar tema"
 						aria-pressed="false">
 						<svg class="theme-toggle__icon--light" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+						<svg class="theme-toggle__icon--dark" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 					</button>
 					<button class="header__icon-btn" data-login-btn aria-label="Login">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -165,7 +168,8 @@
 												<input type="date" id="birthdate" name="birthdate" class="form__input" value="1990-05-15" autocomplete="bday" />
 											</div>
 										</div>
-										<div style="display:flex;justify-content:flex-end">
+										<div class="profile-actions-end">
+											<button type="reset" class="btn btn-outline">Cancelar</button>
 											<button type="submit" class="btn btn-primary">Salvar Alterações</button>
 										</div>
 									</form>
@@ -190,7 +194,8 @@
 												<input type="password" id="confirmNewPassword" name="confirmNewPassword" class="form__input" placeholder="Repita a nova senha" required minlength="6" autocomplete="new-password" data-match="newPassword" />
 											</div>
 										</div>
-										<div style="display:flex;justify-content:flex-end">
+										<div class="profile-actions-end">
+											<button type="reset" class="btn btn-outline">Cancelar</button>
 											<button type="submit" class="btn btn-primary">Alterar Senha</button>
 										</div>
 									</form>
@@ -198,24 +203,24 @@
 							</div>
 
 							<!-- Meus Pedidos -->
-							<div id="tabOrders" style="display:none">
+							<div id="tabOrders" class="hidden">
 								<div class="profile-section">
 									<div class="profile-section__header">
 										<h2 class="profile-section__title">Meus Pedidos</h2>
-										<span style="font-size:0.875rem;color:var(--gray-500)">3 pedidos</span>
+										<span class="profile-section__header-note">3 pedidos</span>
 									</div>
 									<div class="orders-list">
 										<article class="order-card">
 											<div class="order-card__header">
 												<div>
 													<span class="order-card__id">#TS-2024-0341</span>
-													<span class="order-card__date" style="margin-left:0.75rem">15 jan. 2025</span>
+													<span class="order-card__date order-card__date--spaced">15 jan. 2025</span>
 												</div>
 												<span class="badge badge--success">Entregue</span>
 											</div>
 											<div class="order-card__body">
 												<p class="order-card__products">Notebook UltraBook Pro 15, Mouse Gamer RGB Pro</p>
-												<div style="display:flex;align-items:center;gap:1rem">
+												<div class="order-card__actions">
 													<span class="order-card__total">R$ 4.488,90</span>
 													<a href="product-detail.html" class="btn btn-outline btn-sm">Ver detalhes</a>
 												</div>
@@ -226,13 +231,13 @@
 											<div class="order-card__header">
 												<div>
 													<span class="order-card__id">#TS-2024-0287</span>
-													<span class="order-card__date" style="margin-left:0.75rem">28 dez. 2024</span>
+													<span class="order-card__date order-card__date--spaced">28 dez. 2024</span>
 												</div>
 												<span class="badge badge--info">Em trânsito</span>
 											</div>
 											<div class="order-card__body">
 												<p class="order-card__products">Fone Bluetooth ANC Premium (×2)</p>
-												<div style="display:flex;align-items:center;gap:1rem">
+												<div class="order-card__actions">
 													<span class="order-card__total">R$ 1.198,00</span>
 													<a href="product-detail.html" class="btn btn-outline btn-sm">Rastrear</a>
 												</div>
@@ -243,13 +248,13 @@
 											<div class="order-card__header">
 												<div>
 													<span class="order-card__id">#TS-2024-0198</span>
-													<span class="order-card__date" style="margin-left:0.75rem">03 nov. 2024</span>
+													<span class="order-card__date order-card__date--spaced">03 nov. 2024</span>
 												</div>
 												<span class="badge badge--warning">Aguardando pagamento</span>
 											</div>
 											<div class="order-card__body">
 												<p class="order-card__products">Teclado Mecânico RGB</p>
-												<div style="display:flex;align-items:center;gap:1rem">
+												<div class="order-card__actions">
 													<span class="order-card__total">R$ 349,90</span>
 													<a href="#" class="btn btn-primary btn-sm">Pagar agora</a>
 												</div>
@@ -260,7 +265,7 @@
 							</div>
 
 							<!-- Endereços -->
-							<div id="tabAddresses" style="display:none">
+							<div id="tabAddresses" class="hidden">
 								<div class="profile-section">
 									<div class="profile-section__header">
 										<h2 class="profile-section__title">Endereços Salvos</h2>
@@ -280,7 +285,7 @@
 											<p class="address-card__text">Av. Paulista, 1578, 10º andar<br>Bela Vista — São Paulo / SP<br>CEP: 01310-200</p>
 											<div class="address-card__actions">
 												<button class="btn btn-outline btn-sm">Editar</button>
-												<button class="btn btn-sm" style="color:var(--gray-500)">Excluir</button>
+												<button class="btn btn-sm btn-muted" data-confirm-delete="endereco">Excluir</button>
 											</div>
 										</div>
 
@@ -293,54 +298,54 @@
 							</div>
 
 							<!-- Lista de Desejos -->
-							<div id="tabWishlist" style="display:none">
+							<div id="tabWishlist" class="hidden">
 								<div class="profile-section">
 									<div class="profile-section__header">
 										<h2 class="profile-section__title">Lista de Desejos</h2>
 									</div>
-									<p style="color:var(--gray-500);text-align:center;padding:2rem 0">
-										Sua lista de desejos está aqui. <a href="wishlist.html" style="color:var(--primary)">Ver lista completa</a>
+									<p class="profile-text-muted">
+										Sua lista de desejos está aqui. <a href="wishlist.html" class="profile-link-primary">Ver lista completa</a>
 									</p>
 								</div>
 							</div>
 
 							<!-- Notificações -->
-							<div id="tabNotifications" style="display:none">
+							<div id="tabNotifications" class="hidden">
 								<div class="profile-section">
 									<div class="profile-section__header">
 										<h2 class="profile-section__title">Preferências de Notificação</h2>
 									</div>
-									<div style="display:flex;flex-direction:column;gap:1rem">
-										<label style="display:flex;align-items:center;justify-content:space-between;padding:1rem;border:1px solid var(--gray-200);border-radius:var(--radius);cursor:pointer">
+									<div class="profile-notifications">
+										<label class="profile-notification-item">
 											<div>
-												<p style="font-weight:500;margin-bottom:0.25rem">Atualizações de pedidos</p>
-												<p style="font-size:0.875rem;color:var(--gray-500)">Status e rastreamento dos seus pedidos</p>
+												<p class="profile-notification-title">Atualizações de pedidos</p>
+												<p class="profile-notification-text">Status e rastreamento dos seus pedidos</p>
 											</div>
-											<input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px" />
+											<input type="checkbox" checked class="profile-checkbox" />
 										</label>
-										<label style="display:flex;align-items:center;justify-content:space-between;padding:1rem;border:1px solid var(--gray-200);border-radius:var(--radius);cursor:pointer">
+										<label class="profile-notification-item">
 											<div>
-												<p style="font-weight:500;margin-bottom:0.25rem">Promoções e ofertas</p>
-												<p style="font-size:0.875rem;color:var(--gray-500)">Descontos exclusivos e novidades</p>
+												<p class="profile-notification-title">Promoções e ofertas</p>
+												<p class="profile-notification-text">Descontos exclusivos e novidades</p>
 											</div>
-											<input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px" />
+											<input type="checkbox" checked class="profile-checkbox" />
 										</label>
-										<label style="display:flex;align-items:center;justify-content:space-between;padding:1rem;border:1px solid var(--gray-200);border-radius:var(--radius);cursor:pointer">
+										<label class="profile-notification-item">
 											<div>
-												<p style="font-weight:500;margin-bottom:0.25rem">Newsletter semanal</p>
-												<p style="font-size:0.875rem;color:var(--gray-500)">Tendências e artigos do blog</p>
+												<p class="profile-notification-title">Newsletter semanal</p>
+												<p class="profile-notification-text">Tendências e artigos do blog</p>
 											</div>
-											<input type="checkbox" style="accent-color:var(--primary);width:18px;height:18px" />
+											<input type="checkbox" class="profile-checkbox" />
 										</label>
-										<label style="display:flex;align-items:center;justify-content:space-between;padding:1rem;border:1px solid var(--gray-200);border-radius:var(--radius);cursor:pointer">
+										<label class="profile-notification-item">
 											<div>
-												<p style="font-weight:500;margin-bottom:0.25rem">Produtos em alerta de preço</p>
-												<p style="font-size:0.875rem;color:var(--gray-500)">Aviso quando itens da wishlist baixarem de preço</p>
+												<p class="profile-notification-title">Produtos em alerta de preço</p>
+												<p class="profile-notification-text">Aviso quando itens da wishlist baixarem de preço</p>
 											</div>
-											<input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px" />
+											<input type="checkbox" checked class="profile-checkbox" />
 										</label>
 									</div>
-									<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+									<div class="profile-actions-end profile-actions-end--spaced">
 										<button class="btn btn-primary">Salvar Preferências</button>
 									</div>
 								</div>
@@ -405,6 +410,15 @@
 					});
 					btn.classList.add('is-active');
 					btn.setAttribute('aria-current', 'true');
+				});
+			});
+
+			document.querySelectorAll('[data-confirm-delete]').forEach(btn => {
+				btn.addEventListener('click', () => {
+					const tipo = btn.dataset.confirmDelete || 'item';
+					if (!confirm(`Tem certeza que deseja excluir este ${tipo}?`)) return;
+					const card = btn.closest('.address-card');
+					if (card) card.remove();
 				});
 			});
 		</script>

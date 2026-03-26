@@ -239,6 +239,7 @@ class ProductFilters {
 
 	clearAll() {
 		this.state = { category: "all", sort: "default", minPrice: 0, maxPrice: Infinity, minRating: 0 };
+		window.api?.invalidateCache("products");
 
 		document.querySelectorAll("[data-filter-category]").forEach((b) => b.classList.remove("active"));
 		document.querySelector("[data-filter-category='all']")?.classList.add("active");

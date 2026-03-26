@@ -62,7 +62,7 @@ function initCartHandlers() {
 			window.showToast(
 				`<strong>${product.name}</strong> adicionado ao carrinho! <a href="${base}cart.html" style="color:inherit;font-weight:700;text-decoration:underline">Ver carrinho →</a>`,
 				"success",
-				4000
+				3000
 			);
 		}
 	});
@@ -370,4 +370,3 @@ function initLoginHandler() {
 		}, 50);
 	});
 }
-

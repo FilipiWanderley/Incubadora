@@ -28,10 +28,7 @@ Nenhuma dependência para instalar. Basta abrir o `index.html` no navegador.
 **Recomendado:** use a extensão [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) do VS Code para evitar problemas com módulos JS.
 
 ```bash
-# Alternativa via terminal
-npx http-server .
-# ou
-python -m http.server 8000
+python3 scripts/dev_server.py --port 4190
 ```
 
 Páginas disponíveis:

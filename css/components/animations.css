@@ -102,6 +102,8 @@
 	background-size: 1200px 100%;
 	animation: shimmer 1.4s ease-in-out infinite;
 	border-radius: var(--radius);
+	pointer-events: none;
+	user-select: none;
 }
 
 /* Skeleton de produto */
@@ -110,6 +112,7 @@
 	border-radius: 1rem;
 	overflow: hidden;
 	box-shadow: var(--shadow);
+	pointer-events: none;
 }
 
 .skeleton-card__image {
@@ -144,16 +147,56 @@
 	margin-top: 0.5rem;
 }
 
+.loading-state__skeleton-grid {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1rem;
+}
+
+.loading-state--detail {
+	padding: 2rem;
+}
+
+.skeleton-detail {
+	width: 100%;
+	display: grid;
+	grid-template-columns: minmax(220px, 420px) 1fr;
+	gap: 1.5rem;
+	align-items: start;
+}
+
+.skeleton-detail__image {
+	height: 360px;
+}
+
+.skeleton-detail__content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.875rem;
+}
+
+.skeleton-detail__title {
+	height: 36px;
+	width: 85%;
+}
+
+.skeleton-detail__price {
+	height: 32px;
+	width: 45%;
+}
+
 /* ── Microinterações ─────────────────────────────────── */
 
 /* Pulse em elementos de CTA */
 @keyframes pulse {
-	0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
-	50%       { box-shadow: 0 0 0 8px rgba(255, 107, 53, 0); }
+	0%, 100% { box-shadow: 0 0 0 0 var(--primary-45); }
+	50%       { box-shadow: 0 0 0 8px transparent; }
 }
 
 .pulse {
 	animation: pulse 2s ease-in-out infinite;
+	will-change: box-shadow;
 }
 
 /* Bounce em ícones */
@@ -164,6 +207,7 @@
 
 .bounce {
 	animation: bounce 1.2s ease-in-out infinite;
+	will-change: transform;
 }
 
 /* Shake em erros de formulário */
@@ -189,6 +233,7 @@
 
 .heart-pop {
 	animation: heartPop 0.35s ease;
+	will-change: transform;
 }
 
 /* Ripple em botões */
@@ -207,7 +252,7 @@
 .btn-ripple .ripple-effect {
 	position: absolute;
 	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.3);
+	background: var(--surface-white-25);
 	width: 10px;
 	height: 10px;
 	transform: scale(0);
@@ -220,5 +265,15 @@
 	.bounce,
 	.skeleton {
 		animation: none;
+	}
+}
+
+@media (max-width: 768px) {
+	.skeleton-detail {
+		grid-template-columns: 1fr;
+	}
+
+	.skeleton-detail__image {
+		height: 260px;
 	}
 }

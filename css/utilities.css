@@ -30,6 +30,14 @@
 	gap: 1rem;
 }
 
+.w-full {
+	width: 100%;
+}
+
+.mt-2 {
+	margin-top: 0.5rem;
+}
+
 /* ── Issue 22 — Sistema de Grid Utilitário ───────────── */
 
 /* Container de grid */

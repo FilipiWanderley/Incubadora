@@ -213,16 +213,16 @@ class Cart {
 
 		if (this.isEmpty()) {
 			itemsContainer.innerHTML   = "";
-			if (emptyState)       emptyState.style.display       = "";
-			if (summaryContainer) summaryContainer.style.display = "none";
+			if (emptyState)       emptyState.classList.remove("hidden");
+			if (summaryContainer) summaryContainer.classList.add("hidden");
 			return;
 		}
 
-		if (emptyState)       emptyState.style.display       = "none";
-		if (summaryContainer) summaryContainer.style.display = "";
+		if (emptyState)       emptyState.classList.add("hidden");
+		if (summaryContainer) summaryContainer.classList.remove("hidden");
 
 		itemsContainer.innerHTML = this.items.map((item) => `
-			<div class="cart-item" data-cart-item="${item.id}">
+			<li class="cart-item" data-cart-item="${item.id}">
 				<img src="${sanitizeHTML(item.image)}" alt="${sanitizeHTML(item.name)}" class="cart-item__img">
 				<div class="cart-item__info">
 					<span class="cart-item__category">${sanitizeHTML(item.category)}</span>
@@ -239,7 +239,7 @@ class Cart {
 				<button class="cart-item__remove" data-cart-remove="${item.id}" aria-label="Remover ${sanitizeHTML(item.name)} do carrinho">
 					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path></svg>
 				</button>
-			</div>
+			</li>
 		`).join("");
 
 		this.renderSummary();

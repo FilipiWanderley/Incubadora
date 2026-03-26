@@ -144,11 +144,11 @@ class Wishlist {
 
 		if (this.items.length === 0) {
 			grid.innerHTML = "";
-			if (emptyState) emptyState.style.display = "";
+			if (emptyState) emptyState.classList.remove("hidden");
 			return;
 		}
 
-		if (emptyState) emptyState.style.display = "none";
+		if (emptyState) emptyState.classList.add("hidden");
 
 		grid.innerHTML = this.items.map((item) => `
 			<div class="wishlist-card" data-wishlist-card="${item.id}">
@@ -214,7 +214,14 @@ class Wishlist {
 
 		// Botão "Compartilhar"
 		document.querySelector("[data-wishlist-share]")?.addEventListener("click", () => {
-			const url = window.location.href;
+			const ids = this.items.map((item) => item.id).join(",");
+			const shareUrl = new URL(window.location.href);
+			if (ids) {
+				shareUrl.searchParams.set("ids", ids);
+			} else {
+				shareUrl.searchParams.delete("ids");
+			}
+			const url = shareUrl.toString();
 			if (navigator.share) {
 				navigator.share({ title: "Minha Lista de Desejos — TechShop", url });
 			} else {

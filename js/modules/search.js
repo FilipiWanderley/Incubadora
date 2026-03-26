@@ -54,6 +54,8 @@ class Search {
 		this.dropdown.className = "search-dropdown";
 		this.dropdown.setAttribute("role", "listbox");
 		this.dropdown.setAttribute("aria-label", "Resultados da busca");
+		this.dropdown.setAttribute("aria-live", "polite");
+		this.dropdown.setAttribute("aria-atomic", "true");
 
 		const wrap = this.input.closest(".search-wrapper, .header__search, form") || this.input.parentElement;
 		wrap.style.position = "relative";

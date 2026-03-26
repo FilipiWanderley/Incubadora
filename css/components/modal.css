@@ -8,7 +8,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, 0.5);
+	background: var(--overlay-backdrop);
 	backdrop-filter: blur(4px);
 	z-index: 1000;
 	display: flex;
@@ -17,7 +17,7 @@
 	padding: 1rem;
 	opacity: 0;
 	visibility: hidden;
-	transition: all 0.3s;
+	transition: opacity 0.3s, visibility 0.3s;
 }
 
 .modal-backdrop.active {
@@ -27,7 +27,7 @@
 
 .modal {
 	position: relative;
-	background: white;
+	background: var(--white);
 	border-radius: 1rem;
 	box-shadow: var(--shadow-xl);
 	max-width: 500px;
@@ -35,7 +35,8 @@
 	max-height: 90vh;
 	overflow: hidden;
 	transform: scale(0.9) translateY(-20px);
-	transition: all 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	will-change: transform, opacity;
 }
 
 .modal-backdrop.active .modal {
@@ -64,7 +65,7 @@
 }
 
 .product-modal__gallery {
-	background: var(--gray-100, #f5f5f5);
+	background: var(--gray-100);
 	border-radius: 1rem 0 0 1rem;
 	overflow: hidden;
 	display: flex;
@@ -97,7 +98,7 @@
 	background: none;
 	border: none;
 	cursor: pointer;
-	color: var(--gray-500, #6b7280);
+	color: var(--gray-500);
 	padding: 0.25rem;
 	display: flex;
 	align-items: center;
@@ -108,8 +109,8 @@
 
 .product-modal__close:hover,
 .product-modal__close:focus-visible {
-	color: var(--gray-900, #111);
-	background: var(--gray-100, #f5f5f5);
+	color: var(--gray-900);
+	background: var(--gray-100);
 }
 
 .product-modal__category {
@@ -117,14 +118,14 @@
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
-	color: var(--primary, #ff6b35);
+	color: var(--primary);
 }
 
 .product-modal__name {
 	font-size: var(--text-xl, 1.25rem);
 	font-weight: 700;
 	line-height: 1.3;
-	color: var(--color-text, #111);
+	color: var(--color-text);
 	margin: 0;
 	padding-right: 2rem;
 }
@@ -137,12 +138,12 @@
 }
 
 .product-modal__stars {
-	color: #f59e0b;
+	color: var(--star-color);
 	font-weight: 600;
 }
 
 .product-modal__reviews {
-	color: var(--gray-500, #6b7280);
+	color: var(--gray-500);
 }
 
 .product-modal__pricing {
@@ -154,19 +155,19 @@
 
 .product-modal__original {
 	font-size: var(--text-sm, 0.875rem);
-	color: var(--gray-400, #9ca3af);
+	color: var(--gray-400);
 	text-decoration: line-through;
 }
 
 .product-modal__price {
 	font-size: var(--text-2xl, 1.5rem);
 	font-weight: 700;
-	color: var(--color-text, #111);
+	color: var(--color-text);
 }
 
 .product-modal__discount {
-	background: var(--primary, #ff6b35);
-	color: #fff;
+	background: var(--primary);
+	color: var(--white);
 	font-size: var(--text-xs, 0.75rem);
 	font-weight: 700;
 	padding: 0.2rem 0.5rem;
@@ -188,7 +189,7 @@
 
 .product-modal__details-link {
 	font-size: var(--text-sm, 0.875rem);
-	color: var(--primary, #ff6b35);
+	color: var(--primary);
 	text-decoration: none;
 	margin-top: auto;
 	padding-top: 0.5rem;
@@ -202,7 +203,7 @@
 .qty-control {
 	display: flex;
 	align-items: center;
-	border: 1px solid var(--gray-300, #d1d5db);
+	border: 1px solid var(--gray-300);
 	border-radius: 0.5rem;
 	overflow: hidden;
 }
@@ -210,9 +211,9 @@
 .qty-control__btn {
 	width: 36px;
 	height: 36px;
-	background: var(--gray-100, #f5f5f5);
+	background: var(--gray-100);
 	border: none;
-	font-size: 1.125rem;
+	font-size: var(--font-lg);
 	cursor: pointer;
 	transition: background 0.2s;
 	display: flex;
@@ -221,15 +222,15 @@
 }
 
 .qty-control__btn:hover {
-	background: var(--gray-200, #e5e7eb);
+	background: var(--gray-200);
 }
 
 .qty-control__input {
 	width: 48px;
 	height: 36px;
 	border: none;
-	border-left: 1px solid var(--gray-300, #d1d5db);
-	border-right: 1px solid var(--gray-300, #d1d5db);
+	border-left: 1px solid var(--gray-300);
+	border-right: 1px solid var(--gray-300);
 	text-align: center;
 	font-size: var(--text-sm, 0.875rem);
 	font-weight: 600;
@@ -266,7 +267,7 @@
 }
 
 .modal__title {
-	font-size: 1.5rem;
+	font-size: var(--font-2xl);
 	font-weight: 600;
 	margin: 0;
 }
@@ -279,7 +280,7 @@
 	height: 36px;
 	border-radius: 50%;
 	color: var(--gray-500);
-	transition: all 0.2s;
+	transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
 .modal__close:hover {
@@ -316,19 +317,19 @@
 }
 
 .modal__icon--success {
-	background: rgba(16, 185, 129, 0.1);
+	background: var(--success-10);
 	color: var(--success);
 }
 .modal__icon--error {
-	background: rgba(239, 68, 68, 0.1);
+	background: var(--error-10);
 	color: var(--error);
 }
 .modal__icon--warning {
-	background: rgba(245, 158, 11, 0.1);
+	background: var(--warning-10);
 	color: var(--warning);
 }
 .modal__icon--info {
-	background: rgba(59, 130, 246, 0.1);
+	background: var(--info-10);
 	color: var(--info);
 }
 
@@ -345,7 +346,7 @@ body.modal-open {
 /* ── Auth Modal Premium ─────────────────────────── */
 
 .auth-modal__hero {
-	background: linear-gradient(135deg, #ff6b35 0%, #e04e22 45%, #004e89 100%);
+	background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-dark-2) 45%, var(--secondary) 100%);
 	margin: -1.5rem -1.5rem 0;
 	padding: 2.25rem 1.5rem 2rem;
 	text-align: center;
@@ -358,8 +359,8 @@ body.modal-open {
 	position: absolute;
 	inset: 0;
 	background:
-		radial-gradient(circle at 15% 50%, rgba(255,255,255,0.08) 0%, transparent 55%),
-		radial-gradient(circle at 85% 20%, rgba(255,255,255,0.06) 0%, transparent 45%);
+		radial-gradient(circle at 15% 50%, var(--surface-white-08) 0%, transparent 55%),
+		radial-gradient(circle at 85% 20%, var(--surface-white-06) 0%, transparent 45%);
 	pointer-events: none;
 }
 
@@ -370,19 +371,19 @@ body.modal-open {
 	width: 32px;
 	height: 32px;
 	border-radius: 50%;
-	background: rgba(255,255,255,0.15);
+	background: var(--surface-white-15);
 	border: none;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: rgba(255,255,255,0.9);
+	color: var(--text-white-90);
 	transition: background 0.2s, transform 0.2s;
 	z-index: 1;
 }
 
 .auth-modal__hero-close:hover {
-	background: rgba(255,255,255,0.25);
+	background: var(--surface-white-25);
 	transform: rotate(90deg);
 }
 
@@ -391,21 +392,21 @@ body.modal-open {
 	align-items: center;
 	gap: 0.625rem;
 	font-family: "Poppins", sans-serif;
-	font-size: 1.5rem;
+	font-size: var(--font-2xl);
 	font-weight: 700;
-	color: white;
+	color: var(--white);
 	margin-bottom: 0.375rem;
 }
 
 .auth-modal__hero-logo svg {
 	width: 36px;
 	height: 36px;
-	filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+	filter: drop-shadow(0 2px 8px var(--overlay-medium));
 }
 
 .auth-modal__hero-tagline {
-	font-size: 0.8125rem;
-	color: rgba(255,255,255,0.75);
+	font-size: var(--font-sm);
+	color: var(--text-white-75);
 	letter-spacing: 0.3px;
 	margin: 0;
 }
@@ -423,19 +424,19 @@ body.modal-open {
 	flex: 1;
 	padding: 0.625rem 1rem;
 	border-radius: 999px;
-	font-size: 0.9375rem;
+	font-size: var(--font-md-plus);
 	font-weight: 600;
 	background: none;
 	border: none;
 	cursor: pointer;
 	color: var(--gray-500);
-	transition: all 0.2s;
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
 .auth-modal__tab--active {
-	background: white;
+	background: var(--white);
 	color: var(--gray-900);
-	box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+	box-shadow: 0 1px 4px var(--overlay-subtle);
 }
 
 .auth-modal__social {
@@ -453,8 +454,8 @@ body.modal-open {
 	padding: 0.6875rem 1rem;
 	border: 1.5px solid var(--gray-200);
 	border-radius: var(--radius);
-	background: white;
-	font-size: 0.875rem;
+	background: var(--white);
+	font-size: var(--font-md);
 	font-weight: 500;
 	color: var(--gray-700);
 	cursor: pointer;
@@ -472,7 +473,7 @@ body.modal-open {
 	align-items: center;
 	gap: 0.75rem;
 	margin-bottom: 1.25rem;
-	font-size: 0.8125rem;
+	font-size: var(--font-sm);
 	color: var(--gray-400);
 }
 
@@ -491,7 +492,7 @@ body.modal-open {
 
 .auth-modal__field label {
 	display: block;
-	font-size: 0.8125rem;
+	font-size: var(--font-sm);
 	font-weight: 600;
 	color: var(--gray-700);
 	margin-bottom: 0.375rem;
@@ -542,15 +543,15 @@ body.modal-open {
 .auth-modal__submit {
 	width: 100%;
 	padding: 0.875rem;
-	background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-	color: white;
+	background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-dark-2) 100%);
+	color: var(--white);
 	border: none;
 	border-radius: var(--radius);
-	font-size: 1rem;
+	font-size: var(--text-base);
 	font-weight: 700;
 	cursor: pointer;
 	transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
-	box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
+	box-shadow: 0 4px 14px var(--primary-35);
 	margin-top: 0.375rem;
 	letter-spacing: 0.2px;
 }
@@ -558,18 +559,18 @@ body.modal-open {
 .auth-modal__submit:hover {
 	opacity: 0.93;
 	transform: translateY(-1px);
-	box-shadow: 0 6px 20px rgba(255, 107, 53, 0.45);
+	box-shadow: 0 6px 20px var(--primary-45);
 }
 
 .auth-modal__submit:active {
 	transform: translateY(0);
-	box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+	box-shadow: 0 2px 8px var(--primary-30);
 }
 
 .auth-modal__footer-link {
 	text-align: center;
 	margin-top: 1.25rem;
-	font-size: 0.875rem;
+	font-size: var(--font-md);
 	color: var(--gray-500);
 }
 
@@ -581,7 +582,7 @@ body.modal-open {
 .auth-modal__forgot {
 	display: block;
 	text-align: right;
-	font-size: 0.8125rem;
+	font-size: var(--font-sm);
 	color: var(--primary);
 	margin-top: -0.5rem;
 	margin-bottom: 1.25rem;
@@ -593,7 +594,7 @@ body.modal-open {
 	align-items: flex-start;
 	gap: 0.5rem;
 	margin-bottom: 1.25rem;
-	font-size: 0.8125rem;
+	font-size: var(--font-sm);
 	color: var(--gray-600);
 	cursor: pointer;
 }
@@ -617,7 +618,7 @@ body.modal-open {
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-	font-size: 0.875rem;
+	font-size: var(--font-md);
 	color: var(--gray-600);
 	cursor: pointer;
 }
@@ -626,4 +627,94 @@ body.modal-open {
 	accent-color: var(--primary);
 	width: 15px;
 	height: 15px;
+}
+
+[data-theme="dark"] .modal {
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .modal__header,
+[data-theme="dark"] .modal__footer {
+	border-color: var(--color-border);
+}
+
+[data-theme="dark"] .modal__footer {
+	background: var(--gray-100);
+}
+
+[data-theme="dark"] .modal__title,
+[data-theme="dark"] .modal__text,
+[data-theme="dark"] .product-modal__name,
+[data-theme="dark"] .product-modal__price {
+	color: var(--color-heading);
+}
+
+[data-theme="dark"] .product-modal__gallery {
+	background: var(--gray-100);
+}
+
+[data-theme="dark"] .product-modal__close:hover,
+[data-theme="dark"] .modal__close:hover {
+	background: var(--surface-white-08);
+	color: var(--color-heading);
+}
+
+[data-theme="dark"] .qty-control {
+	border-color: var(--color-border);
+}
+
+[data-theme="dark"] .qty-control__btn {
+	background: var(--gray-100);
+	color: var(--color-text);
+}
+
+[data-theme="dark"] .qty-control__btn:hover {
+	background: var(--gray-200);
+}
+
+[data-theme="dark"] .qty-control__input {
+	background: var(--color-surface);
+	color: var(--color-text);
+	border-color: var(--color-border);
+}
+
+[data-theme="dark"] .auth-modal__tabs {
+	background: var(--gray-200);
+}
+
+[data-theme="dark"] .auth-modal__tab {
+	color: var(--color-text-muted);
+}
+
+[data-theme="dark"] .auth-modal__tab--active {
+	background: var(--color-surface);
+	color: var(--color-heading);
+}
+
+[data-theme="dark"] .auth-modal__social-btn {
+	background: var(--color-surface);
+	color: var(--color-text);
+	border-color: var(--color-border);
+}
+
+[data-theme="dark"] .auth-modal__social-btn:hover {
+	background: var(--gray-100);
+	border-color: var(--gray-400);
+}
+
+[data-theme="dark"] .auth-modal__divider {
+	color: var(--color-text-muted);
+}
+
+[data-theme="dark"] .auth-modal__divider::before,
+[data-theme="dark"] .auth-modal__divider::after {
+	background: var(--color-border);
+}
+
+[data-theme="dark"] .auth-modal__field label,
+[data-theme="dark"] .auth-modal__check,
+[data-theme="dark"] .auth-modal__remember label,
+[data-theme="dark"] .auth-modal__footer-link {
+	color: var(--color-text-muted);
 }
