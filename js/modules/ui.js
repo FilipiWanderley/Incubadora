@@ -33,17 +33,37 @@ function initBackToTop() {
 function initThemeToggle() {
 	const STORAGE_KEY = "techshop_theme";
 	const ALLOWED_THEMES = new Set(["light", "dark"]);
+	const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+	const safeGetItem = (key) => {
+		try {
+			return localStorage.getItem(key);
+		} catch {
+			return null;
+		}
+	};
+	const safeSetItem = (key, value) => {
+		try {
+			localStorage.setItem(key, value);
+		} catch {
+		}
+	};
+	const safeRemoveItem = (key) => {
+		try {
+			localStorage.removeItem(key);
+		} catch {
+		}
+	};
 
-	const saved = localStorage.getItem(STORAGE_KEY);
+	const saved = safeGetItem(STORAGE_KEY);
 	if (saved && ALLOWED_THEMES.has(saved)) {
 		document.documentElement.setAttribute("data-theme", saved);
-	} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+	} else if (mediaQuery.matches) {
 		document.documentElement.setAttribute("data-theme", "dark");
 	} else {
 		document.documentElement.setAttribute("data-theme", "light");
 	}
 	if (saved && !ALLOWED_THEMES.has(saved)) {
-		localStorage.removeItem(STORAGE_KEY);
+		safeRemoveItem(STORAGE_KEY);
 	}
 
 	const buttons = document.querySelectorAll("[data-theme-toggle]");
@@ -51,7 +71,7 @@ function initThemeToggle() {
 
 	const applyTheme = (next, persist = true) => {
 		document.documentElement.setAttribute("data-theme", next);
-		if (persist) localStorage.setItem(STORAGE_KEY, next);
+		if (persist) safeSetItem(STORAGE_KEY, next);
 		document.dispatchEvent(new CustomEvent("theme:changed", { detail: { theme: next } }));
 	};
 
@@ -77,12 +97,18 @@ function initThemeToggle() {
 		});
 	});
 
-	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-		if (!localStorage.getItem(STORAGE_KEY)) {
+	const onSystemThemeChange = (e) => {
+		if (!safeGetItem(STORAGE_KEY)) {
 			applyTheme(e.matches ? "dark" : "light", false);
 			syncButtons();
 		}
-	});
+	};
+
+	if (typeof mediaQuery.addEventListener === "function") {
+		mediaQuery.addEventListener("change", onSystemThemeChange);
+	} else if (typeof mediaQuery.addListener === "function") {
+		mediaQuery.addListener(onSystemThemeChange);
+	}
 }
 
 function initThemeSelector() {
@@ -201,7 +227,8 @@ class Carousel {
 		this.current  = 0;
 		this.total    = this.slides.length;
 		this.autoplayInterval = null;
-		this.autoplayDelay    = parseInt(el.dataset.autoplay) || 0;
+		const parsedAutoplay = Number.parseInt(el.dataset.autoplay || "0", 10);
+		this.autoplayDelay    = Number.isFinite(parsedAutoplay) ? parsedAutoplay : 0;
 		this.isDragging       = false;
 		this.startX           = 0;
 		this.currentX         = 0;
@@ -260,6 +287,7 @@ class Carousel {
 
 	_stopAutoplay() {
 		if (this.autoplayInterval) clearInterval(this.autoplayInterval);
+		this.autoplayInterval = null;
 	}
 
 	_bindEvents() {
@@ -276,6 +304,7 @@ class Carousel {
 		this.el.addEventListener("touchstart", (e) => {
 			this.isDragging = true;
 			this.startX     = e.touches[0].clientX;
+			this.currentX = this.startX;
 			this.el.classList.add("carousel--dragging");
 		}, { passive: true });
 
@@ -296,8 +325,14 @@ class Carousel {
 
 		// Teclado
 		this.el.addEventListener("keydown", (e) => {
-			if (e.key === "ArrowLeft")  this.prev();
-			if (e.key === "ArrowRight") this.next();
+			if (e.key === "ArrowLeft") {
+				e.preventDefault();
+				this.prev();
+			}
+			if (e.key === "ArrowRight") {
+				e.preventDefault();
+				this.next();
+			}
 		});
 	}
 }
@@ -355,6 +390,8 @@ function initFavicon() {
 // ── Alert / Toast system ─────────────────────────────────
 
 function showToast(message, type = "info", duration = 4000) {
+	const allowedType = ["success", "error", "warning", "info"].includes(type) ? type : "info";
+	const safeDuration = Number.isFinite(duration) ? Math.max(0, duration) : 4000;
 	let container = document.querySelector(".toast-container");
 	if (!container) {
 		container = document.createElement("div");
@@ -370,12 +407,12 @@ function showToast(message, type = "info", duration = 4000) {
 	};
 
 	const toast = document.createElement("div");
-	toast.className = `alert alert--${type} toast`;
+	toast.className = `alert alert--${allowedType} toast`;
 	toast.setAttribute("role", "alert");
 	toast.setAttribute("aria-live", "polite");
 	toast.setAttribute("aria-atomic", "true");
 	toast.innerHTML = `
-		<span class="alert__icon">${icons[type] || icons.info}</span>
+		<span class="alert__icon">${icons[allowedType] || icons.info}</span>
 		<span class="alert__body">${message}</span>
 		<button class="alert__close" aria-label="Fechar">
 			<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -390,7 +427,7 @@ function showToast(message, type = "info", duration = 4000) {
 	toast.querySelector(".alert__close").addEventListener("click", dismiss);
 	container.appendChild(toast);
 
-	if (duration > 0) setTimeout(dismiss, duration);
+	if (safeDuration > 0) setTimeout(dismiss, safeDuration);
 	return toast;
 }
 

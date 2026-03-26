@@ -4,7 +4,7 @@
 
 class ProductsGallery {
 	constructor() {
-		this.allProducts = products || [];
+		this.allProducts = Array.isArray(window.products) ? window.products : [];
 		this.filteredProducts = [...this.allProducts];
 		this.SORT_STORAGE_KEY = "techshop_products_sort";
 		this.filters = {
@@ -14,6 +14,7 @@ class ProductsGallery {
 			search: "",
 		};
 		this.sortBy = "default";
+		this._searchDebounce = null;
 		this.init();
 	}
 
@@ -124,10 +125,9 @@ class ProductsGallery {
 	initFilters() {
 		const searchInput = document.getElementById("searchInput");
 		if (searchInput) {
-			let timeout;
 			searchInput.addEventListener("input", (e) => {
-				clearTimeout(timeout);
-				timeout = setTimeout(() => {
+				clearTimeout(this._searchDebounce);
+				this._searchDebounce = setTimeout(() => {
 					this.filters.search = e.target.value;
 					this.renderProducts();
 					this.syncURL();
@@ -154,8 +154,8 @@ class ProductsGallery {
 			applyPriceBtn.addEventListener("click", () => {
 				const minPrice = document.getElementById("minPrice")?.value;
 				const maxPrice = document.getElementById("maxPrice")?.value;
-				this.filters.minPrice = minPrice ? parseFloat(minPrice) : null;
-				this.filters.maxPrice = maxPrice ? parseFloat(maxPrice) : null;
+				this.filters.minPrice = this._toNumberOrNull(minPrice);
+				this.filters.maxPrice = this._toNumberOrNull(maxPrice);
 				this.renderProducts();
 				this.syncURL();
 			});
@@ -177,16 +177,10 @@ class ProductsGallery {
 		const clearBtn = document.getElementById("clearFilters");
 		if (clearBtn) {
 			clearBtn.addEventListener("click", () => {
-				this.filters = {
-					categories: [],
-					minPrice: null,
-					maxPrice: null,
-					search: "",
-				};
-				this.sortBy = "default";
-				document
-					.querySelectorAll("[data-category-filter]")
-					.forEach((cb) => (cb.checked = false));
+				this._resetFilters();
+				document.querySelectorAll("[data-category-filter]").forEach((cb) => {
+					cb.checked = false;
+				});
 				if (searchInput) searchInput.value = "";
 				if (sortSelect) sortSelect.value = "default";
 				localStorage.removeItem(this.SORT_STORAGE_KEY);
@@ -201,13 +195,7 @@ class ProductsGallery {
 		}
 
 		window.addEventListener("popstate", () => {
-			this.filters = {
-				categories: [],
-				minPrice: null,
-				maxPrice: null,
-				search: "",
-			};
-			this.sortBy = "default";
+			this._resetFilters();
 			this.restoreState();
 			this.syncControls();
 			this.renderProducts();
@@ -230,8 +218,8 @@ class ProductsGallery {
 		const sort = params.get("sort");
 		const storedSort = localStorage.getItem(this.SORT_STORAGE_KEY);
 
-		this.filters.minPrice = minPrice ? parseFloat(minPrice) : null;
-		this.filters.maxPrice = maxPrice ? parseFloat(maxPrice) : null;
+		this.filters.minPrice = this._toNumberOrNull(minPrice);
+		this.filters.maxPrice = this._toNumberOrNull(maxPrice);
 		this.filters.search = search || "";
 		this.sortBy = sort || storedSort || "default";
 	}
@@ -263,6 +251,7 @@ class ProductsGallery {
 		if (this.filters.search) params.set("search", this.filters.search);
 		if (this.sortBy !== "default") params.set("sort", this.sortBy);
 		const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ""}`;
+		if (window.location.pathname + window.location.search === next) return;
 		history.pushState({}, "", next);
 	}
 
@@ -286,5 +275,22 @@ class ProductsGallery {
 			const count = this.filteredProducts.length;
 			countEl.textContent = `${count} produto${count !== 1 ? "s" : ""} encontrado${count !== 1 ? "s" : ""}`;
 		}
+	}
+
+	_toNumberOrNull(value) {
+		const normalized = String(value ?? "").trim();
+		if (!normalized) return null;
+		const parsed = Number.parseFloat(normalized);
+		return Number.isFinite(parsed) ? parsed : null;
+	}
+
+	_resetFilters() {
+		this.filters = {
+			categories: [],
+			minPrice: null,
+			maxPrice: null,
+			search: "",
+		};
+		this.sortBy = "default";
 	}
 }
