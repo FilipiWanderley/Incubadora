@@ -2,94 +2,89 @@
 // APP.JS — Aplicação Principal
 // ========================================
 
+function runSafe(taskName, task) {
+	try {
+		return task();
+	} catch (error) {
+		console.error(`[init] ${taskName}`, error);
+		return null;
+	}
+}
+
 function init() {
-	// ── Sistemas globais ──────────────────────────────────
-	window.modalSystem = new Modal();
-	window.navigation  = new Navigation();
-	window.cart        = new Cart();
-	window.wishlist    = new Wishlist();
+	window.modalSystem = runSafe("Modal", () => new Modal());
+	window.navigation = runSafe("Navigation", () => new Navigation());
+	window.cart = runSafe("Cart", () => new Cart());
+	window.wishlist = runSafe("Wishlist", () => new Wishlist());
 
-	// ── UI global ─────────────────────────────────────────
-	initThemeToggle();      // dark mode + temas
-	initThemeSelector();
-	initBackToTop();        // botão voltar ao topo
-	initFadeInObserver();   // animações de entrada
-	initParallax();         // efeito parallax
-	initCarousels();        // carousels/sliders
-	initPasswordToggles();  // toggle mostrar/ocultar senha
-	initFavicon();
-	initMasks();            // máscaras de input (data-mask)
-	initCEPFields();        // CEP com ViaCEP (data-cep)
-	initCPFValidation();    // validação CPF (data-validate-cpf)
-	initPasswordStrengthMeters();
-	initHeroCounters();
-	initPerformanceBenchmark();
+	[
+		["ThemeToggle", initThemeToggle],
+		["ThemeSelector", initThemeSelector],
+		["BackToTop", initBackToTop],
+		["FadeInObserver", initFadeInObserver],
+		["Parallax", initParallax],
+		["Carousels", initCarousels],
+		["PasswordToggles", initPasswordToggles],
+		["Favicon", initFavicon],
+		["Masks", initMasks],
+		["CEPFields", initCEPFields],
+		["CPFValidation", initCPFValidation],
+		["PasswordStrengthMeters", initPasswordStrengthMeters],
+		["HeroCounters", initHeroCounters],
+		["PerformanceBenchmark", initPerformanceBenchmark],
+		["CartHandlers", initCartHandlers],
+		["QuickViewHandler", initQuickViewHandler],
+		["LoginHandler", initLoginHandler],
+	].forEach(([name, initializer]) => runSafe(name, initializer));
 
-	// ── Handlers de carrinho, quick view e login ─────────
-	initCartHandlers();
-	initQuickViewHandler();
-	initLoginHandler();
+	runSafe("WishlistButtons", () => window.wishlist?.initButtons?.());
 
-	// ── Favoritos ─────────────────────────────────────────
-	window.wishlist.initButtons();
-
-	// ── Formulários com data-validate ────────────────────
-	document.querySelectorAll("form[data-validate]").forEach((form) => {
-		new FormValidator(form);
+	document.querySelectorAll("form[data-validate]").forEach((form, index) => {
+		runSafe(`FormValidator:${index + 1}`, () => new FormValidator(form));
 	});
 
-	// ── Páginas específicas ───────────────────────────────
-
-	// Home — produtos em destaque
-	if (document.getElementById("featuredProducts")) {
-		renderFeaturedProducts();
-	}
-
-	// Produtos — galeria, filtros, busca
-	if (document.getElementById("productsGrid")) {
-		window.productsGallery = new ProductsGallery();
-		window.productFilters  = new ProductFilters();
-
-		const searchInput = document.querySelector("[data-search-input]");
-		if (searchInput) window.search = new Search(searchInput);
-	}
-
-	// Carrinho
-	if (document.querySelector(".cart-layout")) {
-		window.cart.renderPage();
-		window.cart.initCouponForm();
-	}
-
-	// Wishlist
-	if (document.getElementById("wishlistGrid") || document.getElementById("wishlistEmpty")) {
-		window.wishlist.renderPage();
-	}
-
-	if (document.getElementById("placeOrderBtn")) {
-		initCheckoutSubmitState();
-	}
-
-	if (document.getElementById("faqSearch")) {
-		initFAQPage();
-	}
-
-	if (document.querySelector(".blog-grid")) {
-		initBlogTagFilters();
-	}
-
-	// Produto detail — carrega produto por ?id=
-	if (document.getElementById("productDetail")) {
-		initProductDetailPage();
-	}
+	[
+		["FeaturedProducts", () => Boolean(document.getElementById("featuredProducts")), () => renderFeaturedProducts()],
+		["ProductsPage", () => Boolean(document.getElementById("productsGrid")), () => {
+			window.productsGallery = new ProductsGallery();
+			window.productFilters = new ProductFilters();
+			const searchInput = document.querySelector("[data-search-input]");
+			if (searchInput) window.search = new Search(searchInput);
+		}],
+		["CartPage", () => Boolean(document.querySelector(".cart-layout")), () => {
+			window.cart?.renderPage?.();
+			window.cart?.initCouponForm?.();
+		}],
+		["WishlistPage", () => Boolean(document.getElementById("wishlistGrid") || document.getElementById("wishlistEmpty")), () => window.wishlist?.renderPage?.()],
+		["CheckoutState", () => Boolean(document.getElementById("placeOrderBtn")), initCheckoutSubmitState],
+		["FAQPage", () => Boolean(document.getElementById("faqSearch")), initFAQPage],
+		["BlogTagFilters", () => Boolean(document.querySelector(".blog-grid")), initBlogTagFilters],
+		["ProductDetail", () => Boolean(document.getElementById("productDetail")), initProductDetailPage],
+	].forEach(([name, condition, initializer]) => {
+		if (!condition()) return;
+		runSafe(name, initializer);
+	});
 }
 
 // ── Product Detail Page ───────────────────────────────────
 
 function initProductDetailPage() {
-	const params    = new URLSearchParams(window.location.search);
-	const id        = parseInt(params.get("id")) || 1;
+	const params = new URLSearchParams(window.location.search);
+	const parsedId = Number.parseInt(params.get("id"), 10);
+	const id = Number.isFinite(parsedId) ? parsedId : 1;
 	const container = document.getElementById("productDetail");
 	const breadcrumb = document.getElementById("breadcrumbProduct");
+	if (!container) return;
+	if (!window.api || typeof window.api.getProduct !== "function") {
+		container.innerHTML = `
+			<div class="error-state">
+				<h2>Produto indisponível</h2>
+				<p>Não foi possível carregar os dados do produto no momento.</p>
+				<a href="products.html" class="btn btn--primary">Voltar para produtos</a>
+			</div>
+		`;
+		return;
+	}
 
 	window.api.getProduct(id)
 		.then((product) => {
@@ -141,11 +136,15 @@ function initProductDetailPage() {
 
 			// Qty controls na página de detalhe
 			const qtyInput = document.getElementById("pdQty");
+			const readQty = () => {
+				const value = Number.parseInt(qtyInput?.value || "1", 10);
+				return Number.isFinite(value) ? value : 1;
+			};
 			document.getElementById("pdQtyDec")?.addEventListener("click", () => {
-				qtyInput.value = Math.max(1, parseInt(qtyInput.value) - 1);
+				qtyInput.value = String(Math.max(1, readQty() - 1));
 			});
 			document.getElementById("pdQtyInc")?.addEventListener("click", () => {
-				qtyInput.value = Math.min(99, parseInt(qtyInput.value) + 1);
+				qtyInput.value = String(Math.min(99, readQty() + 1));
 			});
 
 			// Re-inicializa favoritos no conteúdo carregado
@@ -295,6 +294,8 @@ function initHeroCounters() {
 function initPerformanceBenchmark() {
 	const params = new URLSearchParams(window.location.search);
 	if (params.get("perf") !== "1") return;
+	const existingNode = document.getElementById("perf-benchmark-result");
+	if (existingNode) return;
 	const resultNode = document.createElement("div");
 	resultNode.id = "perf-benchmark-result";
 	resultNode.hidden = true;
@@ -327,7 +328,7 @@ function initPerformanceBenchmark() {
 		resultNode.dataset.p5Fps = p5.toFixed(2);
 		resultNode.dataset.frames = String(frameCount);
 		resultNode.textContent = `avg:${avg.toFixed(2)};p5:${p5.toFixed(2)};frames:${frameCount}`;
-	}
+	};
 	requestAnimationFrame(step);
 }
 
