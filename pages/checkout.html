@@ -9,7 +9,7 @@
 		<script>try{const k="techshop_theme";const s=localStorage.getItem(k);const d=document.documentElement;if(s==="dark"||s==="light"){d.setAttribute("data-theme",s);}else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){d.setAttribute("data-theme","dark");}else{d.setAttribute("data-theme","light");}}catch(e){}</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css" />
 		<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 
@@ -100,7 +100,7 @@
 											<input type="text" id="cep" name="cep" class="form__input" placeholder="00000-000" required pattern="[0-9]{5}-?[0-9]{3}" maxlength="9" autocomplete="postal-code" data-cep data-loading-id="cep-lookup" data-cep-lookup-btn="lookupCepBtn" data-cep-street="street" data-cep-neighborhood="neighborhood" data-cep-city="city" data-cep-state="state" />
 										</div>
 										<div class="form__group form__group--align-end">
-											<button type="button" class="btn btn-outline btn-sm" id="lookupCepBtn" data-loading="cep-lookup">Buscar CEP</button>
+											<button type="button" class="btn btn-outline" id="lookupCepBtn" data-loading="cep-lookup">Buscar CEP</button>
 										</div>
 									</div>
 

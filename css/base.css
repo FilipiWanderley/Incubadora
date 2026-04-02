@@ -106,7 +106,7 @@ h1,
 h2,
 h3,
 h4 {
-	font-family: "Poppins", sans-serif;
+	font-family: "Space Grotesk", sans-serif;
 	font-weight: 700;
 	line-height: 1.2;
 	margin-bottom: var(--space);
@@ -133,7 +133,7 @@ h4 {
 }
 
 .main-content {
-	margin-top: 80px;
+	margin-top: 72px;
 }
 
 /* ── Issue 17 — Scrollbar customizada ─────────────────── */

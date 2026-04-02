@@ -344,3 +344,5 @@ function formatCurrency(value) {
 		currency: "BRL",
 	}).format(value);
 }
+
+window.products = products;

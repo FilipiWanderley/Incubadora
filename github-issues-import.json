@@ -1,0 +1,502 @@
+{
+  "generatedAt": "2026-04-02",
+  "sourceFile": "github-issues.md",
+  "totalIssues": 45,
+  "issues": [
+    {
+      "number": 1,
+      "shortTitle": "Página de Login",
+      "title": "Criar página de login com formulário de autenticação do usuário",
+      "labels": [
+        "html",
+        "simples",
+        "auth"
+      ],
+      "body": "## Descrição\n\nCriar a página `login.html` contendo um formulário de autenticação para usuários.\n\n## A página deve incluir\n\n- Campo de e-mail com tipo `email`\n- Campo de senha com tipo `password`\n- Botão principal **Entrar**\n- Link _Esqueci minha senha_\n- Link _Criar conta_ redirecionando para a página de cadastro\n\n## Critérios de conclusão\n\n- [ ] Estrutura HTML semântica\n- [ ] Inputs com labels acessíveis\n- [ ] Formulário centralizado na página\n- [ ] Layout consistente com o design do projeto"
+    },
+    {
+      "number": 2,
+      "shortTitle": "Página de Cadastro",
+      "title": "Criar página de cadastro com formulário de registro de novo usuário",
+      "labels": [
+        "html",
+        "simples",
+        "auth"
+      ],
+      "body": "## Descrição\n\nCriar a página `register.html` com formulário completo para criação de conta de novo usuário.\n\n## A página deve incluir\n\n- Campo de nome completo\n- Campo de e-mail\n- Campo de senha e confirmação de senha\n- Campo de telefone (opcional)\n- Checkbox de aceite dos termos de uso\n- Botão principal **Cadastrar**\n\n## Critérios de conclusão\n\n- [ ] Validação de campos obrigatórios\n- [ ] Confirmação de senha compatível\n- [ ] Checkbox de termos deve ser obrigatório\n- [ ] Layout consistente com login.html"
+    },
+    {
+      "number": 3,
+      "shortTitle": "Newsletter no Rodapé",
+      "title": "Adicionar seção de newsletter no rodapé do index",
+      "labels": [
+        "html",
+        "simples",
+        "newsletter"
+      ],
+      "body": "## Descrição\n\nExpandir a seção newsletter existente no rodapé de `index.html` com campos e feedback de inscrição.\n\n## A página deve incluir\n\n- Campo de e-mail com validação nativa (`type=\"email\"`)\n- Botão **Inscrever**\n- Mensagem de sucesso ou erro após envio\n- Checkbox de consentimento de privacidade\n\n## Critérios de conclusão\n\n- [ ] Campo de e-mail com validação HTML5\n- [ ] Checkbox de privacidade obrigatório\n- [ ] Mensagem de feedback visível ao usuário\n- [ ] Responsivo em mobile e desktop"
+    },
+    {
+      "number": 4,
+      "shortTitle": "Página Sobre Nós",
+      "title": "Criar página institucional 'Sobre Nós'",
+      "labels": [
+        "html",
+        "simples",
+        "institucional"
+      ],
+      "body": "## Descrição\n\nCriar a página `about.html` apresentando a empresa, sua história e equipe.\n\n## A página deve incluir\n\n- Seção de apresentação da empresa\n- Bloco de missão, visão e valores\n- Galeria ou grid de fotos da equipe\n- Timeline com histórico da empresa\n- Links para redes sociais\n\n## Critérios de conclusão\n\n- [ ] Uso de tags semânticas (section, article, aside)\n- [ ] Imagens com alt text descritivo\n- [ ] Timeline acessível e responsiva\n- [ ] Links de redes sociais abrem em nova aba"
+    },
+    {
+      "number": 5,
+      "shortTitle": "Página de Contato",
+      "title": "Criar página de contato com formulário e informações da empresa",
+      "labels": [
+        "html",
+        "simples",
+        "contato"
+      ],
+      "body": "## Descrição\n\nCriar a página `contact.html` com formulário de contato e informações institucionais.\n\n## A página deve incluir\n\n- Formulário com campos: nome, e-mail, assunto e mensagem\n- Exibição de telefone e endereço da empresa\n- Mapa via iframe do Google Maps\n- Horário de funcionamento\n- Atributo `data-validate` no formulário\n\n## Critérios de conclusão\n\n- [ ] Todos os campos obrigatórios marcados com required\n- [ ] Iframe do mapa com título acessível\n- [ ] Dados de contato visíveis sem JavaScript\n- [ ] Layout de duas colunas em desktop"
+    },
+    {
+      "number": 6,
+      "shortTitle": "Breadcrumb",
+      "title": "Adicionar breadcrumb de navegação em páginas de produto",
+      "labels": [
+        "html",
+        "intermediario",
+        "seo"
+      ],
+      "body": "## Descrição\n\nImplementar navegação por breadcrumb nas páginas `products.html` e `product-detail.html`.\n\n## A página deve incluir\n\n- Estrutura de navegação: Home > Categoria > Subcategoria\n- Links clicáveis em cada nível\n- Ícone separador entre os itens\n- Marcação Schema.org BreadcrumbList para SEO\n\n## Critérios de conclusão\n\n- [ ] Uso correto de `<nav aria-label=\"breadcrumb\">`\n- [ ] Último item sem link (página atual)\n- [ ] Marcação JSON-LD ou microdados Schema.org\n- [ ] Responsivo em telas pequenas"
+    },
+    {
+      "number": 7,
+      "shortTitle": "Seção de Depoimentos",
+      "title": "Adicionar seção de depoimentos de clientes na home",
+      "labels": [
+        "html",
+        "intermediario",
+        "social-proof"
+      ],
+      "body": "## Descrição\n\nInserir na `index.html` uma seção com depoimentos reais de clientes em cards visuais.\n\n## A página deve incluir\n\n- Cards com foto do cliente, nome, avaliação em estrelas e texto do depoimento\n- Entre 3 e 5 depoimentos exibidos\n- Aspas tipográficas nas citações\n- Cargo ou empresa do depoente abaixo do nome\n\n## Critérios de conclusão\n\n- [ ] Uso de `<blockquote>` para acessibilidade\n- [ ] Imagens com alt text\n- [ ] Estrelas de avaliação com ARIA label de nota\n- [ ] Responsivo em grid ou carrossel"
+    },
+    {
+      "number": 8,
+      "shortTitle": "Página 404",
+      "title": "Criar página 404 personalizada e amigável",
+      "labels": [
+        "html",
+        "intermediario",
+        "ux"
+      ],
+      "body": "## Descrição\n\nCriar a página `404.html` com visual atrativo e opções de navegação para o usuário não se perder.\n\n## A página deve incluir\n\n- Ilustração ou animação relacionada ao erro\n- Mensagem personalizada e amigável\n- Botão de retorno para a home\n- Links rápidos para seções populares\n- Campo de busca opcional\n\n## Critérios de conclusão\n\n- [ ] Código HTTP correto configurado no servidor\n- [ ] Mensagem clara e sem termos técnicos\n- [ ] Design consistente com o restante do projeto\n- [ ] Pelo menos 3 links de navegação alternativos"
+    },
+    {
+      "number": 9,
+      "shortTitle": "Meta Tags SEO",
+      "title": "Melhorar meta tags de SEO e compartilhamento social em todas as páginas",
+      "labels": [
+        "html",
+        "intermediario",
+        "seo"
+      ],
+      "body": "## Descrição\n\nAtualizar o `<head>` de todas as páginas com meta tags otimizadas para buscadores e redes sociais.\n\n## A página deve incluir\n\n- Open Graph tags: og:title, og:image, og:description\n- Twitter Card tags\n- Favicon .ico e .png\n- Meta descriptions com palavras-chave relevantes\n- Tag canonical para evitar conteúdo duplicado\n\n## Critérios de conclusão\n\n- [ ] og:image com dimensões mínimas de 1200x630px\n- [ ] Meta description entre 120 e 160 caracteres\n- [ ] Canonical URL absoluta em cada página\n- [ ] Validação com Open Graph Debugger do Facebook"
+    },
+    {
+      "number": 10,
+      "shortTitle": "FAQ",
+      "title": "Criar página de perguntas frequentes com accordion por categoria",
+      "labels": [
+        "html",
+        "intermediario",
+        "conteudo"
+      ],
+      "body": "## Descrição\n\nCriar a página `faq.html` com perguntas e respostas organizadas em acordeão por categoria.\n\n## A página deve incluir\n\n- Accordion de perguntas e respostas com abertura/fechamento\n- Campo de busca para filtrar perguntas\n- Categorias: Envios, Pagamento, Devoluções, entre outras\n- Links para páginas relacionadas ao fim de cada seção\n\n## Critérios de conclusão\n\n- [ ] Accordion acessível com ARIA (aria-expanded, aria-controls)\n- [ ] Busca sem dependência de frameworks externos\n- [ ] Âncoras para cada categoria (deep links)\n- [ ] Responsivo e fácil de escanear visualmente"
+    },
+    {
+      "number": 11,
+      "shortTitle": "Carrinho",
+      "title": "Criar página de carrinho de compras com listagem e resumo do pedido",
+      "labels": [
+        "html",
+        "complexo",
+        "ecommerce"
+      ],
+      "body": "## Descrição\n\nCriar a página `cart.html` com todos os elementos necessários para revisão e edição do carrinho antes do checkout.\n\n## A página deve incluir\n\n- Listagem de produtos com imagem, nome e preço\n- Campo editável de quantidade por produto\n- Cálculo de preço unitário e total por linha\n- Campo de cupom de desconto\n- Estimativa de frete\n- Botão **Finalizar Compra**\n\n## Critérios de conclusão\n\n- [ ] Estrutura semântica com `<table>` ou `<ul>` para a listagem\n- [ ] Subtotal atualizado ao mudar quantidade (JS)\n- [ ] Campo de CEP para cálculo de frete\n- [ ] Resumo fixo ou visível em mobile"
+    },
+    {
+      "number": 12,
+      "shortTitle": "Checkout",
+      "title": "Criar página de checkout com etapas de entrega, pagamento e resumo",
+      "labels": [
+        "html",
+        "complexo",
+        "ecommerce"
+      ],
+      "body": "## Descrição\n\nCriar a página `checkout.html` com formulário multietapas para conclusão de compra.\n\n## A página deve incluir\n\n- Formulário de endereço de entrega (CEP, rua, complemento)\n- Seleção de modalidade de frete\n- Opções de forma de pagamento (cartão, boleto, Pix)\n- Resumo lateral do pedido com itens e valores\n- Validação de todos os campos antes do envio\n\n## Critérios de conclusão\n\n- [ ] Separação visual entre as etapas\n- [ ] Resumo sempre visível em telas grandes\n- [ ] Máscaras de entrada para CEP, CPF e cartão\n- [ ] Botão de envio desabilitado até validação completa"
+    },
+    {
+      "number": 13,
+      "shortTitle": "Perfil do Usuário",
+      "title": "Criar página de perfil do usuário com histórico e preferências",
+      "labels": [
+        "html",
+        "complexo",
+        "auth"
+      ],
+      "body": "## Descrição\n\nCriar a página `profile.html` com área completa de gerenciamento de conta do usuário.\n\n## A página deve incluir\n\n- Formulário de dados pessoais editáveis\n- Histórico de pedidos com status de cada um\n- CRUD de endereços salvos\n- Gerenciamento de métodos de pagamento\n- Configurações de notificações e preferências\n- Botão de logout\n\n## Critérios de conclusão\n\n- [ ] Abas ou seções bem delimitadas por funcionalidade\n- [ ] Ações de salvar e cancelar em cada formulário\n- [ ] Status de pedido com badge colorido\n- [ ] Confirmação antes de excluir endereço ou cartão"
+    },
+    {
+      "number": 14,
+      "shortTitle": "Blog",
+      "title": "Criar seção de blog com listagem de artigos e paginação",
+      "labels": [
+        "html",
+        "complexo",
+        "conteudo"
+      ],
+      "body": "## Descrição\n\nCriar a página `blog.html` com listagem visual de artigos, filtros por categoria e paginação.\n\n## A página deve incluir\n\n- Cards com thumbnail, título, data de publicação e resumo\n- Listagem com paginação numérica\n- Links para a página de detalhe de cada artigo\n- Tags e categorias por post\n- Campo de busca de posts\n\n## Critérios de conclusão\n\n- [ ] Cards com proporção de imagem consistente\n- [ ] Paginação acessível com aria-label\n- [ ] Tags clicáveis para filtrar por categoria\n- [ ] Layout em grid responsivo (1, 2 ou 3 colunas)"
+    },
+    {
+      "number": 15,
+      "shortTitle": "Wishlist",
+      "title": "Criar página de wishlist compartilhável",
+      "labels": [
+        "html",
+        "complexo",
+        "ecommerce"
+      ],
+      "body": "## Descrição\n\nCriar a página `wishlist.html` com a lista de favoritos do usuário e opções de compartilhamento.\n\n## A página deve incluir\n\n- Listagem de produtos favoritados com imagem e preço\n- Botões de compartilhamento via link, WhatsApp e e-mail\n- Botão de remover item da wishlist\n- Botão **Adicionar ao Carrinho** por produto\n- Opção de notificação de desconto por produto\n\n## Critérios de conclusão\n\n- [ ] URL de compartilhamento com parâmetros únicos\n- [ ] Estado vazio com call-to-action para explorar produtos\n- [ ] Sincronização com localStorage\n- [ ] Feedback visual ao adicionar ao carrinho"
+    },
+    {
+      "number": 16,
+      "shortTitle": "Hover nos Cards",
+      "title": "Adicionar efeito hover nos cards de produto",
+      "labels": [
+        "css",
+        "simples",
+        "ui"
+      ],
+      "body": "## Descrição\n\nMelhorar o visual dos product cards com efeitos de hover fluidos e elegantes.\n\n## Deve incluir\n\n- Sombra dinâmica com `box-shadow` ao passar o mouse\n- Leve elevação com `transform: translateY(-4px)`\n- Transição de 0.3s com ease\n- Overlay semitransparente sobre a imagem no hover\n\n## Critérios de conclusão\n\n- [ ] Transição suave sem travamentos\n- [ ] Efeito não interfere na acessibilidade por teclado\n- [ ] Compatível com os principais navegadores\n- [ ] Não altera o tamanho do card (sem layout shift)"
+    },
+    {
+      "number": 17,
+      "shortTitle": "Scrollbar Customizada",
+      "title": "Customizar scrollbar para seguir a identidade visual do projeto",
+      "labels": [
+        "css",
+        "simples",
+        "ui"
+      ],
+      "body": "## Descrição\n\nEstilizar a barra de rolagem do navegador com a paleta de cores do projeto.\n\n## Deve incluir\n\n- Largura entre 8px e 10px\n- Cor primária do projeto na thumb\n- Fundo sutil no track\n- Border-radius nos cantos da thumb\n\n## Critérios de conclusão\n\n- [ ] Estilo aplicado via `::-webkit-scrollbar`\n- [ ] Fallback definido para Firefox com `scrollbar-color`\n- [ ] Não remove a scrollbar em nenhum breakpoint\n- [ ] Visual consistente com o design system do projeto"
+    },
+    {
+      "number": 18,
+      "shortTitle": "Badge NOVO",
+      "title": "Adicionar badge 'NOVO' nos cards de produtos recentes",
+      "labels": [
+        "css",
+        "simples",
+        "ui"
+      ],
+      "body": "## Descrição\n\nCriar um badge visual para destacar produtos novos nos cards da listagem.\n\n## Deve incluir\n\n- Posicionado no canto superior direito do card\n- Fundo laranja (#FF9500)\n- Texto branco em caixa-alta\n- Tamanho pequeno e discreto sem cobrir o produto\n\n## Critérios de conclusão\n\n- [ ] Uso de `position: absolute` no card com `position: relative`\n- [ ] Badge não interfere no clique do card\n- [ ] Responsivo em todos os breakpoints\n- [ ] Pode ser adicionado/removido via classe CSS"
+    },
+    {
+      "number": 19,
+      "shortTitle": "Botão Voltar ao Topo",
+      "title": "Criar botão fixo de 'Voltar ao Topo'",
+      "labels": [
+        "css",
+        "simples",
+        "ux"
+      ],
+      "body": "## Descrição\n\nImplementar um botão flutuante que aparece após scroll e leva o usuário de volta ao topo da página.\n\n## Deve incluir\n\n- Posição fixa no canto inferior direito\n- Visível apenas após 300px de scroll\n- Animação de fade ou slide na entrada e saída\n- Ícone de seta apontando para cima\n- Background com a cor primária do projeto\n\n## Critérios de conclusão\n\n- [ ] z-index acima dos demais elementos\n- [ ] Animação de scroll suave (`scroll-behavior: smooth`)\n- [ ] Acessível via teclado com aria-label\n- [ ] Responsivo e não bloqueia conteúdo em mobile"
+    },
+    {
+      "number": 20,
+      "shortTitle": "Spinner CSS",
+      "title": "Criar spinner de loading em CSS puro",
+      "labels": [
+        "css",
+        "simples",
+        "ui"
+      ],
+      "body": "## Descrição\n\nImplementar animação de carregamento sem imagens, usando apenas CSS com as cores do projeto.\n\n## Deve incluir\n\n- Círculo girando com `animation` e `border`\n- Sem dependência de imagens externas\n- Cores baseadas na paleta do projeto\n- 3 variações de tamanho: small, medium e large\n\n## Critérios de conclusão\n\n- [ ] Animação fluida com @keyframes\n- [ ] Centralizado no contêiner pai\n- [ ] Acessível com `role=\"status\"` e aria-label\n- [ ] Funciona nos principais navegadores sem prefixos extras"
+    },
+    {
+      "number": 21,
+      "shortTitle": "Inputs com Foco",
+      "title": "Estilizar inputs de formulário com foco visual e label flutuante",
+      "labels": [
+        "css",
+        "intermediario",
+        "ux"
+      ],
+      "body": "## Descrição\n\nMelhorar a experiência de preenchimento de formulários com foco visual claro e label animado.\n\n## Deve incluir\n\n- Borda colorida ao focar no input\n- Box-shadow sutil no estado de foco\n- Transição de 0.2s\n- Label flutuante acima do campo ao digitar (CSS puro)\n\n## Critérios de conclusão\n\n- [ ] Foco visível e acessível (WCAG 2.4.7)\n- [ ] Label não sobrepõe o texto digitado\n- [ ] Estilo de erro com cor vermelha (classe .input-error)\n- [ ] Funciona sem JavaScript para o efeito de label"
+    },
+    {
+      "number": 22,
+      "shortTitle": "Grid Utilities",
+      "title": "Criar sistema de grid utilitário responsivo",
+      "labels": [
+        "css",
+        "intermediario",
+        "layout"
+      ],
+      "body": "## Descrição\n\nDesenvolver classes utilitárias de grid para compor layouts de forma flexível e responsiva.\n\n## Deve incluir\n\n- Classes .col-1 até .col-12 para largura em grid de 12 colunas\n- Classes .gap-1 até .gap-5 para espaçamento entre itens\n- Breakpoints: md (768px), lg (1024px) e xl (1280px)\n- Grid automático responsivo com auto-fill\n\n## Critérios de conclusão\n\n- [ ] Baseado em CSS Grid ou Flexbox\n- [ ] Classes responsivas no formato .col-md-6\n- [ ] Sem dependências externas\n- [ ] Documentado com comentários no CSS"
+    },
+    {
+      "number": 23,
+      "shortTitle": "Efeito no Menu Header",
+      "title": "Adicionar animações e indicador ativo nos links do menu header",
+      "labels": [
+        "css",
+        "intermediario",
+        "ui"
+      ],
+      "body": "## Descrição\n\nMelhorar a navegação principal com efeitos visuais nos links e destaque para a página ativa.\n\n## Deve incluir\n\n- Underline animado deslizando da esquerda para a direita\n- Mudança de cor no hover\n- Transição suave de 0.3s\n- Indicador visual do link da página atual (classe .active)\n\n## Critérios de conclusão\n\n- [ ] Efeito via pseudo-elemento ::after\n- [ ] Cor de foco visível para navegação por teclado\n- [ ] Indicador .active nunca some após hover\n- [ ] Compatível com menu mobile"
+    },
+    {
+      "number": 24,
+      "shortTitle": "Alert Box",
+      "title": "Criar componente de alert box reutilizável",
+      "labels": [
+        "css",
+        "intermediario",
+        "ui"
+      ],
+      "body": "## Descrição\n\nImplementar alertas visuais padronizados para feedback de ações do sistema.\n\n## Deve incluir\n\n- 4 variações: success (verde), error (vermelho), warning (amarelo) e info (azul)\n- Ícone à esquerda + texto da mensagem\n- Botão de fechar (×) à direita\n- Padding e margin padronizados com variáveis CSS\n\n## Critérios de conclusão\n\n- [ ] Acessível com `role=\"alert\"` e aria-live\n- [ ] Cor de texto com contraste adequado (WCAG AA)\n- [ ] Botão de fechar com aria-label\n- [ ] Animação de entrada e saída ao aparecer/fechar"
+    },
+    {
+      "number": 25,
+      "shortTitle": "Responsividade Mobile",
+      "title": "Melhorar responsividade geral para dispositivos móveis",
+      "labels": [
+        "css",
+        "intermediario",
+        "responsivo"
+      ],
+      "body": "## Descrição\n\nOtimizar toda a interface para uso confortável em telas pequenas (smartphones).\n\n## Deve incluir\n\n- Ajuste de font-size para legibilidade em mobile\n- Espaçamento adequado (mínimo 44px para áreas de toque)\n- Imagens com srcset para diferentes densidades\n- Menu adaptado para mobile com comportamento correto\n\n## Critérios de conclusão\n\n- [ ] Sem overflow horizontal em nenhuma tela\n- [ ] Botões e links com área mínima de 44x44px (WCAG 2.5.5)\n- [ ] Fonte legível sem necessidade de zoom\n- [ ] Testado em larguras de 320px, 375px e 414px"
+    },
+    {
+      "number": 26,
+      "shortTitle": "Dark Mode",
+      "title": "Implementar dark mode completo com toggle e detecção de preferência do SO",
+      "labels": [
+        "css",
+        "complexo",
+        "tema"
+      ],
+      "body": "## Descrição\n\nCriar um sistema de tema escuro completo cobrindo todos os elementos da interface.\n\n## Deve incluir\n\n- Variáveis CSS para todas as cores do modo escuro\n- Toggle visível no header para alternar o tema\n- Detecção automática via `prefers-color-scheme`\n- Preferência salva em localStorage\n- Transição suave de 0.3s entre os temas\n\n## Critérios de conclusão\n\n- [ ] Todas as cores da UI cobertas por variáveis\n- [ ] Tema aplicado antes do render (sem flash)\n- [ ] Contraste adequado no modo escuro (WCAG AA)\n- [ ] Toggle com estado acessível (aria-pressed)"
+    },
+    {
+      "number": 27,
+      "shortTitle": "Animações Avançadas",
+      "title": "Adicionar animações avançadas de parallax, scroll e skeleton screen",
+      "labels": [
+        "css",
+        "complexo",
+        "animacao"
+      ],
+      "body": "## Descrição\n\nImplementar animações sofisticadas que melhoram a percepção de desempenho e o apelo visual.\n\n## Deve incluir\n\n- Efeito parallax em seções de destaque da home\n- Fade-in progressivo ao entrar na viewport (Intersection Observer)\n- Skeleton screens durante carregamento de conteúdo\n- Shimmer effect nos placeholders de imagem\n- Microinterações de bounce e pulse em elementos de CTA\n\n## Critérios de conclusão\n\n- [ ] Parallax desativado com prefers-reduced-motion\n- [ ] Skeleton com proporções fiéis ao conteúdo real\n- [ ] Animações não bloqueiam interatividade\n- [ ] Performance acima de 60fps em dispositivos médios"
+    },
+    {
+      "number": 28,
+      "shortTitle": "Carousel Avançado",
+      "title": "Criar componente slider/carousel avançado com suporte a touch",
+      "labels": [
+        "css",
+        "complexo",
+        "componente"
+      ],
+      "body": "## Descrição\n\nImplementar um carousel totalmente funcional, acessível e compatível com gestos touch.\n\n## Deve incluir\n\n- Autoplay configurável com intervalo definido\n- Navegação por setas e por dots indicadores\n- Suporte a swipe/touch em dispositivos móveis\n- Pausa automática ao passar o mouse (hover)\n- Transições suaves entre slides\n\n## Critérios de conclusão\n\n- [ ] Acessível com `role=\"region\"` e aria-label\n- [ ] Botões de navegação com aria-label descritivo\n- [ ] Funciona com teclado (setas esquerda/direita)\n- [ ] Não depende de bibliotecas externas"
+    },
+    {
+      "number": 29,
+      "shortTitle": "Sistema de Tipografia",
+      "title": "Organizar sistema de tipografia com escala harmônica e acessibilidade",
+      "labels": [
+        "css",
+        "complexo",
+        "design-system"
+      ],
+      "body": "## Descrição\n\nCriar hierarquia tipográfica consistente, legível e acessível para todo o projeto.\n\n## Deve incluir\n\n- Escala harmônica de tamanhos de fonte (ex: ratio 1.25)\n- Line-height otimizado entre 1.5 e 1.6 para corpo de texto\n- Letter-spacing ajustado por nível de hierarquia\n- Contraste mínimo de 4.5:1 para textos normais (WCAG AA)\n- Tipografia responsiva com `clamp()` ou media queries\n\n## Critérios de conclusão\n\n- [ ] Todos os tamanhos definidos com variáveis CSS\n- [ ] Contraste verificado com ferramenta como Contrast Checker\n- [ ] Fonte base de 16px mínimo\n- [ ] Funciona com zoom de 200% sem perda de legibilidade"
+    },
+    {
+      "number": 30,
+      "shortTitle": "Sistema de Temas",
+      "title": "Criar sistema de temas/skins com seletor e persistência",
+      "labels": [
+        "css",
+        "complexo",
+        "tema"
+      ],
+      "body": "## Descrição\n\nImplementar múltiplos esquemas de cores que o usuário pode escolher e que são salvos entre sessões.\n\n## Deve incluir\n\n- 3 a 5 esquemas de cores pré-definidos\n- Seletor de tema visível no header\n- Persistência da escolha via localStorage\n- Transição suave ao trocar de tema\n- CSS Variables dinâmicas por tema\n\n## Critérios de conclusão\n\n- [ ] Tema aplicado via atributo `data-theme` no `<html>`\n- [ ] Cada tema cobre todas as variáveis de cor\n- [ ] Preferência carregada antes do primeiro render\n- [ ] Seletor acessível via teclado"
+    },
+    {
+      "number": 31,
+      "shortTitle": "Adicionar ao Carrinho",
+      "title": "Implementar funcionalidade de adicionar item ao carrinho",
+      "labels": [
+        "javascript",
+        "simples",
+        "ecommerce"
+      ],
+      "body": "## Descrição\n\nCriar a lógica para adicionar produtos ao carrinho com feedback visual e persistência.\n\n## Deve incluir\n\n- Clique no botão **Adicionar ao Carrinho** dispara a ação\n- Modal ou toast de confirmação de sucesso\n- Contador de itens no ícone do carrinho no header\n- Dados do carrinho salvos em localStorage\n\n## Critérios de conclusão\n\n- [ ] Contador atualizado imediatamente após clique\n- [ ] Modal fecha automaticamente após 3 segundos\n- [ ] Produto não duplicado — quantidade incrementada\n- [ ] localStorage estruturado com id, nome, preço e quantidade"
+    },
+    {
+      "number": 32,
+      "shortTitle": "Menu Mobile",
+      "title": "Tornar o menu mobile hamburger totalmente funcional",
+      "labels": [
+        "javascript",
+        "simples",
+        "ui"
+      ],
+      "body": "## Descrição\n\nImplementar a lógica de abertura e fechamento do menu mobile com experiência fluida.\n\n## Deve incluir\n\n- Clique no botão hamburger abre e fecha o menu\n- Menu fecha ao clicar em qualquer link interno\n- Overlay escuro fecha o menu ao ser clicado\n- Animação de abertura e fechamento suave\n\n## Critérios de conclusão\n\n- [ ] Estado aberto/fechado controlado por classe CSS\n- [ ] Scroll do body bloqueado enquanto menu está aberto\n- [ ] Acessível: botão com aria-expanded e aria-controls\n- [ ] Funciona em todos os breakpoints mobile"
+    },
+    {
+      "number": 33,
+      "shortTitle": "Validação de Formulários",
+      "title": "Adicionar validação básica em formulários do projeto",
+      "labels": [
+        "javascript",
+        "simples",
+        "forms"
+      ],
+      "body": "## Descrição\n\nImplementar validação de campos obrigatórios e formatos com mensagens de erro claras.\n\n## Deve incluir\n\n- Verificação de campos obrigatórios antes do envio\n- Validação de formato de e-mail\n- Exibição de mensagens de erro por campo\n- Dados preservados no formulário após erro\n\n## Critérios de conclusão\n\n- [ ] Erro exibido abaixo do campo correspondente\n- [ ] Foco movido para o primeiro campo inválido\n- [ ] Formulário não enviado com campos inválidos\n- [ ] Validação executada também no submit (não só no blur)"
+    },
+    {
+      "number": 34,
+      "shortTitle": "Slider Simples",
+      "title": "Criar slider simples com navegação por setas e autoplay",
+      "labels": [
+        "javascript",
+        "simples",
+        "ui"
+      ],
+      "body": "## Descrição\n\nImplementar um carousel básico para banners ou imagens com controles manuais e automáticos.\n\n## Deve incluir\n\n- Setas de navegação anterior e próximo\n- Navegação por índice com dots clicáveis\n- Transição suave entre slides\n- Autoplay com intervalo configurável\n\n## Critérios de conclusão\n\n- [ ] Autoplay pausado no hover\n- [ ] Loop contínuo ao chegar no último slide\n- [ ] Slide ativo marcado no dot correspondente\n- [ ] Funciona sem dependências externas"
+    },
+    {
+      "number": 35,
+      "shortTitle": "Filtro por Categoria",
+      "title": "Implementar filtro de produtos por categoria",
+      "labels": [
+        "javascript",
+        "simples",
+        "ecommerce"
+      ],
+      "body": "## Descrição\n\nPermitir que o usuário filtre os produtos exibidos clicando nas categorias disponíveis.\n\n## Deve incluir\n\n- Clique em categoria mostra apenas produtos daquela categoria\n- Mostrar e ocultar cards com transição\n- Atualização do contador de resultados visíveis\n- Estado do filtro persistido na URL via query params\n\n## Critérios de conclusão\n\n- [ ] Filtro ativo visualmente destacado\n- [ ] Estado \"Todos\" reseta o filtro\n- [ ] URL atualizada sem recarregar a página (history.pushState)\n- [ ] Funcionamento correto com 0 resultados (mensagem de vazio)"
+    },
+    {
+      "number": 36,
+      "shortTitle": "Ordenação de Produtos",
+      "title": "Adicionar ordenação dinâmica de produtos por preço, nome e avaliação",
+      "labels": [
+        "javascript",
+        "intermediario",
+        "ecommerce"
+      ],
+      "body": "## Descrição\n\nImplementar dropdown de ordenação que reorganiza os cards de produto em tempo real.\n\n## Deve incluir\n\n- Dropdown com opções: preço crescente, preço decrescente, nome A-Z e avaliação\n- Grid de produtos reordenado dinamicamente sem reload\n- Opção selecionada visualmente destacada\n- Seleção persistida em localStorage\n\n## Critérios de conclusão\n\n- [ ] Reordenação via manipulação do DOM (sem reload)\n- [ ] Acessível com teclado e aria-sort\n- [ ] Estado de ordenação refletido na URL\n- [ ] Compatível com o filtro por categoria"
+    },
+    {
+      "number": 37,
+      "shortTitle": "Busca em Tempo Real",
+      "title": "Implementar busca em tempo real com debounce e histórico",
+      "labels": [
+        "javascript",
+        "intermediario",
+        "ux"
+      ],
+      "body": "## Descrição\n\nCriar campo de busca avançado que filtra produtos enquanto o usuário digita, com histórico recente.\n\n## Deve incluir\n\n- Filtragem de resultados com debounce de 300ms\n- Exibição dos resultados em dropdown ou grid\n- Histórico com as últimas 5 buscas realizadas\n- Mensagem amigável para nenhum resultado encontrado\n\n## Critérios de conclusão\n\n- [ ] Debounce implementado sem bibliotecas externas\n- [ ] Histórico salvo em localStorage\n- [ ] Busca por nome, categoria e descrição do produto\n- [ ] Acessível com aria-live para anunciar resultados"
+    },
+    {
+      "number": 38,
+      "shortTitle": "Toggle de Senha",
+      "title": "Adicionar funcionalidade de mostrar e ocultar senha nos campos de senha",
+      "labels": [
+        "javascript",
+        "intermediario",
+        "forms"
+      ],
+      "body": "## Descrição\n\nImplementar toggle para alternar visibilidade da senha com feedback visual acessível.\n\n## Deve incluir\n\n- Ícone de olho clicável ao lado direito do input\n- Alternância do type do input entre password e text\n- Animação suave na troca do ícone\n- Labels ARIA atualizados conforme o estado\n\n## Critérios de conclusão\n\n- [ ] aria-label atualizado para \"Mostrar senha\" ou \"Ocultar senha\"\n- [ ] Funciona em todos os campos de senha do projeto\n- [ ] Ícone não desalinha o layout do formulário\n- [ ] Acessível via teclado (Enter ou Space no botão)"
+    },
+    {
+      "number": 39,
+      "shortTitle": "Contador de Quantidade",
+      "title": "Criar contador de quantidade com botões + e - para produtos",
+      "labels": [
+        "javascript",
+        "intermediario",
+        "ecommerce"
+      ],
+      "body": "## Descrição\n\nImplementar controle de quantidade de produto com validação de mínimo, máximo e atualização de preço.\n\n## Deve incluir\n\n- Botões + e - para incrementar e decrementar\n- Mínimo permitido: 1; máximo permitido: 99\n- Validação em tempo real da entrada manual no campo\n- Atualização automática do preço total ao mudar quantidade\n\n## Critérios de conclusão\n\n- [ ] Botão - desabilitado quando quantidade = 1\n- [ ] Botão + desabilitado quando quantidade = 99\n- [ ] Input aceita apenas números inteiros positivos\n- [ ] Preço total formatado em BRL (R$ X.XXX,XX)"
+    },
+    {
+      "number": 40,
+      "shortTitle": "Modal de Produto",
+      "title": "Criar modal de detalhes do produto acionado pelo clique no card",
+      "labels": [
+        "javascript",
+        "intermediario",
+        "ux"
+      ],
+      "body": "## Descrição\n\nAbrir popup com informações completas do produto ao clicar em um card, sem navegar para outra página.\n\n## Deve incluir\n\n- Clique no card abre modal com imagem ampliada, nome, preço e descrição\n- Botão **Adicionar ao Carrinho** dentro do modal\n- Botão de fechar com × e tecla ESC\n- Overlay escuro com fechamento ao clicar fora\n\n## Critérios de conclusão\n\n- [ ] Foco preso dentro do modal enquanto aberto (focus trap)\n- [ ] Scroll do body bloqueado com modal aberto\n- [ ] aria-modal, role=dialog e aria-labelledby configurados\n- [ ] Animação de abertura e fechamento"
+    },
+    {
+      "number": 41,
+      "shortTitle": "Sistema Completo de Carrinho",
+      "title": "Implementar sistema completo de carrinho com CRUD e cálculo de totais",
+      "labels": [
+        "javascript",
+        "complexo",
+        "ecommerce"
+      ],
+      "body": "## Descrição\n\nDesenvolver um carrinho de compras persistente e funcional com todas as operações e cálculos em tempo real.\n\n## Deve incluir\n\n- CRUD completo de produtos no localStorage\n- Cálculo de subtotal, descontos e total geral\n- Validação e aplicação de cupons de desconto reais\n- Badge contador sempre atualizado no header\n- Sincronização entre abas do navegador via StorageEvent\n\n## Critérios de conclusão\n\n- [ ] Carrinho consistente entre reloads\n- [ ] Desconto percentual e absoluto suportados\n- [ ] Sem itens duplicados (quantidade somada)\n- [ ] Sincronização entre abas funcional sem conflito"
+    },
+    {
+      "number": 42,
+      "shortTitle": "Filtros Avançados",
+      "title": "Implementar sistema de filtros avançados e simultâneos com URL state",
+      "labels": [
+        "javascript",
+        "complexo",
+        "ecommerce"
+      ],
+      "body": "## Descrição\n\nCriar sistema robusto de filtros múltiplos que podem ser combinados, com estado refletido na URL.\n\n## Deve incluir\n\n- Filtros simultâneos por: categoria, faixa de preço e avaliação mínima\n- Atualização da URL com query params para compartilhamento\n- Botão e lógica para limpar todos os filtros de uma vez\n- Exibição dos filtros ativos como tags removíveis\n\n## Critérios de conclusão\n\n- [ ] URL legível e compartilhável com todos os filtros aplicados\n- [ ] Filtros restaurados ao carregar a URL com parâmetros\n- [ ] Contagem de resultados atualizada em tempo real\n- [ ] Compatível com ordenação (issue #36)"
+    },
+    {
+      "number": 43,
+      "shortTitle": "Validação Avançada",
+      "title": "Criar validação de formulário avançada em tempo real para todos os campos",
+      "labels": [
+        "javascript",
+        "complexo",
+        "forms"
+      ],
+      "body": "## Descrição\n\nImplementar validação robusta com regras específicas por campo, feedback imediato e controle de submissão.\n\n## Deve incluir\n\n- Validação de e-mail, CPF, CEP e telefone com formatação\n- Medidor de força de senha (fraca, média, forte)\n- Verificação de igualdade entre senha e confirmação\n- Erros dinâmicos exibidos abaixo de cada campo\n- Botão de submit desabilitado até todos os campos serem válidos\n\n## Critérios de conclusão\n\n- [ ] CPF validado com algoritmo de dígitos verificadores\n- [ ] CEP com consulta à API ViaCEP para autopreenchimento\n- [ ] Força de senha baseada em comprimento, maiúsculas, números e símbolos\n- [ ] Nenhum dado perdido em caso de erro no envio"
+    },
+    {
+      "number": 44,
+      "shortTitle": "Favoritos com Sincronização",
+      "title": "Implementar sistema de favoritos com animação e persistência",
+      "labels": [
+        "javascript",
+        "complexo",
+        "ecommerce"
+      ],
+      "body": "## Descrição\n\nCriar wishlist funcional com animação de coração, contador no header e página dedicada.\n\n## Deve incluir\n\n- Botão de coração em cada card para adicionar/remover dos favoritos\n- Animação de like ao favoritar (escala + cor)\n- Página dedicada de favoritos com listagem completa\n- Persistência em localStorage\n- Contador de favoritos no header\n\n## Critérios de conclusão\n\n- [ ] Estado do coração consistente ao navegar entre páginas\n- [ ] Animação fluida sem impacto na performance\n- [ ] Página de favoritos vazia com CTA para explorar produtos\n- [ ] Contador zerado ao remover todos os favoritos"
+    },
+    {
+      "number": 45,
+      "shortTitle": "API Integration Mock",
+      "title": "Integrar API mock com fetch, loading states e tratamento de erros",
+      "labels": [
+        "javascript",
+        "complexo",
+        "api"
+      ],
+      "body": "## Descrição\n\nSimular integração com APIs externas usando fetch, com estados de carregamento, erros e cache local.\n\n## Deve incluir\n\n- Requisições fetch para URLs mock ou JSON local\n- Loading states visuais durante cada requisição\n- Tratamento de erros com mensagem amigável ao usuário\n- Retry automático em caso de falha (até 3 tentativas)\n- Cache local dos dados para evitar requisições repetidas\n\n## Critérios de conclusão\n\n- [ ] Loading exibido antes da resposta e removido após\n- [ ] Erros de rede não travam a interface\n- [ ] Retry com backoff exponencial (1s, 2s, 4s)\n- [ ] Cache invalidado após 5 minutos ou ação do usuário"
+    }
+  ]
+}

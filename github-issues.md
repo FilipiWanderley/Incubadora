@@ -33,10 +33,10 @@ Criar a página `login.html` contendo um formulário de autenticação para usu�
 
 ## Critérios de conclusão
 
-- [x] Estrutura HTML semântica
-- [x] Inputs com labels acessíveis
-- [x] Formulário centralizado na página
-- [x] Layout consistente com o design do projeto
+- [ ] Estrutura HTML semântica
+- [ ] Inputs com labels acessíveis
+- [ ] Formulário centralizado na página
+- [ ] Layout consistente com o design do projeto
 ```
 
 ---
@@ -69,10 +69,10 @@ Criar a página `register.html` com formulário completo para criação de conta
 
 ## Critérios de conclusão
 
-- [x] Validação de campos obrigatórios
-- [x] Confirmação de senha compatível
-- [x] Checkbox de termos deve ser obrigatório
-- [x] Layout consistente com login.html
+- [ ] Validação de campos obrigatórios
+- [ ] Confirmação de senha compatível
+- [ ] Checkbox de termos deve ser obrigatório
+- [ ] Layout consistente com login.html
 ```
 
 ---
@@ -103,10 +103,10 @@ Expandir a seção newsletter existente no rodapé de `index.html` com campos e 
 
 ## Critérios de conclusão
 
-- [x] Campo de e-mail com validação HTML5
-- [x] Checkbox de privacidade obrigatório
-- [x] Mensagem de feedback visível ao usuário
-- [x] Responsivo em mobile e desktop
+- [ ] Campo de e-mail com validação HTML5
+- [ ] Checkbox de privacidade obrigatório
+- [ ] Mensagem de feedback visível ao usuário
+- [ ] Responsivo em mobile e desktop
 ```
 
 ---
@@ -138,10 +138,10 @@ Criar a página `about.html` apresentando a empresa, sua história e equipe.
 
 ## Critérios de conclusão
 
-- [x] Uso de tags semânticas (section, article, aside)
-- [x] Imagens com alt text descritivo
-- [x] Timeline acessível e responsiva
-- [x] Links de redes sociais abrem em nova aba
+- [ ] Uso de tags semânticas (section, article, aside)
+- [ ] Imagens com alt text descritivo
+- [ ] Timeline acessível e responsiva
+- [ ] Links de redes sociais abrem em nova aba
 ```
 
 ---
@@ -173,10 +173,10 @@ Criar a página `contact.html` com formulário de contato e informações instit
 
 ## Critérios de conclusão
 
-- [x] Todos os campos obrigatórios marcados com required
-- [x] Iframe do mapa com título acessível
-- [x] Dados de contato visíveis sem JavaScript
-- [x] Layout de duas colunas em desktop
+- [ ] Todos os campos obrigatórios marcados com required
+- [ ] Iframe do mapa com título acessível
+- [ ] Dados de contato visíveis sem JavaScript
+- [ ] Layout de duas colunas em desktop
 ```
 
 ---
@@ -211,10 +211,10 @@ Implementar navegação por breadcrumb nas páginas `products.html` e `product-d
 
 ## Critérios de conclusão
 
-- [x] Uso correto de `<nav aria-label="breadcrumb">`
-- [x] Último item sem link (página atual)
-- [x] Marcação JSON-LD ou microdados Schema.org
-- [x] Responsivo em telas pequenas
+- [ ] Uso correto de `<nav aria-label="breadcrumb">`
+- [ ] Último item sem link (página atual)
+- [ ] Marcação JSON-LD ou microdados Schema.org
+- [ ] Responsivo em telas pequenas
 ```
 
 ---
@@ -245,10 +245,10 @@ Inserir na `index.html` uma seção com depoimentos reais de clientes em cards v
 
 ## Critérios de conclusão
 
-- [x] Uso de `<blockquote>` para acessibilidade
-- [x] Imagens com alt text
-- [x] Estrelas de avaliação com ARIA label de nota
-- [x] Responsivo em grid ou carrossel
+- [ ] Uso de `<blockquote>` para acessibilidade
+- [ ] Imagens com alt text
+- [ ] Estrelas de avaliação com ARIA label de nota
+- [ ] Responsivo em grid ou carrossel
 ```
 
 ---
@@ -280,10 +280,10 @@ Criar a página `404.html` com visual atrativo e opções de navegação para o 
 
 ## Critérios de conclusão
 
-- [x] Código HTTP correto configurado no servidor
-- [x] Mensagem clara e sem termos técnicos
-- [x] Design consistente com o restante do projeto
-- [x] Pelo menos 3 links de navegação alternativos
+- [ ] Código HTTP correto configurado no servidor
+- [ ] Mensagem clara e sem termos técnicos
+- [ ] Design consistente com o restante do projeto
+- [ ] Pelo menos 3 links de navegação alternativos
 ```
 
 ---
@@ -315,9 +315,9 @@ Atualizar o `<head>` de todas as páginas com meta tags otimizadas para buscador
 
 ## Critérios de conclusão
 
-- [x] og:image com dimensões mínimas de 1200x630px
-- [x] Meta description entre 120 e 160 caracteres
-- [x] Canonical URL absoluta em cada página
+- [ ] og:image com dimensões mínimas de 1200x630px
+- [ ] Meta description entre 120 e 160 caracteres
+- [ ] Canonical URL absoluta em cada página
 - [ ] Validação com Open Graph Debugger do Facebook
 ```
 
@@ -349,10 +349,10 @@ Criar a página `faq.html` com perguntas e respostas organizadas em acordeão po
 
 ## Critérios de conclusão
 
-- [x] Accordion acessível com ARIA (aria-expanded, aria-controls)
-- [x] Busca sem dependência de frameworks externos
-- [x] Âncoras para cada categoria (deep links)
-- [x] Responsivo e fácil de escanear visualmente
+- [ ] Accordion acessível com ARIA (aria-expanded, aria-controls)
+- [ ] Busca sem dependência de frameworks externos
+- [ ] Âncoras para cada categoria (deep links)
+- [ ] Responsivo e fácil de escanear visualmente
 ```
 
 ---
@@ -389,10 +389,10 @@ Criar a página `cart.html` com todos os elementos necessários para revisão e 
 
 ## Critérios de conclusão
 
-- [x] Estrutura semântica com `<table>` ou `<ul>` para a listagem
-- [x] Subtotal atualizado ao mudar quantidade (JS)
-- [x] Campo de CEP para cálculo de frete
-- [x] Resumo fixo ou visível em mobile
+- [ ] Estrutura semântica com `<table>` ou `<ul>` para a listagem
+- [ ] Subtotal atualizado ao mudar quantidade (JS)
+- [ ] Campo de CEP para cálculo de frete
+- [ ] Resumo fixo ou visível em mobile
 ```
 
 ---
@@ -424,10 +424,10 @@ Criar a página `checkout.html` com formulário multietapas para conclusão de c
 
 ## Critérios de conclusão
 
-- [x] Separação visual entre as etapas
-- [x] Resumo sempre visível em telas grandes
-- [x] Máscaras de entrada para CEP, CPF e cartão
-- [x] Botão de envio desabilitado até validação completa
+- [ ] Separação visual entre as etapas
+- [ ] Resumo sempre visível em telas grandes
+- [ ] Máscaras de entrada para CEP, CPF e cartão
+- [ ] Botão de envio desabilitado até validação completa
 ```
 
 ---
@@ -460,10 +460,10 @@ Criar a página `profile.html` com área completa de gerenciamento de conta do u
 
 ## Critérios de conclusão
 
-- [x] Abas ou seções bem delimitadas por funcionalidade
-- [x] Ações de salvar e cancelar em cada formulário
-- [x] Status de pedido com badge colorido
-- [x] Confirmação antes de excluir endereço ou cartão
+- [ ] Abas ou seções bem delimitadas por funcionalidade
+- [ ] Ações de salvar e cancelar em cada formulário
+- [ ] Status de pedido com badge colorido
+- [ ] Confirmação antes de excluir endereço ou cartão
 ```
 
 ---
@@ -495,10 +495,10 @@ Criar a página `blog.html` com listagem visual de artigos, filtros por categori
 
 ## Critérios de conclusão
 
-- [x] Cards com proporção de imagem consistente
-- [x] Paginação acessível com aria-label
-- [x] Tags clicáveis para filtrar por categoria
-- [x] Layout em grid responsivo (1, 2 ou 3 colunas)
+- [ ] Cards com proporção de imagem consistente
+- [ ] Paginação acessível com aria-label
+- [ ] Tags clicáveis para filtrar por categoria
+- [ ] Layout em grid responsivo (1, 2 ou 3 colunas)
 ```
 
 ---
@@ -530,10 +530,10 @@ Criar a página `wishlist.html` com a lista de favoritos do usuário e opções 
 
 ## Critérios de conclusão
 
-- [x] URL de compartilhamento com parâmetros únicos
-- [x] Estado vazio com call-to-action para explorar produtos
-- [x] Sincronização com localStorage
-- [x] Feedback visual ao adicionar ao carrinho
+- [ ] URL de compartilhamento com parâmetros únicos
+- [ ] Estado vazio com call-to-action para explorar produtos
+- [ ] Sincronização com localStorage
+- [ ] Feedback visual ao adicionar ao carrinho
 ```
 
 ---
@@ -568,10 +568,10 @@ Melhorar o visual dos product cards com efeitos de hover fluidos e elegantes.
 
 ## Critérios de conclusão
 
-- [x] Transição suave sem travamentos
-- [x] Efeito não interfere na acessibilidade por teclado
-- [x] Compatível com os principais navegadores
-- [x] Não altera o tamanho do card (sem layout shift)
+- [ ] Transição suave sem travamentos
+- [ ] Efeito não interfere na acessibilidade por teclado
+- [ ] Compatível com os principais navegadores
+- [ ] Não altera o tamanho do card (sem layout shift)
 ```
 
 ---
@@ -602,10 +602,10 @@ Estilizar a barra de rolagem do navegador com a paleta de cores do projeto.
 
 ## Critérios de conclusão
 
-- [x] Estilo aplicado via `::-webkit-scrollbar`
-- [x] Fallback definido para Firefox com `scrollbar-color`
-- [x] Não remove a scrollbar em nenhum breakpoint
-- [x] Visual consistente com o design system do projeto
+- [ ] Estilo aplicado via `::-webkit-scrollbar`
+- [ ] Fallback definido para Firefox com `scrollbar-color`
+- [ ] Não remove a scrollbar em nenhum breakpoint
+- [ ] Visual consistente com o design system do projeto
 ```
 
 ---
@@ -636,10 +636,10 @@ Criar um badge visual para destacar produtos novos nos cards da listagem.
 
 ## Critérios de conclusão
 
-- [x] Uso de `position: absolute` no card com `position: relative`
-- [x] Badge não interfere no clique do card
-- [x] Responsivo em todos os breakpoints
-- [x] Pode ser adicionado/removido via classe CSS
+- [ ] Uso de `position: absolute` no card com `position: relative`
+- [ ] Badge não interfere no clique do card
+- [ ] Responsivo em todos os breakpoints
+- [ ] Pode ser adicionado/removido via classe CSS
 ```
 
 ---
@@ -671,10 +671,10 @@ Implementar um botão flutuante que aparece após scroll e leva o usuário de vo
 
 ## Critérios de conclusão
 
-- [x] z-index acima dos demais elementos
-- [x] Animação de scroll suave (`scroll-behavior: smooth`)
-- [x] Acessível via teclado com aria-label
-- [x] Responsivo e não bloqueia conteúdo em mobile
+- [ ] z-index acima dos demais elementos
+- [ ] Animação de scroll suave (`scroll-behavior: smooth`)
+- [ ] Acessível via teclado com aria-label
+- [ ] Responsivo e não bloqueia conteúdo em mobile
 ```
 
 ---
@@ -705,10 +705,10 @@ Implementar animação de carregamento sem imagens, usando apenas CSS com as cor
 
 ## Critérios de conclusão
 
-- [x] Animação fluida com @keyframes
-- [x] Centralizado no contêiner pai
-- [x] Acessível com `role="status"` e aria-label
-- [x] Funciona nos principais navegadores sem prefixos extras
+- [ ] Animação fluida com @keyframes
+- [ ] Centralizado no contêiner pai
+- [ ] Acessível com `role="status"` e aria-label
+- [ ] Funciona nos principais navegadores sem prefixos extras
 ```
 
 ---
@@ -743,10 +743,10 @@ Melhorar a experiência de preenchimento de formulários com foco visual claro e
 
 ## Critérios de conclusão
 
-- [x] Foco visível e acessível (WCAG 2.4.7)
-- [x] Label não sobrepõe o texto digitado
-- [x] Estilo de erro com cor vermelha (classe .input-error)
-- [x] Funciona sem JavaScript para o efeito de label
+- [ ] Foco visível e acessível (WCAG 2.4.7)
+- [ ] Label não sobrepõe o texto digitado
+- [ ] Estilo de erro com cor vermelha (classe .input-error)
+- [ ] Funciona sem JavaScript para o efeito de label
 ```
 
 ---
@@ -777,10 +777,10 @@ Desenvolver classes utilitárias de grid para compor layouts de forma flexível 
 
 ## Critérios de conclusão
 
-- [x] Baseado em CSS Grid ou Flexbox
-- [x] Classes responsivas no formato .col-md-6
-- [x] Sem dependências externas
-- [x] Documentado com comentários no CSS
+- [ ] Baseado em CSS Grid ou Flexbox
+- [ ] Classes responsivas no formato .col-md-6
+- [ ] Sem dependências externas
+- [ ] Documentado com comentários no CSS
 ```
 
 ---
@@ -811,10 +811,10 @@ Melhorar a navegação principal com efeitos visuais nos links e destaque para a
 
 ## Critérios de conclusão
 
-- [x] Efeito via pseudo-elemento ::after
-- [x] Cor de foco visível para navegação por teclado
-- [x] Indicador .active nunca some após hover
-- [x] Compatível com menu mobile
+- [ ] Efeito via pseudo-elemento ::after
+- [ ] Cor de foco visível para navegação por teclado
+- [ ] Indicador .active nunca some após hover
+- [ ] Compatível com menu mobile
 ```
 
 ---
@@ -845,10 +845,10 @@ Implementar alertas visuais padronizados para feedback de ações do sistema.
 
 ## Critérios de conclusão
 
-- [x] Acessível com `role="alert"` e aria-live
-- [x] Cor de texto com contraste adequado (WCAG AA)
-- [x] Botão de fechar com aria-label
-- [x] Animação de entrada e saída ao aparecer/fechar
+- [ ] Acessível com `role="alert"` e aria-live
+- [ ] Cor de texto com contraste adequado (WCAG AA)
+- [ ] Botão de fechar com aria-label
+- [ ] Animação de entrada e saída ao aparecer/fechar
 ```
 
 ---
@@ -879,10 +879,10 @@ Otimizar toda a interface para uso confortável em telas pequenas (smartphones).
 
 ## Critérios de conclusão
 
-- [x] Sem overflow horizontal em nenhuma tela
-- [x] Botões e links com área mínima de 44x44px (WCAG 2.5.5)
-- [x] Fonte legível sem necessidade de zoom
-- [x] Testado em larguras de 320px, 375px e 414px
+- [ ] Sem overflow horizontal em nenhuma tela
+- [ ] Botões e links com área mínima de 44x44px (WCAG 2.5.5)
+- [ ] Fonte legível sem necessidade de zoom
+- [ ] Testado em larguras de 320px, 375px e 414px
 ```
 
 ---
@@ -918,10 +918,10 @@ Criar um sistema de tema escuro completo cobrindo todos os elementos da interfac
 
 ## Critérios de conclusão
 
-- [x] Todas as cores da UI cobertas por variáveis
-- [x] Tema aplicado antes do render (sem flash)
-- [x] Contraste adequado no modo escuro (WCAG AA)
-- [x] Toggle com estado acessível (aria-pressed)
+- [ ] Todas as cores da UI cobertas por variáveis
+- [ ] Tema aplicado antes do render (sem flash)
+- [ ] Contraste adequado no modo escuro (WCAG AA)
+- [ ] Toggle com estado acessível (aria-pressed)
 ```
 
 ---
@@ -953,9 +953,9 @@ Implementar animações sofisticadas que melhoram a percepção de desempenho e 
 
 ## Critérios de conclusão
 
-- [x] Parallax desativado com prefers-reduced-motion
-- [x] Skeleton com proporções fiéis ao conteúdo real
-- [x] Animações não bloqueiam interatividade
+- [ ] Parallax desativado com prefers-reduced-motion
+- [ ] Skeleton com proporções fiéis ao conteúdo real
+- [ ] Animações não bloqueiam interatividade
 - [ ] Performance acima de 60fps em dispositivos médios
 ```
 
@@ -988,10 +988,10 @@ Implementar um carousel totalmente funcional, acessível e compatível com gesto
 
 ## Critérios de conclusão
 
-- [x] Acessível com `role="region"` e aria-label
-- [x] Botões de navegação com aria-label descritivo
-- [x] Funciona com teclado (setas esquerda/direita)
-- [x] Não depende de bibliotecas externas
+- [ ] Acessível com `role="region"` e aria-label
+- [ ] Botões de navegação com aria-label descritivo
+- [ ] Funciona com teclado (setas esquerda/direita)
+- [ ] Não depende de bibliotecas externas
 ```
 
 ---
@@ -1023,10 +1023,10 @@ Criar hierarquia tipográfica consistente, legível e acessível para todo o pro
 
 ## Critérios de conclusão
 
-- [x] Todos os tamanhos definidos com variáveis CSS
-- [x] Contraste verificado com ferramenta como Contrast Checker
-- [x] Fonte base de 16px mínimo
-- [x] Funciona com zoom de 200% sem perda de legibilidade
+- [ ] Todos os tamanhos definidos com variáveis CSS
+- [ ] Contraste verificado com ferramenta como Contrast Checker
+- [ ] Fonte base de 16px mínimo
+- [ ] Funciona com zoom de 200% sem perda de legibilidade
 ```
 
 ---
@@ -1058,10 +1058,10 @@ Implementar múltiplos esquemas de cores que o usuário pode escolher e que são
 
 ## Critérios de conclusão
 
-- [x] Tema aplicado via atributo `data-theme` no `<html>`
-- [x] Cada tema cobre todas as variáveis de cor
-- [x] Preferência carregada antes do primeiro render
-- [x] Seletor acessível via teclado
+- [ ] Tema aplicado via atributo `data-theme` no `<html>`
+- [ ] Cada tema cobre todas as variáveis de cor
+- [ ] Preferência carregada antes do primeiro render
+- [ ] Seletor acessível via teclado
 ```
 
 ---
@@ -1096,10 +1096,10 @@ Criar a lógica para adicionar produtos ao carrinho com feedback visual e persis
 
 ## Critérios de conclusão
 
-- [x] Contador atualizado imediatamente após clique
-- [x] Modal fecha automaticamente após 3 segundos
-- [x] Produto não duplicado — quantidade incrementada
-- [x] localStorage estruturado com id, nome, preço e quantidade
+- [ ] Contador atualizado imediatamente após clique
+- [ ] Modal fecha automaticamente após 3 segundos
+- [ ] Produto não duplicado — quantidade incrementada
+- [ ] localStorage estruturado com id, nome, preço e quantidade
 ```
 
 ---
@@ -1130,10 +1130,10 @@ Implementar a lógica de abertura e fechamento do menu mobile com experiência f
 
 ## Critérios de conclusão
 
-- [x] Estado aberto/fechado controlado por classe CSS
-- [x] Scroll do body bloqueado enquanto menu está aberto
-- [x] Acessível: botão com aria-expanded e aria-controls
-- [x] Funciona em todos os breakpoints mobile
+- [ ] Estado aberto/fechado controlado por classe CSS
+- [ ] Scroll do body bloqueado enquanto menu está aberto
+- [ ] Acessível: botão com aria-expanded e aria-controls
+- [ ] Funciona em todos os breakpoints mobile
 ```
 
 ---
@@ -1164,10 +1164,10 @@ Implementar validação de campos obrigatórios e formatos com mensagens de erro
 
 ## Critérios de conclusão
 
-- [x] Erro exibido abaixo do campo correspondente
-- [x] Foco movido para o primeiro campo inválido
-- [x] Formulário não enviado com campos inválidos
-- [x] Validação executada também no submit (não só no blur)
+- [ ] Erro exibido abaixo do campo correspondente
+- [ ] Foco movido para o primeiro campo inválido
+- [ ] Formulário não enviado com campos inválidos
+- [ ] Validação executada também no submit (não só no blur)
 ```
 
 ---
@@ -1198,10 +1198,10 @@ Implementar um carousel básico para banners ou imagens com controles manuais e 
 
 ## Critérios de conclusão
 
-- [x] Autoplay pausado no hover
-- [x] Loop contínuo ao chegar no último slide
-- [x] Slide ativo marcado no dot correspondente
-- [x] Funciona sem dependências externas
+- [ ] Autoplay pausado no hover
+- [ ] Loop contínuo ao chegar no último slide
+- [ ] Slide ativo marcado no dot correspondente
+- [ ] Funciona sem dependências externas
 ```
 
 ---
@@ -1232,10 +1232,10 @@ Permitir que o usuário filtre os produtos exibidos clicando nas categorias disp
 
 ## Critérios de conclusão
 
-- [x] Filtro ativo visualmente destacado
-- [x] Estado "Todos" reseta o filtro
-- [x] URL atualizada sem recarregar a página (history.pushState)
-- [x] Funcionamento correto com 0 resultados (mensagem de vazio)
+- [ ] Filtro ativo visualmente destacado
+- [ ] Estado "Todos" reseta o filtro
+- [ ] URL atualizada sem recarregar a página (history.pushState)
+- [ ] Funcionamento correto com 0 resultados (mensagem de vazio)
 ```
 
 ---
@@ -1270,10 +1270,10 @@ Implementar dropdown de ordenação que reorganiza os cards de produto em tempo 
 
 ## Critérios de conclusão
 
-- [x] Reordenação via manipulação do DOM (sem reload)
-- [x] Acessível com teclado e aria-sort
-- [x] Estado de ordenação refletido na URL
-- [x] Compatível com o filtro por categoria
+- [ ] Reordenação via manipulação do DOM (sem reload)
+- [ ] Acessível com teclado e aria-sort
+- [ ] Estado de ordenação refletido na URL
+- [ ] Compatível com o filtro por categoria
 ```
 
 ---
@@ -1304,10 +1304,10 @@ Criar campo de busca avançado que filtra produtos enquanto o usuário digita, c
 
 ## Critérios de conclusão
 
-- [x] Debounce implementado sem bibliotecas externas
-- [x] Histórico salvo em localStorage
-- [x] Busca por nome, categoria e descrição do produto
-- [x] Acessível com aria-live para anunciar resultados
+- [ ] Debounce implementado sem bibliotecas externas
+- [ ] Histórico salvo em localStorage
+- [ ] Busca por nome, categoria e descrição do produto
+- [ ] Acessível com aria-live para anunciar resultados
 ```
 
 ---
@@ -1338,10 +1338,10 @@ Implementar toggle para alternar visibilidade da senha com feedback visual acess
 
 ## Critérios de conclusão
 
-- [x] aria-label atualizado para "Mostrar senha" ou "Ocultar senha"
-- [x] Funciona em todos os campos de senha do projeto
-- [x] Ícone não desalinha o layout do formulário
-- [x] Acessível via teclado (Enter ou Space no botão)
+- [ ] aria-label atualizado para "Mostrar senha" ou "Ocultar senha"
+- [ ] Funciona em todos os campos de senha do projeto
+- [ ] Ícone não desalinha o layout do formulário
+- [ ] Acessível via teclado (Enter ou Space no botão)
 ```
 
 ---
@@ -1372,10 +1372,10 @@ Implementar controle de quantidade de produto com validação de mínimo, máxim
 
 ## Critérios de conclusão
 
-- [x] Botão - desabilitado quando quantidade = 1
-- [x] Botão + desabilitado quando quantidade = 99
-- [x] Input aceita apenas números inteiros positivos
-- [x] Preço total formatado em BRL (R$ X.XXX,XX)
+- [ ] Botão - desabilitado quando quantidade = 1
+- [ ] Botão + desabilitado quando quantidade = 99
+- [ ] Input aceita apenas números inteiros positivos
+- [ ] Preço total formatado em BRL (R$ X.XXX,XX)
 ```
 
 ---
@@ -1406,10 +1406,10 @@ Abrir popup com informações completas do produto ao clicar em um card, sem nav
 
 ## Critérios de conclusão
 
-- [x] Foco preso dentro do modal enquanto aberto (focus trap)
-- [x] Scroll do body bloqueado com modal aberto
-- [x] aria-modal, role=dialog e aria-labelledby configurados
-- [x] Animação de abertura e fechamento
+- [ ] Foco preso dentro do modal enquanto aberto (focus trap)
+- [ ] Scroll do body bloqueado com modal aberto
+- [ ] aria-modal, role=dialog e aria-labelledby configurados
+- [ ] Animação de abertura e fechamento
 ```
 
 ---
@@ -1445,10 +1445,10 @@ Desenvolver um carrinho de compras persistente e funcional com todas as operaç�
 
 ## Critérios de conclusão
 
-- [x] Carrinho consistente entre reloads
-- [x] Desconto percentual e absoluto suportados
-- [x] Sem itens duplicados (quantidade somada)
-- [x] Sincronização entre abas funcional sem conflito
+- [ ] Carrinho consistente entre reloads
+- [ ] Desconto percentual e absoluto suportados
+- [ ] Sem itens duplicados (quantidade somada)
+- [ ] Sincronização entre abas funcional sem conflito
 ```
 
 ---
@@ -1479,10 +1479,10 @@ Criar sistema robusto de filtros múltiplos que podem ser combinados, com estado
 
 ## Critérios de conclusão
 
-- [x] URL legível e compartilhável com todos os filtros aplicados
-- [x] Filtros restaurados ao carregar a URL com parâmetros
-- [x] Contagem de resultados atualizada em tempo real
-- [x] Compatível com ordenação (issue #36)
+- [ ] URL legível e compartilhável com todos os filtros aplicados
+- [ ] Filtros restaurados ao carregar a URL com parâmetros
+- [ ] Contagem de resultados atualizada em tempo real
+- [ ] Compatível com ordenação (issue #36)
 ```
 
 ---
@@ -1514,10 +1514,10 @@ Implementar validação robusta com regras específicas por campo, feedback imed
 
 ## Critérios de conclusão
 
-- [x] CPF validado com algoritmo de dígitos verificadores
-- [x] CEP com consulta à API ViaCEP para autopreenchimento
-- [x] Força de senha baseada em comprimento, maiúsculas, números e símbolos
-- [x] Nenhum dado perdido em caso de erro no envio
+- [ ] CPF validado com algoritmo de dígitos verificadores
+- [ ] CEP com consulta à API ViaCEP para autopreenchimento
+- [ ] Força de senha baseada em comprimento, maiúsculas, números e símbolos
+- [ ] Nenhum dado perdido em caso de erro no envio
 ```
 
 ---
@@ -1549,10 +1549,10 @@ Criar wishlist funcional com animação de coração, contador no header e pági
 
 ## Critérios de conclusão
 
-- [x] Estado do coração consistente ao navegar entre páginas
-- [x] Animação fluida sem impacto na performance
-- [x] Página de favoritos vazia com CTA para explorar produtos
-- [x] Contador zerado ao remover todos os favoritos
+- [ ] Estado do coração consistente ao navegar entre páginas
+- [ ] Animação fluida sem impacto na performance
+- [ ] Página de favoritos vazia com CTA para explorar produtos
+- [ ] Contador zerado ao remover todos os favoritos
 ```
 
 ---
@@ -1584,10 +1584,10 @@ Simular integração com APIs externas usando fetch, com estados de carregamento
 
 ## Critérios de conclusão
 
-- [x] Loading exibido antes da resposta e removido após
-- [x] Erros de rede não travam a interface
-- [x] Retry com backoff exponencial (1s, 2s, 4s)
-- [x] Cache invalidado após 5 minutos ou ação do usuário
+- [ ] Loading exibido antes da resposta e removido após
+- [ ] Erros de rede não travam a interface
+- [ ] Retry com backoff exponencial (1s, 2s, 4s)
+- [ ] Cache invalidado após 5 minutos ou ação do usuário
 ```
 
 ---

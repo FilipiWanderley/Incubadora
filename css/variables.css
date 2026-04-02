@@ -6,6 +6,18 @@
 	/* Cores primárias */
 	--primary: #ff6b35;
 	--primary-dark: #c2410c;
+	--primary-dark-2: #a83207;
+
+	/* Gradientes */
+	--gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+	--gradient-primary-hover: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-dark-2) 100%);
+	--gradient-hero-glow: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 107, 53, 0.18) 0%, transparent 65%);
+	--gradient-section-warm: linear-gradient(180deg, var(--gray-50) 0%, white 100%);
+
+	/* Glow / sombras coloridas */
+	--glow-primary-sm: 0 4px 14px rgba(255, 107, 53, 0.35);
+	--glow-primary-md: 0 6px 24px rgba(255, 107, 53, 0.45);
+	--glow-primary-lg: 0 8px 32px rgba(255, 107, 53, 0.5);
 	--secondary: #004e89;
 	--primary-surface: #fff2eb;
 

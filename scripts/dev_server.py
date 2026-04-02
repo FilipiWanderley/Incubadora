@@ -14,7 +14,15 @@ class TechShopHandler(SimpleHTTPRequestHandler):
 	def do_GET(self):
 		if self.path in {"/", "/index.html"}:
 			self.path = "/pages/index.html"
+		elif self.path.endswith(".html") and not self.path.startswith("/pages/"):
+			self.path = "/pages" + self.path
 		super().do_GET()
+
+	def end_headers(self):
+		self.send_header("Cache-Control", "no-store, no-cache, must-revalidate")
+		self.send_header("Pragma", "no-cache")
+		self.send_header("Expires", "0")
+		super().end_headers()
 
 	def send_error(self, code, message=None, explain=None):
 		if code == 404 and self._fallback_404.exists():

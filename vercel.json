@@ -1,8 +1,19 @@
 {
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/pages/index.html"
-    }
+    { "source": "/", "destination": "/pages/index.html" },
+    { "source": "/index.html", "destination": "/pages/index.html" },
+    { "source": "/products.html", "destination": "/pages/products.html" },
+    { "source": "/product-detail.html", "destination": "/pages/product-detail.html" },
+    { "source": "/about.html", "destination": "/pages/about.html" },
+    { "source": "/contact.html", "destination": "/pages/contact.html" },
+    { "source": "/blog.html", "destination": "/pages/blog.html" },
+    { "source": "/cart.html", "destination": "/pages/cart.html" },
+    { "source": "/checkout.html", "destination": "/pages/checkout.html" },
+    { "source": "/wishlist.html", "destination": "/pages/wishlist.html" },
+    { "source": "/login.html", "destination": "/pages/login.html" },
+    { "source": "/register.html", "destination": "/pages/register.html" },
+    { "source": "/profile.html", "destination": "/pages/profile.html" },
+    { "source": "/faq.html", "destination": "/pages/faq.html" },
+    { "source": "/404.html", "destination": "/pages/404.html" }
   ]
 }

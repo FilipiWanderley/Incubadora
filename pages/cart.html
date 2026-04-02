@@ -9,7 +9,7 @@
 		<script>try{const k="techshop_theme";const s=localStorage.getItem(k);const d=document.documentElement;if(s==="dark"||s==="light"){d.setAttribute("data-theme",s);}else if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches){d.setAttribute("data-theme","dark");}else{d.setAttribute("data-theme","light");}}catch(e){}</script>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css" />
 		<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 
@@ -56,6 +56,7 @@
 						<li class="header__menu-item"><a href="index.html#ofertas" class="header__menu-link">Ofertas</a></li>
 						<li class="header__menu-item"><a href="about.html" class="header__menu-link">Sobre Nós</a></li>
 						<li class="header__menu-item"><a href="contact.html" class="header__menu-link">Contato</a></li>
+						<li class="header__menu-item"><a href="blog.html" class="header__menu-link">Blog</a></li>
 					</ul>
 					<div class="header__actions">
 											<button
@@ -102,12 +103,16 @@
 				<div class="container">
 					<h1 class="cart-page__title">
 						Carrinho de Compras
-						<span class="cart-page__count" id="cartCount">(3 itens)</span>
+						<span class="cart-page__count" id="cartCount">3 itens</span>
 					</h1>
 
 					<!-- Estado com itens -->
 					<div class="cart-layout" id="cartWithItems">
 						<div>
+							<div class="cart-items-wrapper">
+								<div class="cart-items-header">
+									<span class="cart-items-header__title">Produtos selecionados</span>
+								</div>
 							<ul class="cart-items" id="cartItems">
 								<!-- Item 1 -->
 								<li class="cart-item" data-product-id="1">
@@ -212,8 +217,15 @@
 									</svg>
 									Continuar Comprando
 								</a>
-								<button class="btn btn-outline btn-sm cart-clear-btn" id="clearCartBtn">Limpar carrinho</button>
+								<button class="btn btn-outline cart-clear-btn" id="clearCartBtn">
+									<svg class="cart-icon-start" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+										<polyline points="3 6 5 6 21 6"></polyline>
+										<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"></path>
+									</svg>
+									Limpar carrinho
+								</button>
 							</div>
+							</div><!-- /.cart-items-wrapper -->
 						</div>
 
 						<aside aria-label="Resumo do pedido" id="cartSummaryContainer">
